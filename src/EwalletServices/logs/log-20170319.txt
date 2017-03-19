@@ -1,0 +1,683 @@
+2017-03-19 11:45:55.883 +01:00 [Debug] Hosting starting
+2017-03-19 11:45:56.522 +01:00 [Debug] Hosting started
+2017-03-19 11:46:06.120 +01:00 [Debug] Connection id ""0HL3EMKILR46A"" started.
+2017-03-19 11:46:06.518 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/api/values  
+2017-03-19 11:46:07.215 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-19 11:46:07.253 +01:00 [Debug] Action '"EwalletServices.Controllers.ValuesController.Post (EwalletServices)"' with id '"a48a2757-b59d-47be-8126-fb665ca1f268"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 11:46:07.315 +01:00 [Debug] Executing action "EwalletServices.Controllers.ValuesController.Get (EwalletServices)"
+2017-03-19 11:46:07.437 +01:00 [Information] Executing action method "EwalletServices.Controllers.ValuesController.Get (EwalletServices)" with arguments (null) - ModelState is Valid
+2017-03-19 11:46:07.439 +01:00 [Debug] Executed action method "EwalletServices.Controllers.ValuesController.Get (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-19 11:46:07.501 +01:00 [Debug] No information found on request to perform content negotiation.
+2017-03-19 11:46:07.506 +01:00 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-19 11:46:07.509 +01:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-19 11:46:07.932 +01:00 [Information] Executed action "EwalletServices.Controllers.ValuesController.Get (EwalletServices)" in 582.4016ms
+2017-03-19 11:46:07.947 +01:00 [Debug] Connection id ""0HL3EMKILR46A"" completed keep alive response.
+2017-03-19 11:46:07.998 +01:00 [Information] Request finished in 1517.1338ms 200 application/json; charset=utf-8
+2017-03-19 12:00:46.772 +01:00 [Debug] Hosting starting
+2017-03-19 12:00:47.659 +01:00 [Debug] Hosting started
+2017-03-19 12:00:47.774 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" started.
+2017-03-19 12:00:56.632 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 25
+2017-03-19 12:00:57.085 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:00:57.166 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:00:57.256 +01:00 [Information] Request finished in 697.4777ms 404 
+2017-03-19 12:01:03.074 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 25
+2017-03-19 12:01:03.075 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:01:03.082 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:01:03.229 +01:00 [Information] Request finished in 73.8233ms 404 
+2017-03-19 12:01:04.383 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 25
+2017-03-19 12:01:04.383 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:01:04.392 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:01:04.421 +01:00 [Information] Request finished in 12.1058ms 404 
+2017-03-19 12:02:11.934 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 9
+2017-03-19 12:02:11.935 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:02:11.935 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:02:12.035 +01:00 [Information] Request finished in 49.1627ms 404 
+2017-03-19 12:02:20.820 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 11
+2017-03-19 12:02:20.820 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:02:20.820 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:02:20.965 +01:00 [Information] Request finished in 61.2713ms 404 
+2017-03-19 12:02:31.947 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 25
+2017-03-19 12:02:31.947 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:02:31.948 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:02:32.047 +01:00 [Information] Request finished in 52.9028ms 404 
+2017-03-19 12:02:52.702 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/x-www-form-urlencoded 14
+2017-03-19 12:02:52.702 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:02:52.702 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:02:52.766 +01:00 [Information] Request finished in 35.7597ms 404 
+2017-03-19 12:02:54.268 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/x-www-form-urlencoded 14
+2017-03-19 12:02:54.268 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:02:54.270 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:02:54.370 +01:00 [Information] Request finished in 139.0295ms 404 
+2017-03-19 12:02:55.186 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/x-www-form-urlencoded 14
+2017-03-19 12:02:55.186 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:02:55.192 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:02:55.234 +01:00 [Information] Request finished in 33.0605ms 404 
+2017-03-19 12:02:59.632 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category application/x-www-form-urlencoded 14
+2017-03-19 12:02:59.700 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category"'.
+2017-03-19 12:02:59.809 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Create (EwalletServices)"
+2017-03-19 12:03:00.010 +01:00 [Debug] Rejected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/x-www-form-urlencoded"'.
+2017-03-19 12:03:00.050 +01:00 [Debug] Rejected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonPatchInputFormatter"' for content type '"application/x-www-form-urlencoded"'.
+2017-03-19 12:03:00.050 +01:00 [Debug] No input formatter was found to support the content type '"application/x-www-form-urlencoded"' for use with the [FromBody] attribute.
+2017-03-19 12:03:00.050 +01:00 [Debug] To use model binding, remove the [FromBody] attribute from the property or parameter named '""' with model type '"EwalletCommon.Models.CategoryDTO"'.
+2017-03-19 12:03:00.082 +01:00 [Debug] Request was short circuited at action filter '"Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter"'.
+2017-03-19 12:03:00.100 +01:00 [Information] Executing HttpStatusCodeResult, setting HTTP status code 415
+2017-03-19 12:03:00.126 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Create (EwalletServices)" in 302.1432ms
+2017-03-19 12:03:00.134 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:03:00.154 +01:00 [Information] Request finished in 590.3702ms 415 
+2017-03-19 12:03:06.314 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/x-www-form-urlencoded 14
+2017-03-19 12:03:06.314 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:03:06.338 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:03:06.382 +01:00 [Information] Request finished in 157.1617ms 404 
+2017-03-19 12:03:21.901 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/x-www-form-urlencoded 14
+2017-03-19 12:03:21.901 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:03:21.901 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:03:22.018 +01:00 [Information] Request finished in 277.9285ms 404 
+2017-03-19 12:03:48.767 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 25
+2017-03-19 12:03:48.767 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:03:48.768 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" completed keep alive response.
+2017-03-19 12:03:48.801 +01:00 [Information] Request finished in 173.7453ms 404 
+2017-03-19 12:05:49.640 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" disconnecting.
+2017-03-19 12:05:49.640 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" sending FIN.
+2017-03-19 12:05:49.640 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" sent FIN with status "0".
+2017-03-19 12:05:49.655 +01:00 [Debug] Connection id ""0HL3EMSPDNS7U"" stopped.
+2017-03-19 12:06:26.497 +01:00 [Debug] Hosting starting
+2017-03-19 12:06:26.974 +01:00 [Debug] Hosting started
+2017-03-19 12:06:27.087 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" started.
+2017-03-19 12:06:27.097 +01:00 [Debug] Connection id ""0HL3EMVUHR09N"" started.
+2017-03-19 12:06:27.255 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/  
+2017-03-19 12:06:27.541 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:06:27.599 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:06:27.733 +01:00 [Information] Request finished in 412.9153ms 404 
+2017-03-19 12:06:51.112 +01:00 [Debug] Connection id ""0HL3EMVUHR09N"" received FIN.
+2017-03-19 12:06:51.113 +01:00 [Debug] Connection id ""0HL3EMVUHR09N"" disconnecting.
+2017-03-19 12:06:51.114 +01:00 [Debug] Connection id ""0HL3EMVUHR09N"" sending FIN.
+2017-03-19 12:06:51.121 +01:00 [Debug] Connection id ""0HL3EMVUHR09N"" sent FIN with status "0".
+2017-03-19 12:06:51.123 +01:00 [Debug] Connection id ""0HL3EMVUHR09N"" stopped.
+2017-03-19 12:06:51.193 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category/create application/json 25
+2017-03-19 12:06:51.259 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category/{id}"'.
+2017-03-19 12:06:51.359 +01:00 [Debug] Action '"EwalletServices.Controllers.CategoryController.Get (EwalletServices)"' with id '"1294eaff-332f-478e-b815-916028826d97"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:06:51.360 +01:00 [Debug] No actions matched the current request
+2017-03-19 12:06:51.361 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:06:51.369 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:06:51.376 +01:00 [Information] Request finished in 256.5013ms 404 
+2017-03-19 12:07:04.052 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get  
+2017-03-19 12:07:04.052 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category/{id}"'.
+2017-03-19 12:07:04.293 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)"
+2017-03-19 12:07:04.681 +01:00 [Information] Executing action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" with arguments (["0"]) - ModelState is Invalid
+2017-03-19 12:07:12.474 +01:00 [Debug] Executed action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:07:12.523 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" in 8216.1058ms
+2017-03-19 12:07:12.532 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:07:12.537 +01:00 [Information] Request finished in 8497.6997ms 200 
+2017-03-19 12:07:26.469 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get/5  
+2017-03-19 12:07:26.475 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:07:26.476 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:07:26.516 +01:00 [Information] Request finished in 203.6514ms 404 
+2017-03-19 12:07:33.469 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get?id=5  
+2017-03-19 12:07:33.469 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category/{id}"'.
+2017-03-19 12:07:33.470 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)"
+2017-03-19 12:07:33.550 +01:00 [Information] Executing action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" with arguments (["0"]) - ModelState is Invalid
+2017-03-19 12:07:36.513 +01:00 [Debug] Executed action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:07:36.524 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" in 3042.1868ms
+2017-03-19 12:07:36.524 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:07:36.574 +01:00 [Information] Request finished in 3412.6335ms 200 
+2017-03-19 12:08:15.989 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get  
+2017-03-19 12:08:15.989 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category/{id}"'.
+2017-03-19 12:08:15.989 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)"
+2017-03-19 12:08:16.018 +01:00 [Information] Executing action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" with arguments (["0"]) - ModelState is Invalid
+2017-03-19 12:08:19.357 +01:00 [Debug] Executed action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:08:19.387 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" in 3365.2739ms
+2017-03-19 12:08:19.387 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:08:19.397 +01:00 [Information] Request finished in 3471.345ms 200 
+2017-03-19 12:09:19.687 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get?id=2  
+2017-03-19 12:09:19.688 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category/{id}"'.
+2017-03-19 12:09:19.688 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)"
+2017-03-19 12:09:19.750 +01:00 [Information] Executing action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" with arguments (["0"]) - ModelState is Invalid
+2017-03-19 12:09:51.905 +01:00 [Debug] Executed action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:09:51.919 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" in 32217.3228ms
+2017-03-19 12:09:51.920 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:09:51.983 +01:00 [Information] Request finished in 32238.3287ms 200 
+2017-03-19 12:10:07.577 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get/76  
+2017-03-19 12:10:07.577 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:10:07.577 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:10:07.585 +01:00 [Information] Request finished in 165.7797ms 404 
+2017-03-19 12:10:08.908 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/get/76  
+2017-03-19 12:10:08.909 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:10:08.909 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:10:08.979 +01:00 [Information] Request finished in 28.9787ms 404 
+2017-03-19 12:11:00.886 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/category/76  
+2017-03-19 12:11:00.886 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category/{id}"'.
+2017-03-19 12:11:00.888 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)"
+2017-03-19 12:11:00.931 +01:00 [Information] Executing action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" with arguments (["76"]) - ModelState is Valid
+2017-03-19 12:11:06.114 +01:00 [Debug] Executed action method "EwalletServices.Controllers.CategoryController.Get (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:11:06.122 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Get (EwalletServices)" in 5226.8104ms
+2017-03-19 12:11:06.122 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:11:06.196 +01:00 [Information] Request finished in 5388.77ms 200 
+2017-03-19 12:11:17.679 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/category application/json 25
+2017-03-19 12:11:17.680 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Category"'.
+2017-03-19 12:11:17.681 +01:00 [Debug] Executing action "EwalletServices.Controllers.CategoryController.Create (EwalletServices)"
+2017-03-19 12:11:17.739 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:11:18.121 +01:00 [Information] Executing action method "EwalletServices.Controllers.CategoryController.Create (EwalletServices)" with arguments (["EwalletCommon.Models.CategoryDTO"]) - ModelState is Valid
+2017-03-19 12:11:46.641 +01:00 [Debug] Executed action method "EwalletServices.Controllers.CategoryController.Create (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:11:46.647 +01:00 [Information] Executed action "EwalletServices.Controllers.CategoryController.Create (EwalletServices)" in 28959.6941ms
+2017-03-19 12:11:46.657 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" completed keep alive response.
+2017-03-19 12:11:46.718 +01:00 [Information] Request finished in 28982.5475ms 200 
+2017-03-19 12:13:40.187 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" received FIN.
+2017-03-19 12:13:40.826 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" disconnecting.
+2017-03-19 12:13:40.864 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" sending FIN.
+2017-03-19 12:13:40.864 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" sent FIN with status "0".
+2017-03-19 12:13:40.864 +01:00 [Debug] Connection id ""0HL3EMVUHR09M"" stopped.
+2017-03-19 12:20:41.944 +01:00 [Debug] Hosting starting
+2017-03-19 12:20:42.366 +01:00 [Debug] Hosting started
+2017-03-19 13:22:12.538 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" started.
+2017-03-19 13:22:12.856 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 171
+2017-03-19 13:22:13.282 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:22:13.336 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:22:13.401 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:22:13.595 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:22:13.948 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: 2. Path 'AddDate', line 4, position 11.
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 13:22:13.960 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Input string '1.22.2123' is not a valid number. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonTextReader.ParseNumber(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ParseValue()
+   w Newtonsoft.Json.JsonReader.Skip()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.HandleError(JsonReader reader, Boolean readPastError, Int32 initialDepth)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+2017-03-19 13:22:14.027 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:22:40.238 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:22:40.269 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 26645.4907ms
+2017-03-19 12:22:40.332 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:22:40.347 +01:00 [Information] Request finished in 27340.0387ms 200 
+2017-03-19 12:22:59.538 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 154
+2017-03-19 12:22:59.539 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:22:59.544 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:22:59.544 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:22:59.545 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:22:59.558 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.DateTime'. Path 'AddDate', line 4, position 12. ---> System.InvalidCastException: Nie można przekonwertować obiektu pustego na typ wartości.
+   w System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:22:59.561 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: After parsing a value an unexpected character was encountered: C. Path 'Description', line 6, position 4.
+   w Newtonsoft.Json.JsonTextReader.ParsePostValue()
+   w Newtonsoft.Json.JsonTextReader.Read()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+2017-03-19 12:22:59.566 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:23:19.278 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:23:19.285 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 19737.9078ms
+2017-03-19 12:23:19.285 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:23:19.382 +01:00 [Information] Request finished in 19835.3483ms 200 
+2017-03-19 12:23:59.362 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 156
+2017-03-19 12:23:59.363 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:23:59.363 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:23:59.363 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:23:59.363 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:23:59.365 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.DateTime'. Path 'AddDate', line 4, position 14. ---> System.InvalidCastException: Nie można przekonwertować obiektu pustego na typ wartości.
+   w System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:23:59.367 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: After parsing a value an unexpected character was encountered: C. Path 'Description', line 6, position 4.
+   w Newtonsoft.Json.JsonTextReader.ParsePostValue()
+   w Newtonsoft.Json.JsonTextReader.Read()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+2017-03-19 12:23:59.378 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:24:02.530 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:24:02.547 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3167.1372ms
+2017-03-19 12:24:02.547 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:24:02.566 +01:00 [Information] Request finished in 3188.9387ms 200 
+2017-03-19 12:24:09.255 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 140
+2017-03-19 12:24:09.256 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:24:09.256 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:24:09.256 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:24:09.256 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:24:09.280 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: After parsing a value an unexpected character was encountered: C. Path 'Description', line 5, position 4.
+   w Newtonsoft.Json.JsonTextReader.ParsePostValue()
+   w Newtonsoft.Json.JsonTextReader.Read()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+2017-03-19 12:24:09.332 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:24:12.517 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:24:12.525 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3261.0232ms
+2017-03-19 12:24:12.525 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:24:12.603 +01:00 [Information] Request finished in 3275.7463ms 200 
+2017-03-19 12:25:26.056 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 162
+2017-03-19 12:25:26.056 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:25:26.057 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:25:26.057 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:25:26.058 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:25:26.070 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:25:26.072 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: After parsing a value an unexpected character was encountered: C. Path 'Description', line 6, position 4.
+   w Newtonsoft.Json.JsonTextReader.ParsePostValue()
+   w Newtonsoft.Json.JsonTextReader.Read()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+2017-03-19 12:25:26.095 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:26:52.827 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:26:52.830 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 86769.1501ms
+2017-03-19 12:26:52.830 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:26:52.926 +01:00 [Information] Request finished in 86834.3831ms 200 
+2017-03-19 12:27:21.408 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 163
+2017-03-19 12:27:21.409 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:27:21.409 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:27:21.410 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:27:21.411 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:27:21.418 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:27:21.457 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:27:24.233 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:27:24.242 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 2823.612ms
+2017-03-19 12:27:24.242 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:27:24.323 +01:00 [Information] Request finished in 2914.8222ms 200 
+2017-03-19 12:27:33.542 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 164
+2017-03-19 12:27:33.542 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:27:33.542 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:27:33.542 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:27:33.542 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:27:33.557 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:27:33.564 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:27:37.563 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:27:37.570 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 4021.4901ms
+2017-03-19 12:27:37.570 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:27:37.631 +01:00 [Information] Request finished in 4130.1517ms 200 
+2017-03-19 12:27:48.448 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 119
+2017-03-19 12:27:48.448 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:27:48.448 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:27:48.448 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:27:48.449 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:27:48.451 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:27:48.543 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:27:58.766 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:27:58.775 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 10317.8268ms
+2017-03-19 12:27:58.779 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:27:58.864 +01:00 [Information] Request finished in 10334.1394ms 200 
+2017-03-19 12:29:02.216 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 119
+2017-03-19 12:29:02.216 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:29:02.216 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:29:02.216 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:29:02.216 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:29:02.220 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:29:02.258 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:29:05.386 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:29:05.396 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3170.0646ms
+2017-03-19 12:29:05.400 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:29:05.468 +01:00 [Information] Request finished in 3211.4367ms 200 
+2017-03-19 12:29:41.833 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 166
+2017-03-19 12:29:41.834 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:29:41.834 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:29:41.837 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:29:41.837 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:29:41.855 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810. Path 'AddDate', line 4, position 20.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:29:41.875 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:29:45.627 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:29:45.644 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3790.7247ms
+2017-03-19 12:29:45.645 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:29:45.765 +01:00 [Information] Request finished in 3820.5958ms 200 
+2017-03-19 12:30:49.341 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 172
+2017-03-19 12:30:49.341 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:30:49.341 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"e27ad338-98b5-42a9-899a-a4fa24bc2a62"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:30:49.341 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:30:49.342 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:30:49.343 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20120810112332. Path 'AddDate', line 4, position 26.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:30:49.381 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:30:52.875 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:30:52.890 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3533.6245ms
+2017-03-19 12:30:52.891 +01:00 [Debug] Connection id ""0HL3EOA96LRSS"" completed keep alive response.
+2017-03-19 12:30:52.953 +01:00 [Information] Request finished in 3565.1776ms 200 
+2017-03-19 12:31:43.725 +01:00 [Debug] Hosting starting
+2017-03-19 12:31:44.219 +01:00 [Debug] Hosting started
+2017-03-19 12:31:48.948 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" started.
+2017-03-19 12:31:49.120 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/  
+2017-03-19 12:31:49.445 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:31:49.500 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" completed keep alive response.
+2017-03-19 12:31:49.570 +01:00 [Information] Request finished in 459.2637ms 404 
+2017-03-19 12:32:48.213 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 144
+2017-03-19 12:32:48.263 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:32:48.368 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"33ea83b3-a078-4fef-9edd-8aef6761d20a"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:32:48.452 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:32:48.860 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:32:49.353 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 12:33:29.948 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:33:30.015 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 41553.3987ms
+2017-03-19 12:33:30.030 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" completed keep alive response.
+2017-03-19 12:33:30.045 +01:00 [Information] Request finished in 41831.4552ms 200 
+2017-03-19 12:35:31.058 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" disconnecting.
+2017-03-19 12:35:31.058 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" sending FIN.
+2017-03-19 12:35:31.058 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" sent FIN with status "0".
+2017-03-19 12:35:31.058 +01:00 [Debug] Connection id ""0HL3ENE43EIMT"" stopped.
+2017-03-19 12:41:01.062 +01:00 [Debug] Connection id ""0HL3ENE43EIMU"" started.
+2017-03-19 12:41:01.293 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 144
+2017-03-19 12:41:01.293 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:41:01.295 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"33ea83b3-a078-4fef-9edd-8aef6761d20a"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:41:01.296 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:41:01.296 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:41:01.404 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 12:41:38.874 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:41:38.877 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 37578.4983ms
+2017-03-19 12:41:38.878 +01:00 [Debug] Connection id ""0HL3ENE43EIMU"" completed keep alive response.
+2017-03-19 12:41:38.939 +01:00 [Information] Request finished in 37600.9726ms 200 
+2017-03-19 12:43:40.220 +01:00 [Debug] Connection id ""0HL3ENE43EIMU"" disconnecting.
+2017-03-19 12:43:40.220 +01:00 [Debug] Connection id ""0HL3ENE43EIMU"" sending FIN.
+2017-03-19 12:43:40.220 +01:00 [Debug] Connection id ""0HL3ENE43EIMU"" sent FIN with status "0".
+2017-03-19 12:43:40.220 +01:00 [Debug] Connection id ""0HL3ENE43EIMU"" stopped.
+2017-03-19 12:53:22.489 +01:00 [Debug] Hosting starting
+2017-03-19 12:53:22.849 +01:00 [Debug] Hosting started
+2017-03-19 12:53:25.521 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" started.
+2017-03-19 12:53:25.714 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/  
+2017-03-19 12:53:26.079 +01:00 [Debug] Request did not match any routes.
+2017-03-19 12:53:26.147 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" completed keep alive response.
+2017-03-19 12:53:26.195 +01:00 [Information] Request finished in 504.029ms 404 
+2017-03-19 12:53:30.783 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 174
+2017-03-19 12:53:30.827 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:53:30.915 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"269ddeaa-fbf8-40cf-815e-7c704f4155bd"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:53:30.996 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:53:31.398 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:53:31.881 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20170319 112345. Path 'AddDate', line 4, position 28.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:53:31.948 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:53:47.462 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:53:47.605 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 16552.8738ms
+2017-03-19 12:53:47.619 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" completed keep alive response.
+2017-03-19 12:53:47.651 +01:00 [Information] Request finished in 16859.9077ms 200 
+2017-03-19 12:54:00.774 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 173
+2017-03-19 12:54:00.775 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:54:00.778 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"269ddeaa-fbf8-40cf-815e-7c704f4155bd"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:54:00.778 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:54:00.779 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:54:00.782 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 20170319112345. Path 'AddDate', line 4, position 27.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:54:00.859 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:54:03.702 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:54:03.711 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 2923.6808ms
+2017-03-19 12:54:03.712 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" completed keep alive response.
+2017-03-19 12:54:03.731 +01:00 [Information] Request finished in 3032.7172ms 200 
+2017-03-19 12:54:46.277 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 171
+2017-03-19 12:54:46.277 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 12:54:46.277 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"269ddeaa-fbf8-40cf-815e-7c704f4155bd"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 12:54:46.278 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 12:54:46.279 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 12:54:46.284 +01:00 [Debug] JSON input formatter threw an exception.
+Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 200909211020. Path 'AddDate', line 4, position 25.
+   w Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   w Newtonsoft.Json.JsonTextReader.ReadStringValue(ReadType readType)
+   w Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   w Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+2017-03-19 12:54:46.299 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments ([""]) - ModelState is Invalid
+2017-03-19 12:54:49.629 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 12:54:49.635 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3350.842ms
+2017-03-19 12:54:49.637 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" completed keep alive response.
+2017-03-19 12:54:49.693 +01:00 [Information] Request finished in 3383.1186ms 200 
+2017-03-19 12:56:50.717 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" disconnecting.
+2017-03-19 12:56:50.717 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" sending FIN.
+2017-03-19 12:56:50.717 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" sent FIN with status "0".
+2017-03-19 12:56:50.717 +01:00 [Debug] Connection id ""0HL3ENQ6GGHCA"" stopped.
+2017-03-19 13:00:42.844 +01:00 [Debug] Hosting starting
+2017-03-19 13:00:43.204 +01:00 [Debug] Hosting started
+2017-03-19 13:01:01.482 +01:00 [Debug] Connection id ""0HL3ENUECTBBQ"" started.
+2017-03-19 13:01:01.500 +01:00 [Debug] Connection id ""0HL3ENUECTBBR"" started.
+2017-03-19 13:01:01.838 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/  
+2017-03-19 13:01:02.456 +01:00 [Debug] Request did not match any routes.
+2017-03-19 13:01:02.539 +01:00 [Debug] Connection id ""0HL3ENUECTBBQ"" completed keep alive response.
+2017-03-19 13:01:02.630 +01:00 [Information] Request finished in 836.0749ms 404 
+2017-03-19 13:01:24.429 +01:00 [Debug] Connection id ""0HL3ENUECTBBR"" received FIN.
+2017-03-19 13:01:24.442 +01:00 [Debug] Connection id ""0HL3ENUECTBBR"" disconnecting.
+2017-03-19 13:01:24.444 +01:00 [Debug] Connection id ""0HL3ENUECTBBR"" sending FIN.
+2017-03-19 13:01:24.453 +01:00 [Debug] Connection id ""0HL3ENUECTBBR"" sent FIN with status "0".
+2017-03-19 13:01:24.455 +01:00 [Debug] Connection id ""0HL3ENUECTBBR"" stopped.
+2017-03-19 13:01:24.525 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 144
+2017-03-19 13:01:24.564 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:01:24.731 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"db94865c-bf3e-4f8c-b1f7-35450bfb42bb"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:01:24.833 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:01:25.319 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:01:25.882 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:01:46.247 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 13:01:46.308 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 21461.7429ms
+2017-03-19 13:01:46.325 +01:00 [Debug] Connection id ""0HL3ENUECTBBQ"" completed keep alive response.
+2017-03-19 13:01:46.372 +01:00 [Information] Request finished in 21875.2065ms 200 
+2017-03-19 13:03:08.922 +01:00 [Debug] Hosting starting
+2017-03-19 13:03:09.584 +01:00 [Debug] Hosting started
+2017-03-19 13:03:20.429 +01:00 [Debug] Connection id ""0HL3ENVNQ2ADE"" started.
+2017-03-19 13:03:20.792 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 167
+2017-03-19 13:03:21.623 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:03:21.676 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"0f2104c5-b51b-4d04-b796-145733aa610d"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:03:21.740 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:03:21.983 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:03:22.799 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:04:10.334 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 48566.6962ms
+2017-03-19 13:04:10.358 +01:00 [Error] Connection id ""0HL3ENVNQ2ADE"": An unhandled exception was thrown by the application.
+System.FormatException: Ciąg nie został rozpoznany jako prawidłowy element DateTime.
+   w System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   w EwalletServices.Controllers.TransactionController.Post(TransactionDTO transaction) w C:\Nauka\e-wallet_backend\src\EwalletServices\Controllers\TransactionController.cs:wiersz 33
+   w Microsoft.AspNetCore.Mvc.Internal.ObjectMethodExecutor.<>c__DisplayClass37_0.<WrapVoidAction>b__0(Object target, Object[] parameters)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-19 13:04:10.503 +01:00 [Debug] Connection id ""0HL3ENVNQ2ADE"" completed keep alive response.
+2017-03-19 13:04:10.743 +01:00 [Information] Request finished in 49806.6468ms 500 
+2017-03-19 13:05:40.824 +01:00 [Debug] Hosting starting
+2017-03-19 13:05:41.184 +01:00 [Debug] Hosting started
+2017-03-19 13:05:41.240 +01:00 [Debug] Connection id ""0HL3EO11OS58T"" started.
+2017-03-19 13:05:46.225 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/  
+2017-03-19 13:05:47.574 +01:00 [Debug] Request did not match any routes.
+2017-03-19 13:05:47.749 +01:00 [Debug] Connection id ""0HL3EO11OS58T"" completed keep alive response.
+2017-03-19 13:05:47.785 +01:00 [Information] Request finished in 1648.5099ms 404 
+2017-03-19 13:06:01.596 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 167
+2017-03-19 13:06:01.637 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:06:01.802 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"027cab39-5385-4bb5-9c14-aa017ff8b83e"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:06:01.936 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:06:02.633 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:06:03.564 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:06:28.548 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 13:06:28.646 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 26698.7929ms
+2017-03-19 13:06:28.656 +01:00 [Debug] Connection id ""0HL3EO11OS58T"" completed keep alive response.
+2017-03-19 13:06:28.665 +01:00 [Information] Request finished in 27177.8922ms 200 
+2017-03-19 13:06:52.449 +01:00 [Debug] Hosting starting
+2017-03-19 13:06:52.865 +01:00 [Debug] Hosting started
+2017-03-19 13:07:07.185 +01:00 [Debug] Connection id ""0HL3EO1RCG61C"" started.
+2017-03-19 13:07:07.528 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 173
+2017-03-19 13:07:08.417 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:07:08.465 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"0d4d7eb5-0b0d-493a-800d-d1a8a3e4e4d4"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:07:08.563 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:07:08.743 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:07:09.320 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:07:22.214 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 13:07:22.264 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 13682.8147ms
+2017-03-19 13:07:22.399 +01:00 [Debug] Connection id ""0HL3EO1RCG61C"" completed keep alive response.
+2017-03-19 13:07:22.808 +01:00 [Information] Request finished in 14967.9621ms 200 
+2017-03-19 13:07:30.740 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 171
+2017-03-19 13:07:30.741 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:07:30.745 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"0d4d7eb5-0b0d-493a-800d-d1a8a3e4e4d4"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:07:30.745 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:07:30.746 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:07:30.792 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:07:34.279 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3522.0021ms
+2017-03-19 13:07:34.349 +01:00 [Error] Connection id ""0HL3EO1RCG61C"": An unhandled exception was thrown by the application.
+System.FormatException: Ciąg nie został rozpoznany jako prawidłowy element DateTime.
+   w System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   w EwalletServices.Controllers.TransactionController.Post(TransactionDTO transaction) w C:\Nauka\e-wallet_backend\src\EwalletServices\Controllers\TransactionController.cs:wiersz 33
+   w Microsoft.AspNetCore.Mvc.Internal.ObjectMethodExecutor.<>c__DisplayClass37_0.<WrapVoidAction>b__0(Object target, Object[] parameters)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-19 13:07:34.354 +01:00 [Debug] Connection id ""0HL3EO1RCG61C"" completed keep alive response.
+2017-03-19 13:07:34.379 +01:00 [Information] Request finished in 3754.955ms 500 
+2017-03-19 13:07:40.847 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 172
+2017-03-19 13:07:40.847 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:07:40.847 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"0d4d7eb5-0b0d-493a-800d-d1a8a3e4e4d4"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:07:40.847 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:07:40.848 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:07:40.976 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:07:43.592 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 2730.3011ms
+2017-03-19 13:07:43.660 +01:00 [Error] Connection id ""0HL3EO1RCG61C"": An unhandled exception was thrown by the application.
+System.FormatException: Ciąg nie został rozpoznany jako prawidłowy element DateTime.
+   w System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   w EwalletServices.Controllers.TransactionController.Post(TransactionDTO transaction) w C:\Nauka\e-wallet_backend\src\EwalletServices\Controllers\TransactionController.cs:wiersz 33
+   w Microsoft.AspNetCore.Mvc.Internal.ObjectMethodExecutor.<>c__DisplayClass37_0.<WrapVoidAction>b__0(Object target, Object[] parameters)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-19 13:07:43.661 +01:00 [Debug] Connection id ""0HL3EO1RCG61C"" completed keep alive response.
+2017-03-19 13:07:43.689 +01:00 [Information] Request finished in 2858.1249ms 500 
+2017-03-19 13:07:51.737 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 173
+2017-03-19 13:07:51.737 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:07:51.737 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"0d4d7eb5-0b0d-493a-800d-d1a8a3e4e4d4"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:07:51.738 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:07:51.738 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:07:51.778 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:07:58.630 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 13:07:58.645 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 6892.4197ms
+2017-03-19 13:07:58.645 +01:00 [Debug] Connection id ""0HL3EO1RCG61C"" completed keep alive response.
+2017-03-19 13:07:58.764 +01:00 [Information] Request finished in 7052.1484ms 200 
+2017-03-19 13:09:53.780 +01:00 [Debug] Hosting starting
+2017-03-19 13:09:54.907 +01:00 [Debug] Hosting started
+2017-03-19 13:09:55.881 +01:00 [Debug] Connection id ""0HL3EO3DL9JEB"" started.
+2017-03-19 13:09:56.478 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5001/transaction application/json 173
+2017-03-19 13:09:57.101 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 13:09:57.221 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"52a7fe4c-34e4-45e1-9f55-79729e722d73"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 13:09:57.355 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 13:09:57.814 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 13:09:58.530 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 13:13:17.465 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 13:13:17.532 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 200158.9863ms
+2017-03-19 13:13:17.606 +01:00 [Debug] Connection id ""0HL3EO3DL9JEB"" completed keep alive response.
+2017-03-19 13:13:17.657 +01:00 [Information] Request finished in 201483.273ms 200 
