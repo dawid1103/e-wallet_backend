@@ -681,3 +681,114 @@ System.FormatException: Ciąg nie został rozpoznany jako prawidłowy element Da
 2017-03-19 13:13:17.532 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 200158.9863ms
 2017-03-19 13:13:17.606 +01:00 [Debug] Connection id ""0HL3EO3DL9JEB"" completed keep alive response.
 2017-03-19 13:13:17.657 +01:00 [Information] Request finished in 201483.273ms 200 
+2017-03-19 16:52:05.322 +01:00 [Debug] Hosting starting
+2017-03-19 16:52:08.916 +01:00 [Debug] Hosting started
+2017-03-19 17:24:24.762 +01:00 [Debug] Hosting starting
+2017-03-19 17:24:28.234 +01:00 [Debug] Hosting started
+2017-03-19 17:38:59.504 +01:00 [Debug] Hosting starting
+2017-03-19 17:39:02.102 +01:00 [Debug] Hosting started
+2017-03-19 17:39:35.199 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" started.
+2017-03-19 17:39:36.762 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" received FIN.
+2017-03-19 17:39:37.775 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:50001/  
+2017-03-19 17:39:40.637 +01:00 [Debug] Request did not match any routes.
+2017-03-19 17:39:40.948 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" completed keep alive response.
+2017-03-19 17:39:42.057 +01:00 [Information] Request finished in 3743.6749ms 404 
+2017-03-19 17:39:42.081 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" disconnecting.
+2017-03-19 17:39:42.086 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" sending FIN.
+2017-03-19 17:39:42.112 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" sent FIN with status "0".
+2017-03-19 17:39:42.117 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOB"" stopped.
+2017-03-19 17:43:52.020 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOC"" started.
+2017-03-19 17:43:52.346 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:50001/transaction application/json 173
+2017-03-19 17:43:52.374 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 17:43:52.433 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"69b5c270-664f-4bba-93c1-614b8afa42ee"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 17:43:52.505 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 17:43:52.907 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-19 17:43:53.387 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 17:43:55.856 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 17:43:55.934 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 3406.6871ms
+2017-03-19 17:43:55.945 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOC"" completed keep alive response.
+2017-03-19 17:43:56.308 +01:00 [Information] Request finished in 3683.7958ms 200 
+2017-03-19 17:45:57.332 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOC"" disconnecting.
+2017-03-19 17:45:57.334 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOC"" sending FIN.
+2017-03-19 17:45:57.334 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOC"" sent FIN with status "0".
+2017-03-19 17:45:57.335 +01:00 [Debug] Connection id ""0HL3ESQ3F7JOC"" stopped.
+2017-03-19 17:48:39.154 +01:00 [Debug] Hosting starting
+2017-03-19 17:48:39.493 +01:00 [Debug] Hosting started
+2017-03-19 17:48:43.359 +01:00 [Debug] Connection id ""0HL3ESV6QV8A4"" started.
+2017-03-19 17:48:44.076 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:50001/  
+2017-03-19 17:48:44.713 +01:00 [Debug] Request did not match any routes.
+2017-03-19 17:48:44.785 +01:00 [Debug] Connection id ""0HL3ESV6QV8A4"" completed keep alive response.
+2017-03-19 17:48:45.018 +01:00 [Information] Request finished in 1038.853ms 404 
+2017-03-19 17:50:46.069 +01:00 [Debug] Connection id ""0HL3ESV6QV8A4"" disconnecting.
+2017-03-19 17:50:46.072 +01:00 [Debug] Connection id ""0HL3ESV6QV8A4"" sending FIN.
+2017-03-19 17:50:46.084 +01:00 [Debug] Connection id ""0HL3ESV6QV8A4"" sent FIN with status "0".
+2017-03-19 17:50:46.087 +01:00 [Debug] Connection id ""0HL3ESV6QV8A4"" stopped.
+2017-03-19 17:55:55.663 +01:00 [Debug] Connection id ""0HL3ESV6QV8A5"" started.
+2017-03-19 17:55:55.928 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:50001/transaction application/json; charset=utf-8 136
+2017-03-19 17:55:55.957 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 17:55:55.998 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"864ba315-5a24-48a0-9faa-4cd213ddca85"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 17:55:56.051 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 17:55:56.246 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json; charset=utf-8"'.
+2017-03-19 17:55:56.631 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 17:56:16.748 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 20687.2214ms
+2017-03-19 17:56:16.788 +01:00 [Error] Connection id ""0HL3ESV6QV8A5"": An unhandled exception was thrown by the application.
+System.FormatException: Ciąg nie został rozpoznany jako prawidłowy element DateTime.
+   w System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   w EwalletServices.Controllers.TransactionController.Post(TransactionDTO transaction) w C:\Nauka\e-wallet_backend\src\EwalletServices\Controllers\TransactionController.cs:wiersz 33
+   w Microsoft.AspNetCore.Mvc.Internal.ObjectMethodExecutor.<>c__DisplayClass37_0.<WrapVoidAction>b__0(Object target, Object[] parameters)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   w Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- Koniec śladu stosu z poprzedniej lokalizacji, w której wystąpił wyjątek ---
+   w System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   w System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   w Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-19 17:56:16.791 +01:00 [Debug] Connection id ""0HL3ESV6QV8A5"" completed keep alive response.
+2017-03-19 17:56:16.925 +01:00 [Information] Request finished in 20916.7849ms 500 
+2017-03-19 17:56:44.538 +01:00 [Debug] Hosting starting
+2017-03-19 17:56:45.356 +01:00 [Debug] Hosting started
+2017-03-19 17:56:50.086 +01:00 [Debug] Connection id ""0HL3ET3NSPUGI"" started.
+2017-03-19 17:56:50.290 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:50001/  
+2017-03-19 17:56:50.942 +01:00 [Debug] Request did not match any routes.
+2017-03-19 17:56:51.132 +01:00 [Debug] Connection id ""0HL3ET3NSPUGI"" completed keep alive response.
+2017-03-19 17:56:51.472 +01:00 [Information] Request finished in 944.8532ms 404 
+2017-03-19 17:58:52.793 +01:00 [Debug] Connection id ""0HL3ET3NSPUGI"" disconnecting.
+2017-03-19 17:58:52.794 +01:00 [Debug] Connection id ""0HL3ET3NSPUGI"" sending FIN.
+2017-03-19 17:58:52.807 +01:00 [Debug] Connection id ""0HL3ET3NSPUGI"" sent FIN with status "0".
+2017-03-19 17:58:52.809 +01:00 [Debug] Connection id ""0HL3ET3NSPUGI"" stopped.
+2017-03-19 17:59:19.609 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" started.
+2017-03-19 17:59:19.958 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:50001/transaction application/json; charset=utf-8 136
+2017-03-19 17:59:19.979 +01:00 [Debug] Request successfully matched the route with name 'null' and template '"Transaction"'.
+2017-03-19 17:59:20.017 +01:00 [Debug] Action '"EwalletServices.Controllers.TransactionController.Get (EwalletServices)"' with id '"7c8c9205-5339-4b6c-9c1d-f9aa11dcb46e"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-19 17:59:20.059 +01:00 [Debug] Executing action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)"
+2017-03-19 17:59:20.202 +01:00 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json; charset=utf-8"'.
+2017-03-19 17:59:20.694 +01:00 [Information] Executing action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" with arguments (["EwalletCommon.Models.TransactionDTO"]) - ModelState is Valid
+2017-03-19 17:59:30.277 +01:00 [Debug] Executed action method "EwalletServices.Controllers.TransactionController.Post (EwalletServices)", returned result "Microsoft.AspNetCore.Mvc.EmptyResult".
+2017-03-19 17:59:30.317 +01:00 [Information] Executed action "EwalletServices.Controllers.TransactionController.Post (EwalletServices)" in 10252.1224ms
+2017-03-19 17:59:30.325 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" completed keep alive response.
+2017-03-19 17:59:30.333 +01:00 [Information] Request finished in 10457.344ms 200 
+2017-03-19 17:59:51.035 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" reset.
+2017-03-19 17:59:51.066 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" disconnecting.
+2017-03-19 17:59:51.066 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" sending FIN.
+2017-03-19 17:59:51.066 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" sent FIN with status "0".
+2017-03-19 17:59:51.067 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" stopped.
+2017-03-19 17:59:51.071 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" disconnecting.
+2017-03-19 17:59:51.071 +01:00 [Debug] Connection id ""0HL3ET3NSPUGJ"" write of "0" bytes to disconnected client.

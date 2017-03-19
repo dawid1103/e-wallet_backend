@@ -28,9 +28,10 @@ namespace EwalletServices.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]TransactionDTO transaction)
+        public IActionResult Post([FromBody]TransactionDTO transaction)
         {
-            DateTime data = DateTime.ParseExact(transaction.AddDate, "yyyyMMddHHmmss", null);
+            return new ObjectResult(1);
+            //DateTime data = DateTime.ParseExact(transaction.AddDate, "yyyyMMddHHmmss", null);
         }
 
         // PUT api/values/5

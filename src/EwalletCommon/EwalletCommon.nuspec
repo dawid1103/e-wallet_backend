@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata minClientVersion="3.4">
+        <id>EwalletCommon</id>
+        <version>0.1.0</version>
+        <authors>ewallet</authors>
+        <description>EwalletCommon library of things</description>
+      <dependencies>
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+      </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Debug\net461\EwalletCommon.*" target="lib\net461" />
+    </files>
+</package>
