@@ -4,23 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EwalletCommon.Models;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using EwalletServices.Repository;
 
 namespace EwalletServices.Controllers
 {
     [Route("[controller]")]
     public class CategoryController : Controller
     {
-        [HttpPost]
-        public async void Create([FromBody] CategoryDTO category)
+        private ICategoryRepository _categoryRepository;
+
+        public CategoryController(ICategoryRepository categoryRepository)
         {
+            _categoryRepository = categoryRepository;
+        }
+
+        [HttpPost]
+        public async Task<int> Create([FromBody] CategoryDTO category)
+        {
+            int id = await _categoryRepository.AddAsync(category);
+            return id;
         }
 
         [HttpGet("{id}")]
-        public async void Get(int id)
+        public async Task<CategoryDTO> GetById(int id)
         {
-
+            return await _categoryRepository.GetAsync(id);
         }
     }
 }

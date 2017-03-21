@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using EwalletServices.DataAccessLayer;
+using EwalletServices.Repository;
 
 namespace EwalletServices
 {
@@ -33,6 +35,16 @@ namespace EwalletServices
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
+            string sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            // Add general
+            services.AddSingleton(new Database(sqlConnectionString));
+            services.AddScoped<IDatabaseSession, DatabaseSession>();
+
+            // Add db repositories
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            // Add framework
             services.AddMvc();
         }
 
