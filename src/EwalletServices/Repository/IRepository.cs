@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EwalletServices.Repository
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         Task<T> GetAsync(int id);
 
