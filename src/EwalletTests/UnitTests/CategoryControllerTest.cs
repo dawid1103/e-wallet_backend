@@ -18,7 +18,7 @@ namespace EwalletTests.UnitTests
         {
             var category = new CategoryDTO()
             {
-                Name = "Category" + DateTime.Now.ToString("yyyyMMddHHmmss")
+                Name = "Category" + DateTime.Now.Ticks
             };
 
             return category;
