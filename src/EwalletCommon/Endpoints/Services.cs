@@ -9,18 +9,18 @@ namespace EwalletCommon.Endpoints
 {
     public interface IService
     {
-        WalletService Wallet { get; }
+        EwalletService Wallet { get; }
     }
 
     public class Service : IService
     {
         readonly ProxySettings _settings;
 
-        public WalletService Wallet { get; private set; }
+        public EwalletService Wallet { get; private set; }
         public Service(IOptions<ProxySettings> proxySettings)
         {
             _settings = proxySettings.Value;
-            Wallet = new WalletService(_settings.EwalletServiceBaseUrl);
+            Wallet = new EwalletService(_settings.EwalletServiceBaseUrl);
         }
     }
 }
