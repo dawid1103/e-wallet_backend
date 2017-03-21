@@ -25,7 +25,7 @@
   },
 
   "runtimes": {
-    "win7-x64": {}
+    "win10-x64": {}
   },
 
   "runtimeOptions": {
