@@ -25,7 +25,7 @@ BEGIN
 		@Name
 	);
 	
-	SELECT SCOPE_IDENTITY() AS Id
+	SELECT SCOPE_IDENTITY() AS Id -- Returns the last Id which is our new category id of current db session
 END
 GO
 
@@ -34,3 +34,9 @@ GRANT EXECUTE ON dbo.CategoryCreate
 	TO EwalletService
 ;
 GO
+
+/* TEST
+	Execute it as simple query
+
+	EXEC dbo.CategoryCreate 'Kategoria test'
+*/
