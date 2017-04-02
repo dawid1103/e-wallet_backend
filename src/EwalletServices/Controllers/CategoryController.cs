@@ -25,6 +25,12 @@ namespace EwalletServices.Controllers
             return id;
         }
 
+        [HttpDelete("{id}")]
+        public async Task Delete(int id)
+        {
+            await _categoryRepository.DeleteAsync(id);
+        }
+
         [HttpGet("{id}")]
         public async Task<CategoryDTO> GetById(int id)
         {

@@ -18,7 +18,7 @@ namespace EwalletTests.UnitTests
         {
             var category = new CategoryDTO()
             {
-                Name = "Category" + DateTime.Now.Ticks
+                Name = "Category" + DateTime.Now
             };
 
             return category;
@@ -30,6 +30,16 @@ namespace EwalletTests.UnitTests
             CategoryDTO category = GetCategoryData();
             int id = await _ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
+        }
+
+        [Fact]
+        public async void Delete()
+        {
+            CategoryDTO category = GetCategoryData();
+            int id = await _ewalletService.Category.CreateAsync(category);
+            Assert.NotNull(id);
+
+            await _ewalletService.Category.DeleteAsync(id);
         }
     }
 }

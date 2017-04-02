@@ -17,5 +17,10 @@ namespace EwalletCommon.Endpoints
         {
             return await PostAsync<int>("category", category);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await DeleteAsync($"category/{id}");
+        }
     }
 }

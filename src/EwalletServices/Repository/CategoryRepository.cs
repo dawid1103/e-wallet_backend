@@ -31,9 +31,16 @@ namespace EwalletServices.Repository
             return results.FirstOrDefault();
         }
 
-        public Task DeleteAsync(int id)
+        /// <summary>
+        /// elete category with given id.
+        /// </summary>
+        /// <param name="id">Category id</param>
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await base.ExecuteStorageProcedureAsync("dbo.CategoryDelete", new
+            {
+                id = id
+            });
         }
 
         public Task EditAsync(CategoryDTO entity)
