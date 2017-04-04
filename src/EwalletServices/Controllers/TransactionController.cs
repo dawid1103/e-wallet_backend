@@ -4,46 +4,49 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EwalletCommon.Models;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using EwalletServices.Repository;
 
 namespace EwalletServices.Controllers
 {
     [Route("[controller]")]
     public class TransactionController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private ITransactionRepository _transactionRepository;
+
+        public TransactionController(ITransactionRepository transactionRepository)
         {
-            return new string[] { "value1", "value2" };
+            _transactionRepository = transactionRepository;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]TransactionDTO transaction)
+        public async Task<int> CreateAsync([FromBody] TransactionDTO transaction)
         {
-            return new ObjectResult(1);
-            //DateTime data = DateTime.ParseExact(transaction.AddDate, "yyyyMMddHHmmss", null);
+            int id = await _transactionRepository.AddAsync(transaction);
+            return id;
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
+            await _transactionRepository.DeleteAsync(id);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<TransactionDTO> GetAsync(int id)
+        {
+            return await _transactionRepository.GetAsync(id);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<TransactionDTO>> GetAllAsync()
+        {
+            return await _transactionRepository.ListAsync();
+        }
+
+        [HttpPut]
+        public async Task UpdateAsync([FromBody] TransactionDTO category)
+        {
+            await _transactionRepository.EditAsync(category);
         }
     }
 }

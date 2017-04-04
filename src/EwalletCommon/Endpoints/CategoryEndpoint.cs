@@ -53,7 +53,7 @@ namespace EwalletCommon.Endpoints
 
 
         /// <summary>
-        /// Update given categoyr
+        /// Update given category
         /// </summary>
         /// <param name="category">CategoryDTO object</param>
         public async Task UpdateAsync(CategoryDTO category)

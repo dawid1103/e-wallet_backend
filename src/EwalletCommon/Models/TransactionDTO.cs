@@ -20,7 +20,7 @@ namespace EwalletCommon.Models
         /// <summary>
         /// Transaction date
         /// </summary>
-        public string AddDate { get; set; }
+        public DateTime AddDate { get; set; }
 
         /// <summary>
         /// Transaction description
@@ -28,8 +28,8 @@ namespace EwalletCommon.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Transaction category
+        /// Transaction category id
         /// </summary>
-        public CategoryDTO Category { get; set; }
+        public int CategoryId { get; set; }
     }
 }

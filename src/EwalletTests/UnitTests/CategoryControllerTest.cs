@@ -18,7 +18,7 @@ namespace EwalletTests.UnitTests
         {
             var category = new CategoryDTO()
             {
-                Name = "Category" + DateTime.Now
+                Name = $"Category{DateTime.Now}"
             };
 
             return category;
@@ -30,16 +30,6 @@ namespace EwalletTests.UnitTests
             CategoryDTO category = GetCategoryData();
             int id = await _ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
-        }
-
-        [Fact]
-        public async void Delete()
-        {
-            CategoryDTO category = GetCategoryData();
-            int id = await _ewalletService.Category.CreateAsync(category);
-            Assert.NotNull(id);
-
-            await _ewalletService.Category.DeleteAsync(id);
         }
 
         [Fact]
@@ -56,19 +46,6 @@ namespace EwalletTests.UnitTests
         }
 
         [Fact]
-        public async void GetAll()
-        {
-            CategoryDTO category = GetCategoryData();
-            await _ewalletService.Category.CreateAsync(category);
-            await _ewalletService.Category.CreateAsync(category);
-
-            IEnumerable<CategoryDTO> categories = await _ewalletService.Category.GetAllAsync();
-
-            Assert.NotEmpty(categories);
-            Assert.True(categories.Count() > 1);
-        }
-
-        [Fact]
         public async void Update()
         {
             CategoryDTO category = GetCategoryData();
@@ -82,6 +59,32 @@ namespace EwalletTests.UnitTests
             fromDatabase = await _ewalletService.Category.GetAsync(category.Id);
 
             Assert.Equal(fromDatabase.Name, changedNamee);
+        }
+
+        [Fact]
+        public async void Delete()
+        {
+            CategoryDTO category = GetCategoryData();
+            int id = await _ewalletService.Category.CreateAsync(category);
+            Assert.NotNull(id);
+
+            await _ewalletService.Category.DeleteAsync(id);
+
+            CategoryDTO fromDatabase = await _ewalletService.Category.GetAsync(id);
+            Assert.Null(fromDatabase);
+        }
+
+        [Fact]
+        public async void GetAll()
+        {
+            CategoryDTO category = GetCategoryData();
+            await _ewalletService.Category.CreateAsync(category);
+            await _ewalletService.Category.CreateAsync(category);
+
+            IEnumerable<CategoryDTO> categories = await _ewalletService.Category.GetAllAsync();
+
+            Assert.NotEmpty(categories);
+            Assert.True(categories.Count() > 1);
         }
     }
 }
