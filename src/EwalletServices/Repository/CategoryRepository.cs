@@ -15,12 +15,6 @@ namespace EwalletServices.Repository
     {
         public CategoryRepository(IDatabaseSession dbSession) : base(dbSession) { }
 
-
-        /// <summary>
-        /// Add category to database async.
-        /// </summary>
-        /// <param name="category">CategoryDTO object</param>
-        /// <returns>Created category id</returns>
         public async Task<int> AddAsync(CategoryDTO category)
         {
             IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.CategoryCreate", new
@@ -31,10 +25,6 @@ namespace EwalletServices.Repository
             return results.FirstOrDefault();
         }
 
-        /// <summary>
-        /// elete category with given id.
-        /// </summary>
-        /// <param name="id">Category id</param>
         public async Task DeleteAsync(int id)
         {
             await base.ExecuteStorageProcedureAsync("dbo.CategoryDelete", new
@@ -43,14 +33,23 @@ namespace EwalletServices.Repository
             });
         }
 
-        public Task EditAsync(CategoryDTO entity)
+        public async Task EditAsync(CategoryDTO category)
         {
-            throw new NotImplementedException();
+            await base.ExecuteStorageProcedureAsync("dbo.CategoryUpdate", new
+            {
+                id = category.Id,
+                name = category.Name
+            });
         }
 
-        public Task<CategoryDTO> GetAsync(int id)
+        public async Task<CategoryDTO> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            IEnumerable<CategoryDTO> result = await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGet", new
+            {
+                id = id
+            });
+
+            return result.FirstOrDefault();
         }
 
         public Task GetAsync(string name)
@@ -58,9 +57,9 @@ namespace EwalletServices.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CategoryDTO>> ListAsync()
+        public async Task<IEnumerable<CategoryDTO>> ListAsync()
         {
-            throw new NotImplementedException();
+            return await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGetAll", null);
         }
     }
 }

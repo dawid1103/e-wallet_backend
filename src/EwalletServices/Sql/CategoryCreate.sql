@@ -9,7 +9,7 @@ IF OBJECT_ID ( 'dbo.CategoryCreate', 'P' ) IS NULL
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Create a category
+-- Create category
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryCreate
 	@Name nvarchar(256)
