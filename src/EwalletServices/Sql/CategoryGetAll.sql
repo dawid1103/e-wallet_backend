@@ -4,29 +4,27 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-IF OBJECT_ID ( 'dbo.CategoryDelete', 'P' ) IS NULL
-    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.CategoryDelete AS BEGIN SELECT 1; END';
+IF OBJECT_ID ( 'dbo.CategoryGetAll', 'P' ) IS NULL
+    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.CategoryGetAll AS BEGIN SELECT 1; END';
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Delete a category
+-- Get all categories
 -- ------------------------------------------------------------------------------------------------
-ALTER PROCEDURE dbo.CategoryDelete
-	@id int
+ALTER PROCEDURE dbo.CategoryGetAll
 AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DELETE 
+	SELECT 
+		* 
 	FROM
-		Category 
-	WHERE 
-		id=@id;
+		Category;
 END
 GO
 
 
-GRANT EXECUTE ON dbo.CategoryDelete
+GRANT EXECUTE ON dbo.CategoryGetAll
 	TO EwalletService
 ;
 GO
@@ -34,5 +32,5 @@ GO
 /* TEST
 	Execute it as simple query
 
-	EXEC dbo.CategoryDelete 5
+	EXEC dbo.CategoryGetAll 
 */

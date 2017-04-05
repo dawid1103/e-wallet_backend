@@ -4,20 +4,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-IF OBJECT_ID ( 'dbo.CategoryDelete', 'P' ) IS NULL
-    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.CategoryDelete AS BEGIN SELECT 1; END';
+IF OBJECT_ID ( 'dbo.CategoryUpdate', 'P' ) IS NULL
+    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.CategoryUpdate AS BEGIN SELECT 1; END';
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Delete a category
+-- Update category with given id
 -- ------------------------------------------------------------------------------------------------
-ALTER PROCEDURE dbo.CategoryDelete
-	@id int
+ALTER PROCEDURE dbo.CategoryUpdate
+	@id int,
+	@name nvarchar(256)
 AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DELETE 
+	UPDATE 
+		dbo.category 
+	SET 
+		name = @name
 	FROM
 		Category 
 	WHERE 
@@ -26,7 +30,7 @@ END
 GO
 
 
-GRANT EXECUTE ON dbo.CategoryDelete
+GRANT EXECUTE ON dbo.CategoryUpdate
 	TO EwalletService
 ;
 GO
@@ -34,5 +38,5 @@ GO
 /* TEST
 	Execute it as simple query
 
-	EXEC dbo.CategoryDelete 5
+	EXEC dbo.CategoryUpdate 5, testchange
 */

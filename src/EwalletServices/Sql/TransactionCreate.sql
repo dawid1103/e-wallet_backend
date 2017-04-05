@@ -4,25 +4,31 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-IF OBJECT_ID ( 'dbo.CategoryCreate', 'P' ) IS NULL
-    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.CategoryCreate AS BEGIN SELECT 1; END';
+IF OBJECT_ID ( 'dbo.TransactionCreate', 'P' ) IS NULL
+    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.TransactionCreate AS BEGIN SELECT 1; END';
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Create category
+-- Create transaction
 -- ------------------------------------------------------------------------------------------------
-ALTER PROCEDURE dbo.CategoryCreate
-	@name nvarchar(256)
+ALTER PROCEDURE dbo.TransactionCreate
+	@title nvarchar(256),
+	@description nvarchar(MAX),
+	@categoryId int
 AS
 BEGIN
 	SET NOCOUNT ON;
 
 	INSERT INTO
-		Category (
-			name
+		"Transaction" (
+			title,
+			description,
+			categoryId
 		)
 	VALUES (
-		@name
+		@title,
+		@description,
+		@categoryId
 	);
 	
 	SELECT SCOPE_IDENTITY() AS id -- Returns the last Id which is our new category id of current db session
@@ -30,7 +36,7 @@ END
 GO
 
 
-GRANT EXECUTE ON dbo.CategoryCreate
+GRANT EXECUTE ON dbo.TransactionCreate
 	TO EwalletService
 ;
 GO
@@ -38,5 +44,5 @@ GO
 /* TEST
 	Execute it as simple query
 
-	EXEC dbo.CategoryCreate 'Kategoria test'
+	EXEC dbo.TransactionCreate 'transaction title', 'description', 5
 */

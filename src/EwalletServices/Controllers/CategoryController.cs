@@ -19,22 +19,34 @@ namespace EwalletServices.Controllers
         }
 
         [HttpPost]
-        public async Task<int> Create([FromBody] CategoryDTO category)
+        public async Task<int> CreateAsync([FromBody] CategoryDTO category)
         {
             int id = await _categoryRepository.AddAsync(category);
             return id;
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task DeleteAsync(int id)
         {
             await _categoryRepository.DeleteAsync(id);
         }
 
         [HttpGet("{id}")]
-        public async Task<CategoryDTO> GetById(int id)
+        public async Task<CategoryDTO> GetAsync(int id)
         {
             return await _categoryRepository.GetAsync(id);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
+        {
+            return await _categoryRepository.ListAsync();
+        }
+
+        [HttpPut]
+        public async Task UpdateAsync([FromBody] CategoryDTO category)
+        {
+            await _categoryRepository.EditAsync(category);
         }
     }
 }

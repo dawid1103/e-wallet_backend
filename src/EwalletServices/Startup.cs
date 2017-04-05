@@ -43,6 +43,7 @@ namespace EwalletServices
 
             // Add db repositories
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
 
             // Add framework
             services.AddMvc();
