@@ -21,5 +21,10 @@ namespace EwalletCommon.Models
         /// User password
         /// </summary>
         public string Password { get; set; }
+
+        /// <summary>
+        /// List of user claims/roles e.g Normal, Admin
+        /// </summary>
+        public List<string> Claims { get; set; }
     }
 }
