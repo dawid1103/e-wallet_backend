@@ -1,12 +1,12 @@
 ﻿{
   "title": "EwalletCommon",
-  "version": "1.0.0-*",
+  "version": "1.0.1",
   "description": "EwalletCommon lib",
-  "copyright": "",
+  "copyright": "ewallet",
 
   "dependencies": {
     "Microsoft.AspNetCore.Http": "1.1.0",
-    "Newtonsoft.Json": "9.0.1",
+    "Newtonsoft.Json": "9.0.1"
     //"System.Net.Http": "4.1.0"
   },
 
