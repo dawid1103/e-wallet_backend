@@ -14,41 +14,34 @@ namespace EwalletTests.UnitTests
     {
         public TransactionControllerTest() : base() { }
 
-        private TransactionDTO GetTransactionData()
+        [Fact]
+        public async void CreateWithoutCategory()
         {
-            CategoryDTO category = new CategoryDTO()
-            {
-                Name = $"categoryForTransaction{DateTime.Now}"
-            };
+            TransactionDTO transaction = TestData.GetTransactionData();
+            transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
-            int id = _ewalletService.Category.CreateAsync(category).Result;
-
-            var transaction = new TransactionDTO()
-            {
-                Title = "Title" + DateTime.Now,
-                AddDate = DateTime.Now,
-                Description = "Description" + DateTime.Now,
-                CategoryId = id
-            };
-
-            return transaction;
+            Assert.NotNull(transaction.Id);
         }
 
         [Fact]
-        public async void Create()
+        public async void CreateWithCategory()
         {
-            TransactionDTO transaction = GetTransactionData();
-            int id = await _ewalletService.Transaction.CreateAsync(transaction);
-            Assert.NotNull(id);
+            CategoryDTO category = TestData.GetCategoryData();
+            int categoryId = await _ewalletService.Category.CreateAsync(category);
+
+            TransactionDTO transaction = TestData.GetTransactionData(categoryId);
+            transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
+
+            Assert.NotNull(transaction.Id);
+            Assert.NotNull(transaction.CategoryId);
         }
 
         [Fact]
         public async void GetSingle()
         {
-            TransactionDTO transaction = GetTransactionData();
-            Assert.NotNull(transaction.CategoryId);
-
+            TransactionDTO transaction = TestData.GetTransactionData();
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
+
             Assert.NotNull(transaction.Id);
 
             TransactionDTO fromDatabase = await _ewalletService.Transaction.GetAsync(transaction.Id);
@@ -64,7 +57,8 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void GetAll()
         {
-            TransactionDTO transaction = GetTransactionData();
+            TransactionDTO transaction = TestData.GetTransactionData();
+
             await _ewalletService.Transaction.CreateAsync(transaction);
             await _ewalletService.Transaction.CreateAsync(transaction);
 
@@ -77,7 +71,7 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void Delete()
         {
-            TransactionDTO transaction = GetTransactionData();
+            TransactionDTO transaction = TestData.GetTransactionData();
             int id = await _ewalletService.Transaction.CreateAsync(transaction);
             Assert.NotNull(id);
 
@@ -87,7 +81,10 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void Update()
         {
-            TransactionDTO transaction = GetTransactionData();
+            CategoryDTO category = TestData.GetCategoryData();
+            int categoryId = await _ewalletService.Category.CreateAsync(category);
+
+            TransactionDTO transaction = TestData.GetTransactionData(categoryId);
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
             TransactionDTO fromDatabase = await _ewalletService.Transaction.GetAsync(transaction.Id);
 
@@ -104,8 +101,6 @@ namespace EwalletTests.UnitTests
 
             Assert.Equal(fromDatabase.Title, changedTitle);
             Assert.Equal(fromDatabase.Description, changedDesc);
-            Assert.Equal(time.Minute, fromDatabase.AddDate.Minute);
-            Assert.Equal(time.Second, fromDatabase.AddDate.Second);
         }
     }
 }

@@ -19,6 +19,11 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
+	IF(@categoryId = 0)
+	BEGIN
+		SET @categoryId = NULL
+	END
+
 	INSERT INTO
 		"Transaction" (
 			title,
@@ -45,4 +50,5 @@ GO
 	Execute it as simple query
 
 	EXEC dbo.TransactionCreate 'transaction title', 'description', 5
+	EXEC dbo.TransactionCreate 'transaction title', 'description'
 */

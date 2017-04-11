@@ -9,13 +9,20 @@ IF OBJECT_ID ( 'dbo.CategoryDelete', 'P' ) IS NULL
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Delete a category
+-- Delete a category with connected transactions
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryDelete
 	@id int
 AS
 BEGIN
 	SET NOCOUNT ON;
+
+	UPDATE
+		"Transaction"
+	SET
+		categoryId = NULL
+	WHERE
+		CategoryId = @id;
 
 	DELETE 
 	FROM

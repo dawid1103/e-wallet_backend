@@ -12,22 +12,13 @@ namespace EwalletTests.UnitTests
     [Collection(nameof(EwalletService))]
     public class CategoryControllerTest : TestBase
     {
+
         public CategoryControllerTest() : base() { }
-
-        private CategoryDTO GetCategoryData()
-        {
-            var category = new CategoryDTO()
-            {
-                Name = $"Category{DateTime.Now}"
-            };
-
-            return category;
-        }
 
         [Fact]
         public async void Create()
         {
-            CategoryDTO category = GetCategoryData();
+            CategoryDTO category = TestData.GetCategoryData();
             int id = await _ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
         }
@@ -35,7 +26,7 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void GetSingle()
         {
-            CategoryDTO category = GetCategoryData();
+            CategoryDTO category = TestData.GetCategoryData();
             int id = await _ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
 
@@ -48,7 +39,7 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void Update()
         {
-            CategoryDTO category = GetCategoryData();
+            CategoryDTO category = TestData.GetCategoryData();
             category.Id = await _ewalletService.Category.CreateAsync(category);
             CategoryDTO fromDatabase = await _ewalletService.Category.GetAsync(category.Id);
 
@@ -64,7 +55,7 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void Delete()
         {
-            CategoryDTO category = GetCategoryData();
+            CategoryDTO category = TestData.GetCategoryData();
             int id = await _ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
 
@@ -75,9 +66,30 @@ namespace EwalletTests.UnitTests
         }
 
         [Fact]
+        public async void DeleteWithTransactions()
+        {
+            CategoryDTO category = TestData.GetCategoryData();
+            int categoryId = await _ewalletService.Category.CreateAsync(category);
+
+            TransactionDTO transaction = TestData.GetTransactionData(categoryId);
+            transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
+
+            Assert.NotNull(transaction.Id);
+
+            await _ewalletService.Category.DeleteAsync(transaction.CategoryId);
+
+            TransactionDTO transFromDb = await _ewalletService.Transaction.GetAsync(transaction.Id);
+            Assert.Equal(transFromDb.CategoryId, 0);
+
+            CategoryDTO catFromDb = await _ewalletService.Category.GetAsync(transaction.CategoryId);
+            Assert.Null(catFromDb);
+
+        }
+
+        [Fact]
         public async void GetAll()
         {
-            CategoryDTO category = GetCategoryData();
+            CategoryDTO category = TestData.GetCategoryData();
             await _ewalletService.Category.CreateAsync(category);
             await _ewalletService.Category.CreateAsync(category);
 
