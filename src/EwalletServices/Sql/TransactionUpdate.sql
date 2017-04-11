@@ -25,7 +25,8 @@ BEGIN
 	SET 
 		title = @title,
 		description = @description,
-		categoryId = @categoryId
+		categoryId = @categoryId,
+		addDate = GETDATE()
 	FROM
 		"Transaction" 
 	WHERE 
