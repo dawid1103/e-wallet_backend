@@ -7,6 +7,7 @@ using EwalletServices.Logic;
 using EwalletCommon.Models;
 using EwalletServices.Repository;
 using EwalletServices.Models;
+using EwalletCommon.Enums;
 
 namespace EwalletServices.Controllers
 {
@@ -30,8 +31,10 @@ namespace EwalletServices.Controllers
             user.PasswordHash = credentials.Hash;
             user.PasswordSalt = credentials.Salt;
 
-            int userId = await _userRepositiry.AddAsync(user);
+            //temporary
+            user.Role = UserRole.Admin;
 
+            int userId = await _userRepositiry.AddAsync(user);
             return userId;
         }
 

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EwalletServices.DataAccessLayer;
+using EwalletCommon.Utils;
+using System.Data.SqlClient;
 
 namespace EwalletServices.Repository
 {
@@ -19,16 +21,28 @@ namespace EwalletServices.Repository
 
         public async Task<int> AddAsync(UserDTO user)
         {
-            IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.UserCreate", new
+            try
             {
-                email = user.Email,
-                passwordHash = user.PasswordHash,
-                passwordSalt = user.PasswordSalt,
-                isActive = user.IsActive,
-                role = user.Role
-            });
+                IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.UserCreate", new
+                {
+                    email = user.Email,
+                    passwordHash = user.PasswordHash,
+                    passwordSalt = user.PasswordSalt,
+                    isActive = user.IsActive,
+                    role = user.Role
+                });
 
-            return results.FirstOrDefault();
+                return results.FirstOrDefault();
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Message.IndexOf("Duplicate username", StringComparison.CurrentCultureIgnoreCase) >= 0)
+                {
+                    throw new DuplicateUsernameException();
+                }
+
+                throw;
+            }
         }
 
         public Task DeleteAsync(int id)
