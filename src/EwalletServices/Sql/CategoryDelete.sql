@@ -18,7 +18,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	UPDATE
-		"Transaction"
+		[Transaction]
 	SET
 		categoryId = NULL
 	WHERE

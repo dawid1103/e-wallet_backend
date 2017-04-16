@@ -19,7 +19,7 @@ BEGIN
 
 	DELETE 
 	FROM
-		"Transaction" 
+		[Transaction] 
 	WHERE 
 		id=@id;
 END

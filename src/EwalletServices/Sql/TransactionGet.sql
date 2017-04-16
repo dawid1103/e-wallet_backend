@@ -19,7 +19,7 @@ BEGIN
 
 	SELECT * 
 	FROM
-		"Transaction" 
+		[Transaction]
 	WHERE 
 		id=@id;
 END

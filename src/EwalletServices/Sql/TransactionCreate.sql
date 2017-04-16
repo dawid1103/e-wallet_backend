@@ -25,7 +25,7 @@ BEGIN
 	END
 
 	INSERT INTO
-		"Transaction" (
+		[Transaction] (
 			title,
 			description,
 			categoryId
