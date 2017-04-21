@@ -1,4 +1,5 @@
 ﻿using EwalletCommon.Endpoints;
+using EwalletCommon.Enums;
 using EwalletCommon.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace EwalletTests.Common
         {
             var category = new CategoryDTO()
             {
-                Name = $"Category{DateTime.Now}"
+                Name = $"Category - {DateTime.Now}"
             };
 
             return category;
@@ -25,9 +26,9 @@ namespace EwalletTests.Common
 
             var transaction = new TransactionDTO()
             {
-                Title = $"Title{time}",
+                Title = $"Title - {time}",
                 AddDate = time,
-                Description = $"Description{time}",
+                Description = $"Description - {time}",
             };
 
             if (categoryId > 0)
@@ -36,6 +37,17 @@ namespace EwalletTests.Common
             }
 
             return transaction;
+        }
+
+        public static UserDTO GetUserData()
+        {
+            return new UserDTO()
+            {
+                Email = $"dawid.pfv@gmail.com - {DateTime.Now}",
+                IsActive = true,
+                Password = "testPassword",
+                Role = UserRole.Admin
+            };
         }
     }
 }
