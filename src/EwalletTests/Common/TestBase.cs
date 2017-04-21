@@ -25,7 +25,7 @@ namespace EwalletTests.Common
             IWebHostBuilder builder = new WebHostBuilder().UseStartup<Startup>();
             _server = new TestServer(builder);
 
-            //ClearDatabase();
+            ClearDatabase();
 
             HttpClient client = _server.CreateClient();
             _ewalletService = new EwalletService(client);
@@ -36,7 +36,7 @@ namespace EwalletTests.Common
             Database db = (Database)_server.Host.Services.GetService(typeof(Database));
             using (var connection = new SqlConnection(db.ConnectionString))
             {
-                connection.Execute("ClearForIntegrationTests", commandType: System.Data.CommandType.StoredProcedure);
+                connection.Execute("dbo.ClearDatabase", commandType: System.Data.CommandType.StoredProcedure);
             }
         }
     }
