@@ -38,14 +38,28 @@ namespace EwalletServices.Controllers
             return userId;
         }
 
+        [HttpDelete("{id}")]
+        public async Task Delete(int id)
+        {
+            await _userRepositiry.DeleteAsync(id);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<UserDTO> GetAsync(int id)
+        {
+            return await _userRepositiry.GetAsync(id);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<UserDTO>> GetAllAsync()
+        {
+            return await _userRepositiry.ListAsync();
+        }
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]UserDTO user)
         {
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

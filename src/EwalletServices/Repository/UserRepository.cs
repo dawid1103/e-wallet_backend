@@ -45,9 +45,12 @@ namespace EwalletServices.Repository
             }
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await base.ExecuteStorageProcedureAsync("dbo.UserDelete", new
+            {
+                id = id
+            });
         }
 
         public Task EditAsync(UserDTO entity)
@@ -55,14 +58,19 @@ namespace EwalletServices.Repository
             throw new NotImplementedException();
         }
 
-        public Task<UserDTO> GetAsync(int id)
+        public async Task<UserDTO> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            IEnumerable<UserDTO> result = await base.LoadByStorageProcedureAsync<UserDTO>("dbo.UserGet", new
+            {
+                id = id
+            });
+
+            return result.FirstOrDefault();
         }
 
-        public Task<IEnumerable<UserDTO>> ListAsync()
+        public async Task<IEnumerable<UserDTO>> ListAsync()
         {
-            throw new NotImplementedException();
+            return await base.LoadByStorageProcedureAsync<UserDTO>("dbo.UserGetAll", null);
         }
     }
 }

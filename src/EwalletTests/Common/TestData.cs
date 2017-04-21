@@ -43,7 +43,7 @@ namespace EwalletTests.Common
         {
             return new UserDTO()
             {
-                Email = $"dawid.pfv@gmail.com - {DateTime.Now}",
+                Email = $"dawid.pfv@gmail.com - {DateTime.Now.Ticks}",
                 IsActive = true,
                 Password = "testPassword",
                 Role = UserRole.Admin
