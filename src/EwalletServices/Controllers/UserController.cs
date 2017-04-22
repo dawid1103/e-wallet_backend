@@ -15,12 +15,12 @@ namespace EwalletServices.Controllers
     public class UserController : Controller
     {
         private readonly IPasswordLogic _passwordLogic;
-        private readonly IUserRepository _userRepositiry;
+        private readonly IUserRepository _userRepository;
 
         public UserController(IPasswordLogic passwordLogic, IUserRepository userRepository)
         {
             _passwordLogic = passwordLogic;
-            _userRepositiry = userRepository;
+            _userRepository = userRepository;
         }
 
 
@@ -34,32 +34,50 @@ namespace EwalletServices.Controllers
             //temporary
             user.Role = UserRole.Admin;
 
-            int userId = await _userRepositiry.AddAsync(user);
+            int userId = await _userRepository.AddAsync(user);
             return userId;
         }
 
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
-            await _userRepositiry.DeleteAsync(id);
+            await _userRepository.DeleteAsync(id);
         }
 
         [HttpGet("{id}")]
         public async Task<UserDTO> GetAsync(int id)
         {
-            return await _userRepositiry.GetAsync(id);
+            return await _userRepository.GetAsync(id);
         }
 
         [HttpGet]
         public async Task<IEnumerable<UserDTO>> GetAllAsync()
         {
-            return await _userRepositiry.ListAsync();
+            return await _userRepository.GetAllAsync();
         }
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]UserDTO user)
+        //TODO later
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]UserDTO user)
+        //{
+        //}
+
+        [HttpPost("verifyuser")]
+        public async Task<UserVerificationResult> VerifyUser([FromQuery]string email, [FromBody]string password)
         {
-        }
+            IEnumerable<UserDTO> allUsers = await _userRepository.GetAllAsync();
+            UserDTO user = allUsers.First(u => u.Email == email);
 
+            string calculatedHash = _passwordLogic.HashPassword(password, user.PasswordSalt);
+            bool isMatching = user.PasswordHash == calculatedHash;
+
+            return new UserVerificationResult
+            {
+                Id = user.Id,
+                IsVerifiedAsPositive = isMatching && user.IsActive,
+                Email = user.Email,
+                Role = user.Role
+            };
+        }
     }
 }

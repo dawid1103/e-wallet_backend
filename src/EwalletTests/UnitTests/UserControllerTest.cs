@@ -67,5 +67,21 @@ namespace EwalletTests.UnitTests
 
             await _ewalletService.User.DeleteAsync(id);
         }
+
+        [Fact]
+        public async void GetByCredentials()
+        {
+            UserDTO user = TestData.GetUserData();
+            user.Id = await _ewalletService.User.CreateAsync(user);
+
+            Assert.NotNull(user.Id);
+
+            UserVerificationResult verification = await _ewalletService.User.VerifyUser(user.Email, user.Password);
+
+            Assert.True(verification.IsVerifiedAsPositive);
+            Assert.Equal(user.Id, verification.Id);
+            Assert.Equal(user.Role, verification.Role);
+            Assert.Equal(user.Email, verification.Email);
+        }
     }
 }

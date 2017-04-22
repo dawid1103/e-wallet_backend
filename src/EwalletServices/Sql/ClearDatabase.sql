@@ -16,8 +16,8 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DELETE FROM Category;
 	DELETE FROM [Transaction];
+	DELETE FROM Category;
 	DELETE FROM [User];
 END
 GO

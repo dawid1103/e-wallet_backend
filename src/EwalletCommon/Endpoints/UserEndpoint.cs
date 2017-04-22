@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Net;
 
 namespace EwalletCommon.Endpoints
 {
@@ -48,6 +49,28 @@ namespace EwalletCommon.Endpoints
         public async Task<IEnumerable<UserDTO>> GetAllAsync()
         {
             return await base.GetAsync<IEnumerable<UserDTO>>("user");
+        }
+
+        /// <summary>
+        /// Verify user if exist in system
+        /// </summary>
+        /// <param name="email">User email/login</param>
+        /// <param name="password">User password</param>
+        /// <returns>
+        /// UserVerificationResult{
+        ///     userId,
+        ///     userEmail/Login,
+        ///     role,
+        ///     result of verification
+        /// }
+        /// </returns>
+        public async Task<UserVerificationResult> VerifyUser(string email, string password)
+        {
+            string requestUrl = $"user/verifyuser?email={WebUtility.UrlEncode(email)}";
+            var verifycationResult = await PostAsync<UserVerificationResult>(requestUrl, password);
+
+            return verifycationResult;
+
         }
     }
 }

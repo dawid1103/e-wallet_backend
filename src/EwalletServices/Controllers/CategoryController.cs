@@ -40,7 +40,7 @@ namespace EwalletServices.Controllers
         [HttpGet]
         public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
         {
-            return await _categoryRepository.ListAsync();
+            return await _categoryRepository.GetAllAsync();
         }
 
         [HttpPut]

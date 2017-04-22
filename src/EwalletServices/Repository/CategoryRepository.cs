@@ -51,7 +51,7 @@ namespace EwalletServices.Repository
             return result.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<CategoryDTO>> ListAsync()
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
         {
             return await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGetAll", null);
         }
