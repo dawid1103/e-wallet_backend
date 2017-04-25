@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EwalletCommon.Endpoints
+namespace EwalletCommon.Utils
 {
+    public class DuplicateUsernameException : Exception { }
+
     public class ObjectAlreadyExists : Exception { }
 
     public class NotUniqueException : Exception { }

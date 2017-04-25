@@ -9,7 +9,7 @@ namespace EwalletServices.Repository
     {
         Task<T> GetAsync(int id);
 
-        Task<IEnumerable<T>> ListAsync();
+        Task<IEnumerable<T>> GetAllAsync();
 
         Task<int> AddAsync(T entity);
 

@@ -9,7 +9,6 @@ namespace EwalletServices.Repository
 {
     public interface ICategoryRepository : IRepository<CategoryDTO>
     {
-        Task GetAsync(string name);
     }
     public class CategoryRepository : Repository, ICategoryRepository
     {
@@ -52,12 +51,7 @@ namespace EwalletServices.Repository
             return result.FirstOrDefault();
         }
 
-        public Task GetAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<CategoryDTO>> ListAsync()
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
         {
             return await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGetAll", null);
         }

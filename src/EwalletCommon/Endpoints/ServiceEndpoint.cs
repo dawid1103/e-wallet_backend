@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Http;
+using EwalletCommon.Utils;
 
 namespace EwalletCommon.Endpoints
 {

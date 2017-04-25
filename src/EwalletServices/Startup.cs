@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using EwalletServices.DataAccessLayer;
 using EwalletServices.Repository;
+using EwalletServices.Logic;
 
 namespace EwalletServices
 {
@@ -41,9 +42,13 @@ namespace EwalletServices
             services.AddSingleton(new Database(sqlConnectionString));
             services.AddScoped<IDatabaseSession, DatabaseSession>();
 
+            // Add logic
+            services.AddScoped<IPasswordLogic, PasswordLogic>();
+
             // Add db repositories
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // Add framework
             services.AddMvc();

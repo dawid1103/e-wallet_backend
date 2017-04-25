@@ -4,14 +4,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-IF OBJECT_ID ( 'dbo.TransactionGet', 'P' ) IS NULL
-    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.TransactionGet AS BEGIN SELECT 1; END';
+IF OBJECT_ID ( 'dbo.UserGet', 'P' ) IS NULL
+    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.UserGet AS BEGIN SELECT 1; END';
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Get transaction with given id
+-- Get user with given id
 -- ------------------------------------------------------------------------------------------------
-ALTER PROCEDURE dbo.TransactionGet
+ALTER PROCEDURE dbo.UserGet
 	@id int
 AS
 BEGIN
@@ -19,14 +19,14 @@ BEGIN
 
 	SELECT * 
 	FROM
-		[Transaction]
+		[User] 
 	WHERE 
 		id=@id;
 END
 GO
 
 
-GRANT EXECUTE ON dbo.TransactionGet
+GRANT EXECUTE ON dbo.UserGet
 	TO EwalletService
 ;
 GO
@@ -34,5 +34,5 @@ GO
 /* TEST
 	Execute it as simple query
 
-	EXEC dbo.TransactionGet 5
+	EXEC dbo.UserGet 5
 */

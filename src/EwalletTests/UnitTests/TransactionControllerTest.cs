@@ -51,7 +51,7 @@ namespace EwalletTests.UnitTests
             Assert.Equal(transaction.Title, fromDatabase.Title);
             Assert.Equal(transaction.Description, fromDatabase.Description);
             Assert.Equal(transaction.CategoryId, fromDatabase.CategoryId);
-            Assert.True(transaction.AddDate <= fromDatabase.AddDate);
+            Assert.True(transaction.AddDate != fromDatabase.AddDate);
         }
 
         [Fact]

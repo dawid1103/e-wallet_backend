@@ -21,14 +21,14 @@ BEGIN
 	SET NOCOUNT ON;
 
 	UPDATE 
-		"transaction" 
+		[Transaction]
 	SET 
 		title = @title,
 		description = @description,
 		categoryId = @categoryId,
 		addDate = GETDATE()
 	FROM
-		"Transaction" 
+		[Transaction] 
 	WHERE 
 		id = @id;
 END
