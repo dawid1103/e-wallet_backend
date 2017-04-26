@@ -21,7 +21,10 @@ BEGIN
 	DELETE FROM [User];
 
 	INSERT INTO [User](Email, PasswordHash, PasswordSalt,IsActive, [Role], ModifiedDate, InsertedDate) 
-	VALUES ('admin@admin.admin', 'ktEqsh2cMVcsHI90+C4KuyAOKHN000lZvc+y8bb5gl4=', 'da9EWZOrQbr5h+QeCJdD2q+24/DtGHPZ3OQ5i32WWmc=', 1,	2, GetDate(), GetDate())
+	VALUES ('admin@admin.admin', 'ktEqsh2cMVcsHI90+C4KuyAOKHN000lZvc+y8bb5gl4=', 'da9EWZOrQbr5h+QeCJdD2q+24/DtGHPZ3OQ5i32WWmc=', 1,	2, GetDate(), GetDate());
+
+	INSERT INTO [Category](Name)
+	VALUES ('Brak kategorii');
 
 END
 GO
