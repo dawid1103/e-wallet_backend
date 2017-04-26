@@ -113,5 +113,40 @@ namespace EwalletTests.UnitTests
             Assert.Equal(fromDatabase.Title, changedTitle);
             Assert.Equal(fromDatabase.Description, changedDesc);
         }
+
+        [Fact]
+        public async void GetByUserId()
+        {
+            UserDTO user = TestData.GetUserData();
+            user.Id = await _ewalletService.User.CreateAsync(user);
+
+            //create transaction 1
+            TransactionDTO transaction = TestData.GetTransactionData();
+            transaction.UserId = user.Id;
+            await _ewalletService.Transaction.CreateAsync(transaction);
+
+            //create transaction 2
+            transaction = TestData.GetTransactionData();
+            transaction.UserId = user.Id;
+            await _ewalletService.Transaction.CreateAsync(transaction);
+
+            //check
+            IEnumerable<TransactionDTO> userTransactions = await _ewalletService.Transaction.GetAllByUserIdAsync(user.Id);
+            Assert.True(userTransactions.Count() == 2);
+
+
+            //create 2nd user
+            user = TestData.GetUserData();
+            user.Id = await _ewalletService.User.CreateAsync(user);
+
+            //create transaction 1 for 2nd user
+            transaction = TestData.GetTransactionData();
+            transaction.UserId = user.Id;
+            await _ewalletService.Transaction.CreateAsync(transaction);
+
+            //check
+            userTransactions = await _ewalletService.Transaction.GetAllByUserIdAsync(user.Id);
+            Assert.True(userTransactions.Count() == 1);
+        }
     }
 }

@@ -4,14 +4,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-IF OBJECT_ID ( 'dbo.UserGetAllTransactions', 'P' ) IS NULL
-    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.UserGetAllTransactions AS BEGIN SELECT 1; END';
+IF OBJECT_ID ( 'dbo.TransactionGetAllByUserId', 'P' ) IS NULL
+    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.TransactionGetAllByUserId AS BEGIN SELECT 1; END';
 GO
 
 -- ------------------------------------------------------------------------------------------------
 -- Get all transactions with given user id
 -- ------------------------------------------------------------------------------------------------
-ALTER PROCEDURE dbo.UserGetAllTransactions
+ALTER PROCEDURE dbo.TransactionGetAllByUserId
 	@id int
 AS
 BEGIN
@@ -26,7 +26,7 @@ END
 GO
 
 
-GRANT EXECUTE ON dbo.UserGetAllTransactions
+GRANT EXECUTE ON dbo.TransactionGetAllByUserId
 	TO EwalletService
 ;
 GO
@@ -34,5 +34,5 @@ GO
 /* TEST
 	Execute it as simple query
 
-	EXEC dbo.UserGetAllTransactions 
+	EXEC dbo.TransactionGetAllByUserId 
 */

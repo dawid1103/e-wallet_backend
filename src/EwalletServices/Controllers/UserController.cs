@@ -79,11 +79,5 @@ namespace EwalletServices.Controllers
                 Role = user.Role
             };
         }
-
-        [HttpGet("{id}/transaction")]
-        public async Task<IEnumerable<TransactionDTO>> GetUserTransactions(int id)
-        {
-            return await _userRepository.GetTransactions(id);
-        }
     }
 }

@@ -48,5 +48,11 @@ namespace EwalletServices.Controllers
         {
             await _transactionRepository.EditAsync(category);
         }
+
+        [HttpGet("user/{id}")]
+        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
+        {
+            return await _transactionRepository.GetAllByUserIdAsync(id);
+        }
     }
 }

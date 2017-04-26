@@ -9,6 +9,7 @@ namespace EwalletServices.Repository
 {
     public interface ITransactionRepository : IRepository<TransactionDTO>
     {
+        Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id);
     }
     public class TransactionRepository : Repository, ITransactionRepository
     {
@@ -59,6 +60,16 @@ namespace EwalletServices.Repository
         public async Task<IEnumerable<TransactionDTO>> GetAllAsync()
         {
             return await base.LoadByStorageProcedureAsync<TransactionDTO>("dbo.TransactionGetAll", null);
+        }
+
+        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
+        {
+            IEnumerable<TransactionDTO> result = await base.LoadByStorageProcedureAsync<TransactionDTO>("dbo.TransactionGetAllByUserId", new
+            {
+                id = id
+            });
+
+            return result;
         }
     }
 }
