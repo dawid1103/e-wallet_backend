@@ -11,7 +11,7 @@ namespace EwalletServices.Repository
 {
     public interface IUserRepository : IRepository<UserDTO>
     {
-
+        Task<IEnumerable<TransactionDTO>> GetTransactions(int id);
     }
     public class UserRepository : Repository, IUserRepository
     {
@@ -19,7 +19,7 @@ namespace EwalletServices.Repository
         {
         }
 
-        public async Task<int> AddAsync(UserDTO user)
+        public async Task<int> CreateAsync(UserDTO user)
         {
             try
             {
@@ -71,6 +71,16 @@ namespace EwalletServices.Repository
         public async Task<IEnumerable<UserDTO>> GetAllAsync()
         {
             return await base.LoadByStorageProcedureAsync<UserDTO>("dbo.UserGetAll", null);
+        }
+
+        public async Task<IEnumerable<TransactionDTO>> GetTransactions(int id)
+        {
+            IEnumerable<TransactionDTO> result = await base.LoadByStorageProcedureAsync<TransactionDTO>("dbo.UserGetAllTransactions", new
+            {
+                id = id
+            });
+
+            return result;
         }
     }
 }

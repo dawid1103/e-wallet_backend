@@ -17,7 +17,12 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void CreateWithoutCategory()
         {
+            UserDTO user = TestData.GetUserData();
+            user.Id = await _ewalletService.User.CreateAsync(user);
+
             TransactionDTO transaction = TestData.GetTransactionData();
+            transaction.UserId = user.Id;
+
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);
@@ -26,10 +31,15 @@ namespace EwalletTests.UnitTests
         [Fact]
         public async void CreateWithCategory()
         {
+            UserDTO user = TestData.GetUserData();
+            user.Id = await _ewalletService.User.CreateAsync(user);
+
             CategoryDTO category = TestData.GetCategoryData();
             int categoryId = await _ewalletService.Category.CreateAsync(category);
 
             TransactionDTO transaction = TestData.GetTransactionData(categoryId);
+            transaction.UserId = user.Id;
+
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);

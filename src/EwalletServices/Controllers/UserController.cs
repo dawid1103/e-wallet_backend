@@ -34,7 +34,7 @@ namespace EwalletServices.Controllers
             //temporary
             user.Role = UserRole.Admin;
 
-            int userId = await _userRepository.AddAsync(user);
+            int userId = await _userRepository.CreateAsync(user);
             return userId;
         }
 
@@ -78,6 +78,12 @@ namespace EwalletServices.Controllers
                 Email = user.Email,
                 Role = user.Role
             };
+        }
+
+        [HttpGet("{id}/transaction")]
+        public async Task<IEnumerable<TransactionDTO>> GetUserTransactions(int id)
+        {
+            return await _userRepository.GetTransactions(id);
         }
     }
 }

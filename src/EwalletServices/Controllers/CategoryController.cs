@@ -21,7 +21,7 @@ namespace EwalletServices.Controllers
         [HttpPost]
         public async Task<int> CreateAsync([FromBody] CategoryDTO category)
         {
-            int id = await _categoryRepository.AddAsync(category);
+            int id = await _categoryRepository.CreateAsync(category);
             return id;
         }
 

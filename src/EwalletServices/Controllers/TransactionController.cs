@@ -21,7 +21,7 @@ namespace EwalletServices.Controllers
         [HttpPost]
         public async Task<int> CreateAsync([FromBody] TransactionDTO transaction)
         {
-            int id = await _transactionRepository.AddAsync(transaction);
+            int id = await _transactionRepository.CreateAsync(transaction);
             return id;
         }
 

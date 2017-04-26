@@ -14,7 +14,7 @@ namespace EwalletServices.Repository
     {
         public CategoryRepository(IDatabaseSession dbSession) : base(dbSession) { }
 
-        public async Task<int> AddAsync(CategoryDTO category)
+        public async Task<int> CreateAsync(CategoryDTO category)
         {
             IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.CategoryCreate", new
             {

@@ -14,13 +14,14 @@ namespace EwalletServices.Repository
     {
         public TransactionRepository(IDatabaseSession dbSession) : base(dbSession) { }
 
-        public async Task<int> AddAsync(TransactionDTO transaction)
+        public async Task<int> CreateAsync(TransactionDTO transaction)
         {
             IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.TransactionCreate", new
             {
                 title = transaction.Title,
                 description = transaction.Description,
-                categoryId = transaction.CategoryId
+                categoryId = transaction.CategoryId,
+                userId = transaction.UserId
             });
 
             return results.FirstOrDefault();

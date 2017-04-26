@@ -14,7 +14,8 @@ GO
 ALTER PROCEDURE dbo.TransactionCreate
 	@title nvarchar(256),
 	@description nvarchar(MAX),
-	@categoryId int
+	@categoryId int,
+	@userId int
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -28,12 +29,14 @@ BEGIN
 		[Transaction] (
 			title,
 			description,
-			categoryId
+			categoryId,
+			userId
 		)
 	VALUES (
 		@title,
 		@description,
-		@categoryId
+		@categoryId,
+		@userId
 	);
 	
 	SELECT SCOPE_IDENTITY() AS id -- Returns the last Id which is our new category id of current db session

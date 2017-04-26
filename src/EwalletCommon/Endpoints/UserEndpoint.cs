@@ -72,5 +72,15 @@ namespace EwalletCommon.Endpoints
             return verifycationResult;
 
         }
+
+        /// <summary>
+        /// Get user transactions
+        /// </summary>
+        /// <param name="id">User id</param>
+        /// <returns>List of user transactions</returns>
+        public async Task<IEnumerable<TransactionDTO>> GetUserTransactionsAsync(int id)
+        {
+            return await base.GetAsync<IEnumerable<TransactionDTO>>($"user/{id}/transaction");
+        }
     }
 }
