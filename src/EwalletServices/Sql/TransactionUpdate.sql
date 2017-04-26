@@ -20,6 +20,9 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
+	IF(@categoryId = 0)
+	SET @categoryId = NULL;
+
 	UPDATE 
 		[Transaction]
 	SET 

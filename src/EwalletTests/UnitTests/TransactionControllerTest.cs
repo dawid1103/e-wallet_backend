@@ -95,6 +95,7 @@ namespace EwalletTests.UnitTests
             fromDatabase.Title = changedTitle;
             fromDatabase.Description = changedDesc;
             fromDatabase.AddDate = time;
+            fromDatabase.CategoryId = 0;
 
             await _ewalletService.Transaction.UpdateAsync(fromDatabase);
             fromDatabase = await _ewalletService.Transaction.GetAsync(transaction.Id);
