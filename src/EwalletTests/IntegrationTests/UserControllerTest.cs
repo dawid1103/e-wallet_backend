@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EwalletTests.UnitTests
+namespace EwalletTests.IntegrationTests
 {
     [Collection(nameof(EwalletService))]
 

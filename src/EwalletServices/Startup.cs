@@ -11,6 +11,7 @@ using Serilog;
 using EwalletServices.DataAccessLayer;
 using EwalletServices.Repository;
 using EwalletServices.Logic;
+using System.IO;
 
 namespace EwalletServices
 {
@@ -28,7 +29,7 @@ namespace EwalletServices
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.RollingFile(@"logs\log-{Date}.txt").CreateLogger();
+                .WriteTo.RollingFile(Path.Combine("Logs", "log-{Date}.txt")).CreateLogger();
         }
 
         public IConfigurationRoot Configuration { get; }

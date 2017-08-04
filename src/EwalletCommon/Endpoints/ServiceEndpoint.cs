@@ -44,11 +44,6 @@ namespace EwalletCommon.Endpoints
                     case "NotUnique":
                         throw new NotUniqueException();
                     default:
-                        if (!string.IsNullOrEmpty(serviceError.Code))
-                        {
-                            throw new Exception($"Method {response.RequestMessage.RequestUri.ToString()} failed with status code: {response.StatusCode}, content: {errorContent}");
-                        }
-
                         switch (response.StatusCode)
                         {
                             case HttpStatusCode.NotFound:
