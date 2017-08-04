@@ -11,7 +11,7 @@ namespace EwalletServices.Repository
 
         Task<IEnumerable<T>> GetAllAsync();
 
-        Task<int> AddAsync(T entity);
+        Task<int> CreateAsync(T entity);
 
         Task DeleteAsync(int id);
 

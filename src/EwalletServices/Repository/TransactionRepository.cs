@@ -9,18 +9,20 @@ namespace EwalletServices.Repository
 {
     public interface ITransactionRepository : IRepository<TransactionDTO>
     {
+        Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id);
     }
     public class TransactionRepository : Repository, ITransactionRepository
     {
         public TransactionRepository(IDatabaseSession dbSession) : base(dbSession) { }
 
-        public async Task<int> AddAsync(TransactionDTO transaction)
+        public async Task<int> CreateAsync(TransactionDTO transaction)
         {
             IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.TransactionCreate", new
             {
                 title = transaction.Title,
                 description = transaction.Description,
-                categoryId = transaction.CategoryId
+                categoryId = transaction.CategoryId,
+                userId = transaction.UserId
             });
 
             return results.FirstOrDefault();
@@ -58,6 +60,16 @@ namespace EwalletServices.Repository
         public async Task<IEnumerable<TransactionDTO>> GetAllAsync()
         {
             return await base.LoadByStorageProcedureAsync<TransactionDTO>("dbo.TransactionGetAll", null);
+        }
+
+        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
+        {
+            IEnumerable<TransactionDTO> result = await base.LoadByStorageProcedureAsync<TransactionDTO>("dbo.TransactionGetAllByUserId", new
+            {
+                id = id
+            });
+
+            return result;
         }
     }
 }

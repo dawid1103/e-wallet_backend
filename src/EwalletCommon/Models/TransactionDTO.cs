@@ -31,5 +31,10 @@ namespace EwalletCommon.Models
         /// Transaction category id
         /// </summary>
         public int CategoryId { get; set; }
+
+        /// <summary>
+        /// User id
+        /// </summary>
+        public int UserId { get; set; }
     }
 }

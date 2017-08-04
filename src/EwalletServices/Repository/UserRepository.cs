@@ -11,7 +11,6 @@ namespace EwalletServices.Repository
 {
     public interface IUserRepository : IRepository<UserDTO>
     {
-
     }
     public class UserRepository : Repository, IUserRepository
     {
@@ -19,7 +18,7 @@ namespace EwalletServices.Repository
         {
         }
 
-        public async Task<int> AddAsync(UserDTO user)
+        public async Task<int> CreateAsync(UserDTO user)
         {
             try
             {

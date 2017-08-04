@@ -34,7 +34,7 @@ namespace EwalletServices.Controllers
             //temporary
             user.Role = UserRole.Admin;
 
-            int userId = await _userRepository.AddAsync(user);
+            int userId = await _userRepository.CreateAsync(user);
             return userId;
         }
 

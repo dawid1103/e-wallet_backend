@@ -59,5 +59,15 @@ namespace EwalletCommon.Endpoints
         {
             await base.PutAsync("transaction", transaction);
         }
+
+        /// <summary>
+        /// Get transactions by user
+        /// </summary>
+        /// <param name="id">User id</param>
+        /// <returns>List of user transactions</returns>
+        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
+        {
+            return await base.GetAsync<IEnumerable<TransactionDTO>>($"transaction/user/{id}");
+        }
     }
 }

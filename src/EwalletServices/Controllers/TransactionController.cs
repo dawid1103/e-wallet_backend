@@ -21,7 +21,7 @@ namespace EwalletServices.Controllers
         [HttpPost]
         public async Task<int> CreateAsync([FromBody] TransactionDTO transaction)
         {
-            int id = await _transactionRepository.AddAsync(transaction);
+            int id = await _transactionRepository.CreateAsync(transaction);
             return id;
         }
 
@@ -47,6 +47,12 @@ namespace EwalletServices.Controllers
         public async Task UpdateAsync([FromBody] TransactionDTO category)
         {
             await _transactionRepository.EditAsync(category);
+        }
+
+        [HttpGet("user/{id}")]
+        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
+        {
+            return await _transactionRepository.GetAllByUserIdAsync(id);
         }
     }
 }
