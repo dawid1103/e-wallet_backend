@@ -1,10 +1,10 @@
 ﻿namespace EwalletServices.DataAccessLayer
 {
-    public class Database
+    public class DatabaseConfig
     {
         public string ConnectionString { get; set; }
 
-        public Database(string connectionString)
+        public DatabaseConfig(string connectionString)
         {
             ConnectionString = connectionString;
         }

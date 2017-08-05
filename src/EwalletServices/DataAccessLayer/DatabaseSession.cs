@@ -10,12 +10,12 @@ namespace EwalletServices.DataAccessLayer
     public class DatabaseSession : IDatabaseSession, IDisposable
     {
         private SqlConnection _connection;
-        private Database _database;
+        private DatabaseConfig _databaseConfig;
         private bool _disposed = false;
 
-        public DatabaseSession(Database database)
+        public DatabaseSession(DatabaseConfig databaseConfig)
         {
-            _database = database;
+            _databaseConfig = databaseConfig;
         }
 
         public SqlConnection Connection
@@ -24,7 +24,7 @@ namespace EwalletServices.DataAccessLayer
             {
                 if (_connection == null)
                 {
-                    _connection = new SqlConnection(_database.ConnectionString);
+                    _connection = new SqlConnection(_databaseConfig.ConnectionString);
                     _connection.Open();
                 }
 

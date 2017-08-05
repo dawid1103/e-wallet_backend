@@ -33,7 +33,7 @@ namespace EwalletTests.Common
 
         protected void ClearDatabase()
         {
-            Database db = (Database)_server.Host.Services.GetService(typeof(Database));
+            DatabaseConfig db = (DatabaseConfig)_server.Host.Services.GetService(typeof(DatabaseConfig));
             using (var connection = new SqlConnection(db.ConnectionString))
             {
                 connection.Execute("dbo.ClearDatabase", commandType: System.Data.CommandType.StoredProcedure);

@@ -40,7 +40,7 @@ namespace EwalletServices
             string sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
 
             // Add general
-            services.AddSingleton(new Database(sqlConnectionString));
+            services.AddSingleton(new DatabaseConfig(sqlConnectionString));
             services.AddScoped<IDatabaseSession, DatabaseSession>();
 
             // Add logic
