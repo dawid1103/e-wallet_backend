@@ -14,10 +14,11 @@ namespace EwalletServices
     {
         public static void Main(string[] args)
         {
-            if (!Debugger.IsAttached && !args.Contains("--debug"))
+            if (Debugger.IsAttached)
             {
                 // sets propert working directory
-                Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+                var rootPath = Environment.GetEnvironmentVariable("ASPNETCORE_ROOTPATH");
+                Directory.SetCurrentDirectory(rootPath);
             }
 
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

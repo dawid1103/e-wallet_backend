@@ -32,7 +32,8 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_ROOTPATH": "${workspaceRoot}/src/EwalletServices"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceRoot}/src/EwalletServices/Views"
