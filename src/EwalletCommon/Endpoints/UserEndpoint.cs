@@ -12,7 +12,6 @@ namespace EwalletCommon.Endpoints
     {
         public UserEndpoint(HttpClient client) : base(client) { }
 
-
         /// <summary>
         /// Create user
         /// </summary>
@@ -70,7 +69,6 @@ namespace EwalletCommon.Endpoints
             var verifycationResult = await PostAsync<UserVerificationResult>(requestUrl, password);
 
             return verifycationResult;
-
         }
     }
 }

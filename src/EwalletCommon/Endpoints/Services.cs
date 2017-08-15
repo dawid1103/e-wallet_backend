@@ -17,6 +17,7 @@ namespace EwalletCommon.Endpoints
         readonly ProxySettings _settings;
 
         public EwalletService Wallet { get; private set; }
+        
         public Service(IOptions<ProxySettings> proxySettings)
         {
             _settings = proxySettings.Value;

@@ -14,6 +14,7 @@ namespace EwalletCommon.Endpoints
     public class ServiceEndpoint
     {
         protected HttpClient _httpClient;
+        
         public ServiceEndpoint(string baseUrl)
         {
             _httpClient = new HttpClient();
