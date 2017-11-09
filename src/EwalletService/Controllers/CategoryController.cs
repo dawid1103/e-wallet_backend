@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EwalletCommon.Models;
-using EwalletServices.Repository;
+using EwalletService.Repository;
 
-namespace EwalletServices.Controllers
+namespace EwalletService.Controllers
 {
     [Route("[controller]")]
     public class CategoryController : Controller

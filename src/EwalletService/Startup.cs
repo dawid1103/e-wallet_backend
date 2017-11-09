@@ -8,12 +8,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using EwalletServices.DataAccessLayer;
-using EwalletServices.Repository;
-using EwalletServices.Logic;
+using EwalletService.DataAccessLayer;
+using EwalletService.Repository;
+using EwalletService.Logic;
 using System.IO;
 
-namespace EwalletServices
+namespace EwalletService
 {
     public class Startup
     {

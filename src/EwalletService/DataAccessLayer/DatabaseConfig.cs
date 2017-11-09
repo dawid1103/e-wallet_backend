@@ -1,4 +1,4 @@
-﻿namespace EwalletServices.DataAccessLayer
+﻿namespace EwalletService.DataAccessLayer
 {
     public class DatabaseConfig
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EwalletServices.Repository
+namespace EwalletService.Repository
 {
     public interface IRepository<T>
     {

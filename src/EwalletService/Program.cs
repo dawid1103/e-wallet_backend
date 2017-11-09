@@ -8,7 +8,7 @@ using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 
-namespace EwalletServices
+namespace EwalletService
 {
     public class Program
     {

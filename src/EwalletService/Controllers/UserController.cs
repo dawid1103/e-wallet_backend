@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using EwalletServices.Logic;
+using EwalletService.Logic;
 using EwalletCommon.Models;
-using EwalletServices.Repository;
-using EwalletServices.Models;
+using EwalletService.Repository;
+using EwalletService.Models;
 using EwalletCommon.Enums;
 
-namespace EwalletServices.Controllers
+namespace EwalletService.Controllers
 {
     [Route("[controller]")]
     public class UserController : Controller

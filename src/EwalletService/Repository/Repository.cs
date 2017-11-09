@@ -1,11 +1,11 @@
 ﻿using Dapper;
-using EwalletServices.DataAccessLayer;
+using EwalletService.DataAccessLayer;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using static Dapper.SqlMapper;
 
-namespace EwalletServices.Repository
+namespace EwalletService.Repository
 {
     public abstract class Repository
     {

@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EwalletServices.DataAccessLayer;
+using EwalletService.DataAccessLayer;
 using EwalletCommon.Utils;
 using System.Data.SqlClient;
 
-namespace EwalletServices.Repository
+namespace EwalletService.Repository
 {
     public interface IUserRepository : IRepository<UserDTO>
     {
