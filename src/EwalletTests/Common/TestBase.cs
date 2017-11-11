@@ -1,16 +1,12 @@
 ﻿using Dapper;
-using EwalletCommon.Endpoints;
-using EwalletServices;
-using EwalletServices.DataAccessLayer;
+using EwalletService.DataAccessLayer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Xunit;
+using EwalletService;
+using EwalletCommon.Endpoints;
 
 namespace EwalletTests.Common
 {
@@ -18,7 +14,7 @@ namespace EwalletTests.Common
     public abstract class TestBase
     {
         protected readonly TestServer _server;
-        protected readonly EwalletService _ewalletService;
+        protected readonly Ewallet _ewalletService;
 
         public TestBase()
         {
@@ -28,7 +24,7 @@ namespace EwalletTests.Common
             ClearDatabase();
 
             HttpClient client = _server.CreateClient();
-            _ewalletService = new EwalletService(client);
+            _ewalletService = new Ewallet(client);
         }
 
         protected void ClearDatabase()

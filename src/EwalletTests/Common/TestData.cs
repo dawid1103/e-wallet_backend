@@ -1,10 +1,6 @@
-﻿using EwalletCommon.Endpoints;
-using EwalletCommon.Enums;
+﻿using EwalletCommon.Enums;
 using EwalletCommon.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EwalletTests.Common
 {
