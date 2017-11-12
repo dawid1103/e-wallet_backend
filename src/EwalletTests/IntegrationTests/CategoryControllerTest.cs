@@ -4,20 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Moq;
+using EwalletService.Repository;
+using EwalletService.Controllers;
 
 namespace EwalletTests.IntegrationTests
 {
     [Collection(nameof(EwalletService))]
     public class CategoryControllerTest : TestBase
     {
-
-        public CategoryControllerTest() : base() { }
-
         [Fact]
         public async void Create()
         {
+            //Arrange 
+            Mock<ICategoryRepository> categoryRepositoryMock = new Mock<ICategoryRepository>();
+            categoryRepositoryMock.Setup(x => x.CreateAsync(It.IsAny<CategoryDTO>()))
+                                  .ReturnsAsync(2);
+
+            CategoryController categoryController = new CategoryController(categoryRepositoryMock.Object);
+
             CategoryDTO category = TestData.GetCategoryData();
-            int id = await _ewalletService.Category.CreateAsync(category);
+            int id = await categoryController.CreateAsync(category);
+
             Assert.NotNull(id);
         }
 
@@ -77,7 +85,7 @@ namespace EwalletTests.IntegrationTests
             await _ewalletService.Category.DeleteAsync(transaction.CategoryId);
 
             TransactionDTO transFromDb = await _ewalletService.Transaction.GetAsync(transaction.Id);
-            Assert.Equal(transFromDb.CategoryId, 0);
+            Assert.Equal(0, transFromDb.CategoryId);
 
             CategoryDTO catFromDb = await _ewalletService.Category.GetAsync(transaction.CategoryId);
             Assert.Null(catFromDb);

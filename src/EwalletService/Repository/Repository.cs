@@ -9,21 +9,21 @@ namespace EwalletService.Repository
 {
     public abstract class Repository
     {
-        protected readonly IDatabaseSession _dbSession;
+        protected readonly IDatabaseSession dbSession;
 
         protected Repository(IDatabaseSession dbSession)
         {
-            _dbSession = dbSession;
+            this.dbSession = dbSession;
         }
 
         protected IEnumerable<T> LoadByStorageProcedure<T>(string spName, object param)
         {
-            return _dbSession.Connection.Query<T>(spName, param, commandType: CommandType.StoredProcedure);
+            return dbSession.Connection.Query<T>(spName, param, commandType: CommandType.StoredProcedure);
         }
 
         protected Task<IEnumerable<T>> LoadByStorageProcedureAsync<T>(string spName, object param)
         {
-            return _dbSession.Connection.QueryAsync<T>(spName, param, commandType: CommandType.StoredProcedure);
+            return dbSession.Connection.QueryAsync<T>(spName, param, commandType: CommandType.Text);
         }
 
         protected DataTable ToSqlIntArray(IEnumerable<int> values)
@@ -44,22 +44,22 @@ namespace EwalletService.Repository
 
         protected Task<GridReader> LoadMultipleByStorageProcedureAsync(string spName, object param)
         {
-            return _dbSession.Connection.QueryMultipleAsync(spName, param, commandType: CommandType.StoredProcedure);
+            return dbSession.Connection.QueryMultipleAsync(spName, param, commandType: CommandType.StoredProcedure);
         }
 
         protected void ExecuteStorageProcedure(string spName, object param)
         {
-            _dbSession.Connection.Execute(spName, param: param, commandType: CommandType.StoredProcedure);
+            dbSession.Connection.Execute(spName, param: param, commandType: CommandType.StoredProcedure);
         }
 
         protected async Task ExecuteStorageProcedureAsync(string spName, object param)
         {
-            await _dbSession.Connection.ExecuteAsync(spName, param, commandType: CommandType.StoredProcedure);
+            await dbSession.Connection.ExecuteAsync(spName, param, commandType: CommandType.StoredProcedure);
         }
 
         protected async Task<T> ExecuteScalarStorageProcedureAsync<T>(string spName, object param)
         {
-            var scalar = await _dbSession.Connection.ExecuteScalarAsync(spName, param: param, commandType: CommandType.StoredProcedure);
+            var scalar = await dbSession.Connection.ExecuteScalarAsync(spName, param: param, commandType: CommandType.StoredProcedure);
             return (T)scalar;
         }
     }

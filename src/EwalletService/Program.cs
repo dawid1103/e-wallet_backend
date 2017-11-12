@@ -14,8 +14,8 @@ namespace EwalletService
             if (Debugger.IsAttached)
             {
                 // sets propert working directory
-                var rootPath = Environment.GetEnvironmentVariable("ASPNETCORE_ROOTPATH");
-                Directory.SetCurrentDirectory(rootPath);
+                //var rootPath = Environment.GetEnvironmentVariable("ASPNETCORE_ROOTPATH");
+                //Directory.SetCurrentDirectory(rootPath);
             }
 
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EwalletCommon.Models;
@@ -11,42 +9,42 @@ namespace EwalletService.Controllers
     [Route("[controller]")]
     public class CategoryController : Controller
     {
-        private ICategoryRepository _categoryRepository;
+        private ICategoryRepository categoryRepository;
 
         public CategoryController(ICategoryRepository categoryRepository)
         {
-            _categoryRepository = categoryRepository;
+            this.categoryRepository = categoryRepository;
         }
 
         [HttpPost]
         public async Task<int> CreateAsync([FromBody] CategoryDTO category)
         {
-            int id = await _categoryRepository.CreateAsync(category);
+            int id = await categoryRepository.CreateAsync(category);
             return id;
         }
 
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {
-            await _categoryRepository.DeleteAsync(id);
+            await categoryRepository.DeleteAsync(id);
         }
 
         [HttpGet("{id}")]
         public async Task<CategoryDTO> GetAsync(int id)
         {
-            return await _categoryRepository.GetAsync(id);
+            return await categoryRepository.GetAsync(id);
         }
 
         [HttpGet]
         public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
         {
-            return await _categoryRepository.GetAllAsync();
+            return await categoryRepository.GetAllAsync();
         }
 
         [HttpPut]
         public async Task UpdateAsync([FromBody] CategoryDTO category)
         {
-            await _categoryRepository.EditAsync(category);
+            await categoryRepository.EditAsync(category);
         }
     }
 }

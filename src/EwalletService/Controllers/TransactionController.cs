@@ -1,58 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using EwalletCommon.Models;
+﻿using EwalletCommon.Models;
 using EwalletService.Repository;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EwalletService.Controllers
 {
     [Route("[controller]")]
     public class TransactionController : Controller
     {
-        private ITransactionRepository _transactionRepository;
+        private ITransactionRepository transactionRepository;
 
         public TransactionController(ITransactionRepository transactionRepository)
         {
-            _transactionRepository = transactionRepository;
+            this.transactionRepository = transactionRepository;
         }
 
         [HttpPost]
         public async Task<int> CreateAsync([FromBody] TransactionDTO transaction)
         {
-            int id = await _transactionRepository.CreateAsync(transaction);
+            int id = await transactionRepository.CreateAsync(transaction);
             return id;
         }
 
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {
-            await _transactionRepository.DeleteAsync(id);
+            await transactionRepository.DeleteAsync(id);
         }
 
         [HttpGet("{id}")]
         public async Task<TransactionDTO> GetAsync(int id)
         {
-            return await _transactionRepository.GetAsync(id);
+            return await transactionRepository.GetAsync(id);
         }
 
         [HttpGet]
         public async Task<IEnumerable<TransactionDTO>> GetAllAsync()
         {
-            return await _transactionRepository.GetAllAsync();
+            return await transactionRepository.GetAllAsync();
         }
 
         [HttpPut]
         public async Task UpdateAsync([FromBody] TransactionDTO category)
         {
-            await _transactionRepository.EditAsync(category);
+            await transactionRepository.EditAsync(category);
         }
 
         [HttpGet("user/{id}")]
         public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
         {
-            return await _transactionRepository.GetAllByUserIdAsync(id);
+            return await transactionRepository.GetAllByUserIdAsync(id);
         }
     }
 }

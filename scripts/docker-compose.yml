@@ -3,8 +3,13 @@ services:
   mssql:
     image: microsoft/mssql-server-linux
     container_name: "mssql"
+    volumes:
+      - mssqldata:/var/opt/mssql
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: "secret12345@"
     ports:
       - 1433:1433
+    
+volumes:
+  mssqldata:

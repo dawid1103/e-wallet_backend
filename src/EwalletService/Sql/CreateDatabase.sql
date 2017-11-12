@@ -2,11 +2,11 @@ CREATE DATABASE Ewallet;
 USE Ewallet;
 
 CREATE TABLE Category (
-    Id int,
-    Name varchar(255)
+    [Id] [int] primary key IDENTITY(1,1) NOT NULL,
+    [Name] varchar(255) NOT NULL
 );
 
-CREATE TABLE `User` (
+CREATE TABLE "User" (
     Id int,
     Email varchar(255),
     Password varchar(255),
@@ -18,7 +18,7 @@ CREATE TABLE `User` (
     IsActive boolean
 );
 
-CREATE TABLE `Transaction` (
+CREATE TABLE "Transaction" (
     Id int,
     Title varchar(255),
     AddDate TIMESTAMP,

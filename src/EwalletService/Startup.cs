@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using EwalletService.DataAccessLayer;
+using EwalletService.Logic;
+using EwalletService.Repository;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using EwalletService.DataAccessLayer;
-using EwalletService.Repository;
-using EwalletService.Logic;
 using System.IO;
 
 namespace EwalletService
@@ -34,9 +34,10 @@ namespace EwalletService
         public void ConfigureServices(IServiceCollection services)
         {
             string sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            string sqlDatabaseName = Configuration.GetConnectionString("DatabaseName");
 
             // Add general
-            services.AddSingleton(new DatabaseConfig(sqlConnectionString));
+            services.AddSingleton(new DatabaseConfig(sqlConnectionString, sqlDatabaseName));
             services.AddScoped<IDatabaseSession, DatabaseSession>();
 
             // Add logic
@@ -52,7 +53,7 @@ namespace EwalletService
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IDatabaseSession db)
         {
             // Log to console only on dev
             if (env.EnvironmentName != EnvironmentName.Production || env.EnvironmentName != EnvironmentName.Staging)
@@ -63,6 +64,8 @@ namespace EwalletService
             loggerFactory.AddDebug();
             loggerFactory.AddSerilog();
             app.UseMvc();
+
+            db.InitDatabase();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace EwalletTests.Common
             IWebHostBuilder builder = new WebHostBuilder().UseStartup<Startup>();
             _server = new TestServer(builder);
 
-            ClearDatabase();
+            // ClearDatabase();
 
             HttpClient client = _server.CreateClient();
             _ewalletService = new Ewallet(client);
