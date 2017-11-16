@@ -23,7 +23,7 @@ namespace EwalletService.Repository
 
         protected Task<IEnumerable<T>> LoadByStorageProcedureAsync<T>(string spName, object param)
         {
-            return dbSession.Connection.QueryAsync<T>(spName, param, commandType: CommandType.Text);
+            return dbSession.Connection.QueryAsync<T>(spName, param, commandType: CommandType.StoredProcedure);
         }
 
         protected DataTable ToSqlIntArray(IEnumerable<int> values)

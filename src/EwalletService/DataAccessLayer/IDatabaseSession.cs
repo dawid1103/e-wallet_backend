@@ -1,11 +1,10 @@
-
-using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace EwalletService.DataAccessLayer
 {
     public interface IDatabaseSession
     {
-        SqlConnection Connection { get; }
+        DbConnection Connection { get; }
         void InitDatabase();
     }
 }

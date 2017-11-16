@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -11,7 +12,7 @@ namespace EwalletService.DataAccessLayer
 {
     public class DatabaseSession : IDatabaseSession, IDisposable
     {
-        private SqlConnection connection;
+        private DbConnection connection;
         private DatabaseConfig config;
         private bool disposed = false;
         private ILogger logger;
@@ -22,7 +23,7 @@ namespace EwalletService.DataAccessLayer
             this.logger = logger;
         }
 
-        public SqlConnection Connection
+        public DbConnection Connection
         {
             get
             {
@@ -44,14 +45,18 @@ namespace EwalletService.DataAccessLayer
 
         public void InitDatabase()
         {
-            IEnumerable<object> table = Connection.Query(string.Format(CategoryQueries.CheckIfExist, config.DatabaseName), commandType: CommandType.Text);
-            if (!table.Any())
+
+            foreach (string tableName in DatabaseQueries.Tables)
             {
-                logger.LogInformation("Missing table: Category");
+                int exist = Connection.ExecuteScalar<int>(DatabaseQueries.CheckIfTableExist(config.DatabaseName, tableName), commandType: CommandType.Text);
+                if (exist == 0)
+                {
+                    logger.LogInformation($"Missing table: {tableName}");
 
-                Connection.Execute(CategoryQueries.CreateTable, commandType: CommandType.Text);
+                    Connection.Execute(DatabaseQueries.CreateTable(tableName), commandType: CommandType.Text);
 
-                logger.LogInformation("Created table: Category");
+                    logger.LogInformation($"Created table: {tableName}");
+                }
             }
         }
 

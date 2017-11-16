@@ -1,6 +1,5 @@
 ﻿using EwalletCommon.Models;
 using EwalletService.DataAccessLayer;
-using EwalletService.Sql;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,7 +52,7 @@ namespace EwalletService.Repository
 
         public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
         {
-            return await base.LoadByStorageProcedureAsync<CategoryDTO>(CategoryQueries.GetAll, null);
+            return await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGetAll", null);
         }
     }
 }

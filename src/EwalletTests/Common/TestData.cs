@@ -10,7 +10,7 @@ namespace EwalletTests.Common
         {
             var category = new CategoryDTO()
             {
-                Name = $"Category - {DateTime.Now}"
+                Name = $"Category - {Guid.NewGuid()}"
             };
 
             return category;
@@ -18,13 +18,13 @@ namespace EwalletTests.Common
 
         public static TransactionDTO GetTransactionData(int categoryId = 0)
         {
-            DateTime time = DateTime.Now;
+            Guid guild = Guid.NewGuid();
 
             var transaction = new TransactionDTO()
             {
-                Title = $"Title - {time}",
-                AddDate = time,
-                Description = $"Description - {time}",
+                Title = $"Title - {guild}",
+                AddDate = DateTime.Now,
+                Description = $"Description - {guild}",
             };
 
             if (categoryId > 0)
