@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 
 namespace EwalletCommon.Endpoints
 {
@@ -25,6 +21,5 @@ namespace EwalletCommon.Endpoints
             Category = new CategoryEndpoint(_httpClient);
             User = new UserEndpoint(_httpClient);
         }
-
     }
 }

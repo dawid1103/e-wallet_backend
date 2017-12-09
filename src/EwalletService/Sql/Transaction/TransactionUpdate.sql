@@ -14,6 +14,7 @@ GO
 ALTER PROCEDURE dbo.TransactionUpdate
 	@id int,
 	@title nvarchar(256),
+	@price decimal(18,2),
 	@description nvarchar(MAX),
 	@categoryId int
 AS
@@ -28,8 +29,8 @@ BEGIN
 	SET 
 		title = @title,
 		description = @description,
-		categoryId = @categoryId,
-		addDate = GETDATE()
+		price = @price,
+		categoryId = @categoryId
 	FROM
 		[Transaction] 
 	WHERE 

@@ -23,15 +23,10 @@ namespace EwalletService.Controllers
         }
 
         [HttpPost]
-        public async Task<int> CreateAsync([FromBody]UserDTO user)
+        public async Task<int> CreateAsync([FromBody]UserRegistrationDataDTO userData)
         {
-            UserCredentials credentials = passwordLogic.HashPassword(user.Password);
-            user.PasswordHash = credentials.Hash;
-            user.PasswordSalt = credentials.Salt;
-
-            //temporary
-            user.Role = UserRole.Admin;
-
+            UserCredentials credentials = passwordLogic.HashPassword(userData.Password);
+            UserDTO user = new UserDTO(userData.Email, credentials.Salt, credentials.Hash);
             int userId = await userRepository.CreateAsync(user);
             return userId;
         }
@@ -54,22 +49,16 @@ namespace EwalletService.Controllers
             return await userRepository.GetAllAsync();
         }
 
-        //TODO later
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]UserDTO user)
-        //{
-        //}
-
         [HttpPost("verifyuser")]
-        public async Task<UserVerificationResult> VerifyUser([FromQuery]string email, [FromBody]string password)
+        public async Task<UserVerificationResultDTO> VerifyUser([FromQuery]string email, [FromBody]string password)
         {
             IEnumerable<UserDTO> allUsers = await userRepository.GetAllAsync();
             UserDTO user = allUsers.First(u => u.Email == email);
 
-            string calculatedHash = passwordLogic.HashPassword(password, user.PasswordSalt);
+            string calculatedHash = passwordLogic.HashPassword(password, user.Salt);
             bool isMatching = user.PasswordHash == calculatedHash;
 
-            return new UserVerificationResult
+            return new UserVerificationResultDTO
             {
                 Id = user.Id,
                 IsVerifiedAsPositive = isMatching && user.IsActive,

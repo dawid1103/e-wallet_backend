@@ -14,7 +14,7 @@ GO
 ALTER PROCEDURE dbo.UserCreate
 	@email nvarchar(128),
 	@passwordHash nvarchar(512),
-	@passwordSalt nvarchar(64),
+	@salt nvarchar(64),
 	@isActive bit,
 	@role int
 AS
@@ -25,7 +25,7 @@ BEGIN
 		[User] (
 			Email, 
 			PasswordHash, 
-			PasswordSalt, 
+			Salt, 
 			IsActive, 
 			[Role], 
 			ModifiedDate, 
@@ -34,7 +34,7 @@ BEGIN
 	VALUES (
 		@email, 
 		@passwordHash, 
-		@passwordSalt, 
+		@salt, 
 		@isActive, 
 		@role, 
 		GetDate(), 

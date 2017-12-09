@@ -1,5 +1,4 @@
-﻿using EwalletCommon.Enums;
-using EwalletCommon.Models;
+﻿using EwalletCommon.Models;
 using System;
 
 namespace EwalletTests.Common
@@ -19,12 +18,14 @@ namespace EwalletTests.Common
         public static TransactionDTO GetTransactionData(int categoryId = 0)
         {
             Guid guild = Guid.NewGuid();
+            Random rnd = new Random();
 
             var transaction = new TransactionDTO()
             {
                 Title = $"Title - {guild}",
                 AddDate = DateTime.Now,
                 Description = $"Description - {guild}",
+                Price = decimal.Round((decimal)(rnd.Next(1, 999999999) + rnd.NextDouble()), 2, MidpointRounding.AwayFromZero)
             };
 
             if (categoryId > 0)
@@ -35,14 +36,12 @@ namespace EwalletTests.Common
             return transaction;
         }
 
-        public static UserDTO GetUserData()
+        public static UserRegistrationDataDTO GetUserRegistrationData()
         {
-            return new UserDTO()
+            return new UserRegistrationDataDTO()
             {
                 Email = $"dawid.pfv@gmail.com - {DateTime.Now.Ticks}",
-                IsActive = true,
                 Password = "testPassword",
-                Role = UserRole.Admin
             };
         }
     }

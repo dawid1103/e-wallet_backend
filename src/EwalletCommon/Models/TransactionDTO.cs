@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EwalletCommon.Models
 {
@@ -16,6 +13,11 @@ namespace EwalletCommon.Models
         /// Transaction title
         /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// Transaction price
+        /// </summary>
+        public decimal Price { get; set; }
 
         /// <summary>
         /// Transaction date

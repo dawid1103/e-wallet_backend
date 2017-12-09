@@ -1,12 +1,8 @@
 ﻿using EwalletCommon.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EwalletCommon.Models
 {
-    public class UserVerificationResult
+    public class UserVerificationResultDTO
     {
         /// <summary>
         /// User id

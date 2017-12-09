@@ -1,4 +1,5 @@
-﻿using EwalletCommon.Models;
+﻿using EwalletCommon.Enums;
+using EwalletCommon.Models;
 using EwalletTests.Common;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void Create()
         {
-            UserDTO user = TestData.GetUserData();
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
             int id = await _ewalletService.User.CreateAsync(user);
             Assert.NotNull(id);
         }
@@ -23,19 +24,19 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetSingle()
         {
-            UserDTO user = TestData.GetUserData();
-            user.Id = await _ewalletService.User.CreateAsync(user);
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
+            int id = await _ewalletService.User.CreateAsync(user);
 
-            Assert.NotNull(user.Id);
+            Assert.NotNull(id);
 
-            UserDTO fromDatabase = await _ewalletService.User.GetAsync(user.Id);
+            UserDTO fromDatabase = await _ewalletService.User.GetAsync(id);
 
             Assert.NotNull(fromDatabase);
-            Assert.Equal(user.Id, fromDatabase.Id);
-            Assert.Equal(user.Role, fromDatabase.Role);
-            Assert.Equal(user.IsActive, fromDatabase.IsActive);
+            Assert.Equal(id, fromDatabase.Id);
+            Assert.Equal(UserRole.Admin, fromDatabase.Role);
+            Assert.Equal(true, fromDatabase.IsActive);
             Assert.NotNull(fromDatabase.PasswordHash);
-            Assert.NotNull(fromDatabase.PasswordSalt);
+            Assert.NotNull(fromDatabase.Salt);
             Assert.NotNull(fromDatabase.ModifiedDate);
             Assert.NotNull(fromDatabase.InsertedDate);
         }
@@ -43,10 +44,10 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetAll()
         {
-            UserDTO user = TestData.GetUserData();
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
             await _ewalletService.User.CreateAsync(user);
 
-            user = TestData.GetUserData();
+            user = TestData.GetUserRegistrationData();
             await _ewalletService.User.CreateAsync(user);
 
             IEnumerable<UserDTO> users = await _ewalletService.User.GetAllAsync();
@@ -58,7 +59,7 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void Delete()
         {
-            UserDTO user = TestData.GetUserData();
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
             int id = await _ewalletService.User.CreateAsync(user);
             Assert.NotNull(id);
 
@@ -68,16 +69,16 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetByCredentials()
         {
-            UserDTO user = TestData.GetUserData();
-            user.Id = await _ewalletService.User.CreateAsync(user);
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
+            int id = await _ewalletService.User.CreateAsync(user);
 
-            Assert.NotNull(user.Id);
+            Assert.NotNull(id);
 
-            UserVerificationResult verification = await _ewalletService.User.VerifyUser(user.Email, user.Password);
+            UserVerificationResultDTO verification = await _ewalletService.User.VerifyUser(user.Email, user.Password);
 
             Assert.True(verification.IsVerifiedAsPositive);
-            Assert.Equal(user.Id, verification.Id);
-            Assert.Equal(user.Role, verification.Role);
+            Assert.Equal(id, verification.Id);
+            Assert.Equal(UserRole.Admin, verification.Role);
             Assert.Equal(user.Email, verification.Email);
         }
     }

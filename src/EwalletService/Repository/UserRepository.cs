@@ -26,7 +26,7 @@ namespace EwalletService.Repository
                 {
                     email = user.Email,
                     passwordHash = user.PasswordHash,
-                    passwordSalt = user.PasswordSalt,
+                    salt = user.Salt,
                     isActive = user.IsActive,
                     role = user.Role
                 });

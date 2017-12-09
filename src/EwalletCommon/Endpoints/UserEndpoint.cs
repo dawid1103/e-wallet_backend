@@ -1,10 +1,8 @@
 ﻿using EwalletCommon.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net.Http;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace EwalletCommon.Endpoints
 {
@@ -17,7 +15,7 @@ namespace EwalletCommon.Endpoints
         /// </summary>
         /// <param name="user">UserDTO object</param>
         /// <returns>User id of created</returns>
-        public async Task<int> CreateAsync(UserDTO user)
+        public async Task<int> CreateAsync(UserRegistrationDataDTO user)
         {
             return await PostAsync<int>("user", user);
         }
@@ -63,10 +61,10 @@ namespace EwalletCommon.Endpoints
         ///     result of verification
         /// }
         /// </returns>
-        public async Task<UserVerificationResult> VerifyUser(string email, string password)
+        public async Task<UserVerificationResultDTO> VerifyUser(string email, string password)
         {
             string requestUrl = $"user/verifyuser?email={WebUtility.UrlEncode(email)}";
-            var verifycationResult = await PostAsync<UserVerificationResult>(requestUrl, password);
+            var verifycationResult = await PostAsync<UserVerificationResultDTO>(requestUrl, password);
 
             return verifycationResult;
         }

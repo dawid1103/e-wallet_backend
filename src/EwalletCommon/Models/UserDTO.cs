@@ -1,8 +1,5 @@
 ﻿using EwalletCommon.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EwalletCommon.Models
 {
@@ -19,11 +16,6 @@ namespace EwalletCommon.Models
         public string Email { get; set; }
 
         /// <summary>
-        /// User password
-        /// </summary>
-        public string Password { get; set; }
-
-        /// <summary>
         /// User hashed password
         /// </summary>
         public string PasswordHash { get; set; }
@@ -31,7 +23,7 @@ namespace EwalletCommon.Models
         /// <summary>
         /// Salt
         /// </summary>
-        public string PasswordSalt { get; set; }
+        public string Salt { get; set; }
 
         /// <summary>
         /// User role e.g StandardUser, Admin
@@ -52,5 +44,22 @@ namespace EwalletCommon.Models
         /// Is user active
         /// </summary>
         public bool IsActive { get; set; }
+
+        public UserDTO() { }
+
+        /// <summary>
+        /// Create new user with all needed data
+        /// </summary>
+        /// <param name="email">User email</param>
+        /// <param name="salt">Salt to hash with password</param>
+        /// <param name="passwordHash">Hashed password</param>
+        public UserDTO(string email, string salt, string passwordHash)
+        {
+            Email = email;
+            Salt = salt;
+            PasswordHash = passwordHash;
+            Role = UserRole.Admin;
+            IsActive = true;
+        }
     }
 }

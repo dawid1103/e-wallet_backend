@@ -21,6 +21,7 @@ namespace EwalletService.Repository
             {
                 title = transaction.Title,
                 description = transaction.Description,
+                price = transaction.Price,
                 categoryId = transaction.CategoryId,
                 userId = transaction.UserId
             });
@@ -43,6 +44,7 @@ namespace EwalletService.Repository
                 id = transaction.Id,
                 title = transaction.Title,
                 description = transaction.Description,
+                price = transaction.Price,
                 categoryId = transaction.CategoryId
             });
         }
