@@ -22,7 +22,6 @@ namespace EwalletService.Controllers
             this.userRepository = userRepository;
         }
 
-
         [HttpPost]
         public async Task<int> CreateAsync([FromBody]UserDTO user)
         {

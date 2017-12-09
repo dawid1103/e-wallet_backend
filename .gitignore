@@ -34,3 +34,4 @@ bld/
 /src/EwalletServices/node_modules
 /src/EwalletServices/wwwroot/lib
 /src/EwalletServices/logs
+/nuget

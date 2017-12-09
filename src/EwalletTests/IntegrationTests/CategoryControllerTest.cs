@@ -1,12 +1,12 @@
 ﻿using EwalletCommon.Models;
+using EwalletService.Controllers;
+using EwalletService.Repository;
 using EwalletTests.Common;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using Moq;
-using EwalletService.Repository;
-using EwalletService.Controllers;
 
 namespace EwalletTests.IntegrationTests
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
-using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
 
 namespace EwalletService
 {
@@ -11,14 +11,13 @@ namespace EwalletService
     {
         public static void Main(string[] args)
         {
-            if (Debugger.IsAttached)
-            {
-                // sets propert working directory
-                //var rootPath = Environment.GetEnvironmentVariable("ASPNETCORE_ROOTPATH");
-                //Directory.SetCurrentDirectory(rootPath);
-            }
+            BuildWebHost(args).Run();
+        }
 
+        public static IWebHost BuildWebHost(string[] args)
+        {
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("hosting.json", optional: true)
@@ -27,14 +26,12 @@ namespace EwalletService
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
                 .Build();
 
-            var host = new WebHostBuilder()
+            return WebHost.CreateDefaultBuilder(args)
                 .UseConfiguration(config)
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
-
-            host.Run();
         }
     }
 }

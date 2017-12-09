@@ -68,7 +68,7 @@ namespace EwalletCommon.Endpoints
             return JsonConvert.DeserializeObject<TResponseType>(responseContent);
         }
 
-        protected async Task<TResponseType> PostAsync<TResponseType>(string requestUri, HttpContent content)
+        private async Task<TResponseType> PostAsync<TResponseType>(string requestUri, HttpContent content)
         {
             string responseContent = await PostAsync(requestUri, content);
             return JsonConvert.DeserializeObject<TResponseType>(responseContent);
@@ -81,12 +81,10 @@ namespace EwalletCommon.Endpoints
             return await PostAsync<TResponseType>(requestUri, content);
         }
 
-        protected async Task<string> PostAsync(string requestUri, HttpContent content)
+        private async Task<string> PostAsync(string requestUri, HttpContent content)
         {
             HttpResponseMessage response = await _httpClient.PostAsync(requestUri, content);
-
             await CheckResponseSuccess(response);
-
             return await response.Content.ReadAsStringAsync();
         }
 

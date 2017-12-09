@@ -42,9 +42,9 @@ namespace EwalletService.Controllers
         }
 
         [HttpPut]
-        public async Task UpdateAsync([FromBody] TransactionDTO category)
+        public async Task UpdateAsync([FromBody] TransactionDTO transaction)
         {
-            await transactionRepository.EditAsync(category);
+            await transactionRepository.EditAsync(transaction);
         }
 
         [HttpGet("user/{id}")]
