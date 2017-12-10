@@ -1,6 +1,5 @@
 ﻿using EwalletCommon.Models;
 using EwalletService.DataAccessLayer;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +10,7 @@ namespace EwalletService.Repository
     {
         Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id);
     }
+
     public class TransactionRepository : Repository, ITransactionRepository
     {
         public TransactionRepository(IDatabaseSession dbSession) : base(dbSession) { }

@@ -1,13 +1,12 @@
-﻿using EwalletService.DataAccessLayer;
+﻿using EwalletService.BackgroundServices;
+using EwalletService.DataAccessLayer;
 using EwalletService.Logic;
 using EwalletService.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Serilog;
-using System.IO;
+using Microsoft.Extensions.Hosting;
 
 namespace EwalletService
 {
@@ -22,10 +21,6 @@ namespace EwalletService
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
-
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.RollingFile(Path.Combine("Logs", "log-{Date}.txt")).CreateLogger();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -48,23 +43,17 @@ namespace EwalletService
             services.AddScoped<ITransactionRepository, TransactionRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
+            // Add background tasks
+            services.AddSingleton<IHostedService, ScheduledTransactionService>();
+
             // Add framework
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IDatabaseSession db)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDatabaseSession db)
         {
-            // Log to console only on dev
-            if (env.EnvironmentName != EnvironmentName.Production || env.EnvironmentName != EnvironmentName.Staging)
-            {
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            }
-
-            loggerFactory.AddDebug();
-            loggerFactory.AddSerilog();
             app.UseMvc();
-
             db.InitDatabase();
         }
     }
