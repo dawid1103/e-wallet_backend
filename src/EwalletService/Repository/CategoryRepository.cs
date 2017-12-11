@@ -9,6 +9,7 @@ namespace EwalletService.Repository
     public interface ICategoryRepository : IRepository<CategoryDTO>
     {
     }
+
     public class CategoryRepository : Repository, ICategoryRepository
     {
         public CategoryRepository(IDatabaseSession dbSession) : base(dbSession) { }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace EwalletService
 {
@@ -42,9 +43,12 @@ namespace EwalletService
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IScheduledTransactionRepository, ScheduledTransactionRepository>();
 
             // Add background tasks
-            services.AddSingleton<IHostedService, ScheduledTransactionService>();
+            // Dirty hack to make scoped services injected into singleton ;/
+            IServiceProvider provider = services.BuildServiceProvider();
+            services.AddSingleton<IHostedService>(new ScheduledTransactionService(provider));
 
             // Add framework
             services.AddMvc();
