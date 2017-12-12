@@ -16,11 +16,6 @@ namespace EwalletService.Repository
             this.dbSession = dbSession;
         }
 
-        protected IEnumerable<T> LoadByStorageProcedure<T>(string spName, object param)
-        {
-            return dbSession.Connection.Query<T>(spName, param, commandType: CommandType.StoredProcedure);
-        }
-
         protected Task<IEnumerable<T>> LoadByStorageProcedureAsync<T>(string spName, object param)
         {
             return dbSession.Connection.QueryAsync<T>(spName, param, commandType: CommandType.StoredProcedure);
@@ -45,11 +40,6 @@ namespace EwalletService.Repository
         protected Task<GridReader> LoadMultipleByStorageProcedureAsync(string spName, object param)
         {
             return dbSession.Connection.QueryMultipleAsync(spName, param, commandType: CommandType.StoredProcedure);
-        }
-
-        protected void ExecuteStorageProcedure(string spName, object param)
-        {
-            dbSession.Connection.Execute(spName, param: param, commandType: CommandType.StoredProcedure);
         }
 
         protected async Task ExecuteStorageProcedureAsync(string spName, object param)

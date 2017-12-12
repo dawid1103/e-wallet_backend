@@ -16,12 +16,7 @@ namespace EwalletCommon.Models
         /// <summary>
         /// Start day. When to add 1st transaction
         /// </summary>
-        public DateTime StartDay { get; set; }
-
-        /// <summary>
-        /// Date of next create
-        /// </summary>
-        public DateTime NextCreateDay { get; set; }
+        public DateTime RepeatDay { get; set; }
 
         /// <summary>
         /// Repeat count
@@ -39,5 +34,21 @@ namespace EwalletCommon.Models
         /// </summary>
         public bool IsCompleted =>
             RepeatCount == 0;
+
+        public ScheduledTransactionDTO()
+        {
+        }
+
+        public ScheduledTransactionDTO(TransactionDTO transaction, DateTime startDay, RepeatMode repeatMode, int repeatCount)
+        {
+            Title = transaction.Title;
+            Price = transaction.Price;
+            Description = transaction.Description;
+            CategoryId = transaction.CategoryId;
+            UserId = transaction.UserId;
+            RepeatDay = startDay.Date;
+            RepeatMode = repeatMode;
+            RepeatCount = repeatCount;
+        }
     }
 }

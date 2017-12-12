@@ -36,6 +36,19 @@ namespace EwalletTests.Common
             return transaction;
         }
 
+        public static ScheduledTransactionDTO GetScheduledTransactionData(int categoryId = 0, int repeatCount = 10, RepeatMode repeatMode = RepeatMode.Daily)
+        {
+            TransactionDTO transaction = TestData.GetTransactionData(categoryId);
+            var scheduledTransaction = new ScheduledTransactionDTO(transaction, DateTime.Now.AddDays(-1).Date, repeatMode, repeatCount);
+
+            if (categoryId > 0)
+            {
+                scheduledTransaction.CategoryId = categoryId;
+            }
+
+            return scheduledTransaction;
+        }
+
         public static UserRegistrationDataDTO GetUserRegistrationData()
         {
             return new UserRegistrationDataDTO()

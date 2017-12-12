@@ -32,6 +32,7 @@ namespace EwalletService.DataAccessLayer
                                                         [Title] varchar(255),
                                                         [AddDate] [datetime] NOT NULL DEFAULT GETDATE(),
                                                         [Description] varchar(255),
+                                                        [Price] decimal(18,2) NOT NULL DEFAULT 0.00,
                                                         [CategoryId] [int],
                                                         [UserId] [int],
 	                                                    CONSTRAINT PK_Transaction PRIMARY KEY (Id),

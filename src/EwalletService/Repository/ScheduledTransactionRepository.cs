@@ -11,106 +11,98 @@ namespace EwalletService.Repository
     {
         Task<IEnumerable<ScheduledTransactionDTO>> GetAllIncomingAsync(DateTime currentDate);
         Task SetNextIntervalAsync(int id, DateTime nextRepeatDate, int repeatCount);
+        Task<IEnumerable<ScheduledTransactionDTO>> GetAllByUserIdAsync(int id);
     }
 
     public class ScheduledTransactionRepository : Repository, IScheduledTransactionRepository
     {
-        private IEnumerable<ScheduledTransactionDTO> transactions;
 
         public ScheduledTransactionRepository(IDatabaseSession dbSession) : base(dbSession)
         {
-            transactions = new List<ScheduledTransactionDTO>()
-            {
-                new ScheduledTransactionDTO()
-                {
-                    Id=2,
-                    Title="#1 transaction",
-                    Description = "#1 Description",
-                    Price = 2.99M,
-                    RepeatCount=2,
-                    RepeatMode=RepeatMode.Weekly,
-                    StartDay = DateTime.Now.Date,
-                    NextCreateDay = DateTime.Now.Date.AddDays(-1),
-                    UserId=1,
-                    CategoryId =2
-                },
-                new ScheduledTransactionDTO()
-                {
-                    Id=2,
-                    Title="#2 transaction",
-                    Description = "#2 Description",
-                    Price = 2.99M,
-                    RepeatCount=0,
-                    RepeatMode=RepeatMode.Daily,
-                    StartDay = DateTime.Now.Date,
-                    NextCreateDay = DateTime.Now.Date.AddDays(-1),
-                    UserId=1,
-                    CategoryId =2
-                },
-                new ScheduledTransactionDTO()
-                {
-                    Id=4,
-                    Title="#4 transaction",
-                    Description = "#4 Description",
-                    Price = 2.99M,
-                    RepeatCount=1,
-                    RepeatMode=RepeatMode.Daily,
-                    StartDay = DateTime.Now.Date,
-                    NextCreateDay = DateTime.Now.Date.AddDays(-1),
-                    UserId=1,
-                    CategoryId =2
-                },
-                new ScheduledTransactionDTO()
-                {
-                    Id=3,
-                    Title="#3 transaction",
-                    Description = "#3 Description",
-                    Price = 12.99M,
-                    RepeatCount=5,
-                    RepeatMode=RepeatMode.Daily,
-                    StartDay = DateTime.Now.Date,
-                    NextCreateDay = DateTime.Now.Date.AddDays(-1),
-                    UserId=1,
-                    CategoryId =2
-                }
-            };
         }
 
-        public async Task<int> CreateAsync(ScheduledTransactionDTO entity)
+        public async Task<int> CreateAsync(ScheduledTransactionDTO transaction)
         {
-            throw new NotImplementedException();
+            IEnumerable<int> result = await base.LoadByStorageProcedureAsync<int>("dbo.ScheduledTransactionCreate", new
+            {
+                title = transaction.Title,
+                description = transaction.Description,
+                price = transaction.Price,
+                categoryId = transaction.CategoryId,
+                userId = transaction.UserId,
+                repeatDay = transaction.RepeatDay,
+                repeatCount = transaction.RepeatCount,
+                repeatMode = transaction.RepeatMode
+            });
+
+            return result.FirstOrDefault();
         }
 
         public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await base.ExecuteStorageProcedureAsync("dbo.ScheduledTransactionDelete", new
+            {
+                id = id
+            });
         }
 
-        public async Task EditAsync(ScheduledTransactionDTO entity)
+        public async Task EditAsync(ScheduledTransactionDTO transaction)
         {
-            throw new NotImplementedException();
+            await base.ExecuteStorageProcedureAsync("dbo.ScheduledTransactionCreate", new
+            {
+                id = transaction.Id,
+                title = transaction.Title,
+                description = transaction.Description,
+                price = transaction.Price,
+                categoryId = transaction.CategoryId,
+                userId = transaction.UserId,
+                repeatDay = transaction.RepeatDay,
+                repeatCount = transaction.RepeatCount,
+                repeatMode = transaction.RepeatMode
+            });
         }
 
         public async Task<IEnumerable<ScheduledTransactionDTO>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await base.LoadByStorageProcedureAsync<ScheduledTransactionDTO>("dbo.ScheduledTransactionGetAll", null);
+        }
+
+        public async Task<IEnumerable<ScheduledTransactionDTO>> GetAllByUserIdAsync(int id)
+        {
+            return await base.LoadByStorageProcedureAsync<ScheduledTransactionDTO>("dbo.ScheduledTransactionGetAllByUserId", new
+            {
+                id = id
+            });
+
         }
 
         public async Task<IEnumerable<ScheduledTransactionDTO>> GetAllIncomingAsync(DateTime currentDate)
         {
-            return transactions.Where(t => t.NextCreateDay <= currentDate && t.IsCompleted == false).Select(t => t);
+            //return transactions.Where(t => t.RepeatDay <= currentDate && t.IsCompleted == false).Select(t => t);
+            return await base.LoadByStorageProcedureAsync<ScheduledTransactionDTO>("dbo.ScheduledTransactionGetAllIncoming", new
+            {
+                date = currentDate,
+            });
         }
 
         public async Task<ScheduledTransactionDTO> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            IEnumerable<ScheduledTransactionDTO> result = await base.LoadByStorageProcedureAsync<ScheduledTransactionDTO>("dbo.ScheduledTransactionGet", new
+            {
+                id = id
+            });
+
+            return result.FirstOrDefault();
         }
 
         public async Task SetNextIntervalAsync(int id, DateTime nextDate, int repeatCount)
         {
-            var tra = transactions.First(t => t.Id == id);
-            tra.NextCreateDay = nextDate;
-            tra.RepeatCount = repeatCount;
+            await base.ExecuteStorageProcedureAsync("dbo.ScheduledTransactionNextCreateDate", new
+            {
+                id = id,
+                repeatDay = nextDate,
+                repeatCount = repeatCount,
+            });
         }
     }
 }
