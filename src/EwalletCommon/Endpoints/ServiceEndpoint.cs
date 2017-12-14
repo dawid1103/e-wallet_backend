@@ -12,7 +12,7 @@ namespace EwalletCommon.Endpoints
     public class ServiceEndpoint
     {
         protected HttpClient _httpClient;
-        
+
         public ServiceEndpoint(string baseUrl)
         {
             _httpClient = new HttpClient();
@@ -28,30 +28,14 @@ namespace EwalletCommon.Endpoints
         {
             if (!response.IsSuccessStatusCode)
             {
-                string errorContent = string.Empty;
-                ServiceError serviceError = new ServiceError();
-                if (response.Content.Headers.ContentLength > 0)
+                switch (response.StatusCode)
                 {
-                    errorContent = await response.Content.ReadAsStringAsync();
-                    serviceError = JsonConvert.DeserializeObject<ServiceError>(errorContent);
-                }
-
-                switch (serviceError.Code)
-                {
-                    case "ObjectAlreadyExists":
-                        throw new ObjectAlreadyExists();
-                    case "NotUnique":
-                        throw new NotUniqueException();
+                    case HttpStatusCode.NotFound:
+                        throw new NotFoundException();
+                    case HttpStatusCode.BadRequest:
+                        throw new BadRequestException();
                     default:
-                        switch (response.StatusCode)
-                        {
-                            case HttpStatusCode.NotFound:
-                                throw new NotFoundException();
-                            case HttpStatusCode.BadRequest:
-                                throw new BadRequestException(errorContent);
-                            default:
-                                throw new Exception($"Method {response.RequestMessage.RequestUri.ToString()} failed with status code: {response.StatusCode}, content: {errorContent}");
-                        }
+                        throw new Exception($"Method {response.RequestMessage.RequestUri.ToString()} failed with status code: {response.StatusCode}");
                 }
             }
         }

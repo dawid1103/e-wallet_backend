@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EwalletCommon.Utils
 {
@@ -13,9 +10,5 @@ namespace EwalletCommon.Utils
 
     public class NotFoundException : Exception { }
 
-    public class BadRequestException : Exception
-    {
-        public BadRequestException(string message) : base(message)
-        { }
-    }
+    public class BadRequestException : Exception { }
 }

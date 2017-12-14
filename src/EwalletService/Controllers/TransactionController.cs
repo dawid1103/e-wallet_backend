@@ -1,6 +1,7 @@
 ﻿using EwalletCommon.Models;
 using EwalletService.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,18 +10,27 @@ namespace EwalletService.Controllers
     [Route("[controller]")]
     public class TransactionController : Controller
     {
-        private ITransactionRepository transactionRepository;
+        private readonly ITransactionRepository transactionRepository;
+        private readonly ILogger<TransactionController> logger;
 
-        public TransactionController(ITransactionRepository transactionRepository)
+        public TransactionController(ILogger<TransactionController> logger, ITransactionRepository transactionRepository)
         {
+            this.logger = logger;
             this.transactionRepository = transactionRepository;
         }
 
         [HttpPost]
-        public async Task<int> CreateAsync([FromBody] TransactionDTO transaction)
+        public async Task<IActionResult> CreateAsync([FromBody] TransactionDTO transaction)
         {
+            if (transaction.UserId == 0)
+            {
+                logger.LogError("BadRequest - Model is not valid");
+                return BadRequest("Model is not valid");
+            }
+
             int id = await transactionRepository.CreateAsync(transaction);
-            return id;
+
+            return Created("id", id);
         }
 
         [HttpDelete("{id}")]

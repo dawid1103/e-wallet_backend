@@ -17,8 +17,17 @@ namespace EwalletService.Controllers
         }
 
         [HttpPost]
-        public async Task<int> CreateAsync([FromBody] ScheduledTransactionDTO transaction)
-         => await scheduledTransactionRepository.CreateAsync(transaction);
+        public async Task<IActionResult> CreateAsync([FromBody] ScheduledTransactionDTO transaction)
+        {
+            if (transaction.UserId == 0)
+            {
+                return BadRequest();
+            }
+
+            int id = await scheduledTransactionRepository.CreateAsync(transaction);
+
+            return Created("id", id);
+        }
 
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)

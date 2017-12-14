@@ -1,4 +1,5 @@
 ﻿using EwalletCommon.Models;
+using EwalletCommon.Utils;
 using EwalletTests.Common;
 using System;
 using System.Collections.Generic;
@@ -26,16 +27,26 @@ namespace EwalletTests.IntegrationTests
         }
 
         [Fact]
+        public async void CreateWithoutAssignedUser_ShouldThrowBadRequestException()
+        {
+            CategoryDTO category = TestData.GetCategoryData();
+            int categoryId = await _ewalletService.Category.CreateAsync(category);
+
+            TransactionDTO transaction = TestData.GetTransactionData(0, categoryId);
+
+            await Assert.ThrowsAsync<BadRequestException>(async () => await _ewalletService.Transaction.CreateAsync(transaction));
+        }
+
+        [Fact]
         public async void CreateWithCategory()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int userId = await _ewalletService.User.CreateAsync(user);
 
             CategoryDTO category = TestData.GetCategoryData();
             int categoryId = await _ewalletService.Category.CreateAsync(category);
 
-            TransactionDTO transaction = TestData.GetTransactionData(categoryId);
-            transaction.UserId = id;
+            TransactionDTO transaction = TestData.GetTransactionData(userId, categoryId);
 
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
