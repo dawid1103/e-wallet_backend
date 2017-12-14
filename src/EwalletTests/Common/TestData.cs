@@ -15,7 +15,7 @@ namespace EwalletTests.Common
             return category;
         }
 
-        public static TransactionDTO GetTransactionData(int categoryId = 0)
+        public static TransactionDTO GetTransactionData(int userId, int categoryId = 0)
         {
             Guid guild = Guid.NewGuid();
             Random rnd = new Random();
@@ -25,7 +25,8 @@ namespace EwalletTests.Common
                 Title = $"Title - {guild}",
                 AddDate = DateTime.Now,
                 Description = $"Description - {guild}",
-                Price = decimal.Round((decimal)(rnd.Next(1, 999999999) + rnd.NextDouble()), 2, MidpointRounding.AwayFromZero)
+                Price = decimal.Round((decimal)(rnd.Next(1, 999999999) + rnd.NextDouble()), 2, MidpointRounding.AwayFromZero),
+                UserId = userId
             };
 
             if (categoryId > 0)
@@ -36,9 +37,9 @@ namespace EwalletTests.Common
             return transaction;
         }
 
-        public static ScheduledTransactionDTO GetScheduledTransactionData(int categoryId = 0, int repeatCount = 10, RepeatMode repeatMode = RepeatMode.Daily)
+        public static ScheduledTransactionDTO GetScheduledTransactionData(int userId, int categoryId = 0, int repeatCount = 10, RepeatMode repeatMode = RepeatMode.Daily)
         {
-            TransactionDTO transaction = TestData.GetTransactionData(categoryId);
+            TransactionDTO transaction = TestData.GetTransactionData(userId, categoryId);
             var scheduledTransaction = new ScheduledTransactionDTO(transaction, DateTime.Now.AddDays(-1).Date, repeatMode, repeatCount);
 
             if (categoryId > 0)

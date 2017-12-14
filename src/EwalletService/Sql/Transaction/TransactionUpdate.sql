@@ -9,7 +9,7 @@ IF OBJECT_ID ( 'dbo.TransactionUpdate', 'P' ) IS NULL
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Update category with given id
+-- Update transaction with given id
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.TransactionUpdate
 	@id int,

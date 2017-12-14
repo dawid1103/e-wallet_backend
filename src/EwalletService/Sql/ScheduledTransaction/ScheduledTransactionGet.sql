@@ -4,29 +4,29 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-IF OBJECT_ID ( 'dbo.TransactionDelete', 'P' ) IS NULL
-    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.TransactionDelete AS BEGIN SELECT 1; END';
+IF OBJECT_ID ( 'dbo.ScheduledTransactionGet', 'P' ) IS NULL
+    EXECUTE sp_executesql N'CREATE PROCEDURE dbo.ScheduledTransactionGet AS BEGIN SELECT 1; END';
 GO
 
 -- ------------------------------------------------------------------------------------------------
--- Delete scheduled transaction
+-- Get scheduled transaction with given id
 -- ------------------------------------------------------------------------------------------------
-ALTER PROCEDURE dbo.TransactionDelete
+ALTER PROCEDURE dbo.ScheduledTransactionGet
 	@id int
 AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DELETE 
+	SELECT * 
 	FROM
-		[Transaction] 
+		[ScheduledTransaction]
 	WHERE 
 		id=@id;
 END
 GO
 
 
-GRANT EXECUTE ON dbo.TransactionDelete
+GRANT EXECUTE ON dbo.ScheduledTransactionGet
 	TO EwalletService
 ;
 GO
@@ -34,5 +34,5 @@ GO
 /* TEST
 	Execute it as simple query
 
-	EXEC dbo.TransactionDelete 5
+	EXEC dbo.ScheduledTransactionGet 5
 */

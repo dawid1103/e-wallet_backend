@@ -16,10 +16,9 @@ namespace EwalletTests.IntegrationTests
         public async void CreateWithoutCategory()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int userId = await _ewalletService.User.CreateAsync(user);
 
-            TransactionDTO transaction = TestData.GetTransactionData();
-            transaction.UserId = id;
+            TransactionDTO transaction = TestData.GetTransactionData(userId);
 
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
@@ -47,7 +46,9 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetSingle()
         {
-            TransactionDTO transaction = TestData.GetTransactionData();
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
+            int userId = await _ewalletService.User.CreateAsync(user);
+            TransactionDTO transaction = TestData.GetTransactionData(userId);
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);
@@ -66,7 +67,9 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetAll()
         {
-            TransactionDTO transaction = TestData.GetTransactionData();
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
+            int userId = await _ewalletService.User.CreateAsync(user);
+            TransactionDTO transaction = TestData.GetTransactionData(userId);
 
             await _ewalletService.Transaction.CreateAsync(transaction);
             await _ewalletService.Transaction.CreateAsync(transaction);
@@ -80,7 +83,10 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void Delete()
         {
-            TransactionDTO transaction = TestData.GetTransactionData();
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
+            int userId = await _ewalletService.User.CreateAsync(user);
+
+            TransactionDTO transaction = TestData.GetTransactionData(userId);
             int id = await _ewalletService.Transaction.CreateAsync(transaction);
             Assert.NotNull(id);
 
@@ -119,34 +125,31 @@ namespace EwalletTests.IntegrationTests
         public async void GetByUserId()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int userId = await _ewalletService.User.CreateAsync(user);
 
             //create transaction 1
-            TransactionDTO transaction = TestData.GetTransactionData();
-            transaction.UserId = id;
+            TransactionDTO transaction = TestData.GetTransactionData(userId);
             await _ewalletService.Transaction.CreateAsync(transaction);
 
             //create transaction 2
-            transaction = TestData.GetTransactionData();
-            transaction.UserId = id;
+            transaction = TestData.GetTransactionData(userId);
             await _ewalletService.Transaction.CreateAsync(transaction);
 
             //check
-            IEnumerable<TransactionDTO> userTransactions = await _ewalletService.Transaction.GetAllByUserIdAsync(id);
+            IEnumerable<TransactionDTO> userTransactions = await _ewalletService.Transaction.GetAllByUserIdAsync(userId);
             Assert.True(userTransactions.Count() == 2);
 
 
             //create 2nd user
             user = TestData.GetUserRegistrationData();
-            id = await _ewalletService.User.CreateAsync(user);
+            userId = await _ewalletService.User.CreateAsync(user);
 
             //create transaction 1 for 2nd user
-            transaction = TestData.GetTransactionData();
-            transaction.UserId = id;
+            transaction = TestData.GetTransactionData(userId);
             await _ewalletService.Transaction.CreateAsync(transaction);
 
             //check
-            userTransactions = await _ewalletService.Transaction.GetAllByUserIdAsync(id);
+            userTransactions = await _ewalletService.Transaction.GetAllByUserIdAsync(userId);
             Assert.True(userTransactions.Count() == 1);
         }
     }

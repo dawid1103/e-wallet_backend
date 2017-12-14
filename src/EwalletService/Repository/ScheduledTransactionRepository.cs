@@ -48,14 +48,13 @@ namespace EwalletService.Repository
 
         public async Task EditAsync(ScheduledTransactionDTO transaction)
         {
-            await base.ExecuteStorageProcedureAsync("dbo.ScheduledTransactionCreate", new
+            await base.ExecuteStorageProcedureAsync("dbo.ScheduledTransactionUpdate", new
             {
                 id = transaction.Id,
                 title = transaction.Title,
                 description = transaction.Description,
                 price = transaction.Price,
                 categoryId = transaction.CategoryId,
-                userId = transaction.UserId,
                 repeatDay = transaction.RepeatDay,
                 repeatCount = transaction.RepeatCount,
                 repeatMode = transaction.RepeatMode

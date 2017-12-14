@@ -44,6 +44,7 @@ namespace EwalletCommon.Models
             Title = transaction.Title;
             Price = transaction.Price;
             Description = transaction.Description;
+            AddDate = transaction.AddDate;
             CategoryId = transaction.CategoryId;
             UserId = transaction.UserId;
             RepeatDay = startDay.Date;
