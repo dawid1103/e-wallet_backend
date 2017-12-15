@@ -28,7 +28,7 @@ namespace EwalletService.BackgroundServices
             while (!cancellationToken.IsCancellationRequested)
             {
                 await ManageTransactions();
-                await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+                await Task.Delay(TimeSpan.FromHours(5), cancellationToken);
             }
         }
 

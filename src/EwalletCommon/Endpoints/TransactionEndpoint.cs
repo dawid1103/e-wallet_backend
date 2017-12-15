@@ -1,4 +1,5 @@
 ﻿using EwalletCommon.Models;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -66,6 +67,11 @@ namespace EwalletCommon.Endpoints
         public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
         {
             return await base.GetAsync<IEnumerable<TransactionDTO>>($"transaction/user/{id}");
+        }
+
+        public async Task<string> UploadImage(IFormFile formFile)
+        {
+            return await PostFileAsync("transaction/file", formFile);
         }
     }
 }

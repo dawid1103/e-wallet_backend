@@ -1,8 +1,11 @@
 ﻿using EwalletCommon.Models;
 using EwalletService.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace EwalletService.Controllers
@@ -29,9 +32,25 @@ namespace EwalletService.Controllers
             }
 
             int id = await transactionRepository.CreateAsync(transaction);
-
             return Created("id", id);
         }
+
+        [HttpPost("file")]
+        public async Task<IActionResult> UpladFileAsync(IFormFile file)
+        {
+            string path = string.Empty;
+            if (file != null)
+            {
+                path = Path.GetTempFileName().Replace("tmp", file.FileName.Split('.').Last());
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+            }
+
+            return Created("path", path);
+        }
+
 
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)

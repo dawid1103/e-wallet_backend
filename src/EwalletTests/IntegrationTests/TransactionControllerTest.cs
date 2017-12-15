@@ -20,7 +20,6 @@ namespace EwalletTests.IntegrationTests
             int userId = await _ewalletService.User.CreateAsync(user);
 
             TransactionDTO transaction = TestData.GetTransactionData(userId);
-
             transaction.Id = await _ewalletService.Transaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);

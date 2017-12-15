@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace EwalletCommon.Models
 {
@@ -38,5 +39,10 @@ namespace EwalletCommon.Models
         /// User id
         /// </summary>
         public int UserId { get; set; }
+
+        /// <summary>
+        /// Path to image
+        /// </summary>
+        public string FilePath { get; set; }
     }
 }
