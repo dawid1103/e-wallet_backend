@@ -1,5 +1,6 @@
 ﻿using EwalletCommon.Models;
 using EwalletService.Repository;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -15,12 +16,16 @@ namespace EwalletService.BackgroundServices
         private readonly ILogger<ScheduledTransactionService> logger;
         private readonly IScheduledTransactionRepository scheduledTransactionRepository;
         private readonly ITransactionRepository transactionRepository;
+        private readonly int serviceInterval = 0;
 
-        public ScheduledTransactionService(IServiceProvider provider)
+        public ScheduledTransactionService(IServiceProvider provider, IConfigurationSection settings)
         {
             this.logger = provider.GetRequiredService<ILogger<ScheduledTransactionService>>(); ;
             this.scheduledTransactionRepository = provider.GetRequiredService<IScheduledTransactionRepository>(); ;
-            this.transactionRepository = provider.GetRequiredService<ITransactionRepository>(); ;
+            this.transactionRepository = provider.GetRequiredService<ITransactionRepository>();
+            this.serviceInterval = int.Parse(settings["Interval"]);
+
+            this.logger.LogInformation("Service interval: every {0} hours.", this.serviceInterval);
         }
 
         protected override async Task ExecuteAsync(CancellationToken cancellationToken)
@@ -28,7 +33,7 @@ namespace EwalletService.BackgroundServices
             while (!cancellationToken.IsCancellationRequested)
             {
                 await ManageTransactions();
-                await Task.Delay(TimeSpan.FromHours(5), cancellationToken);
+                await Task.Delay(TimeSpan.FromHours(serviceInterval), cancellationToken);
             }
         }
 

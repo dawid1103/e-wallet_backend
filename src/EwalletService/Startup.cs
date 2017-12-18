@@ -2,6 +2,7 @@
 using EwalletService.DataAccessLayer;
 using EwalletService.Logic;
 using EwalletService.Repository;
+using EwalletService.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,7 @@ namespace EwalletService
         {
             string sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
             string sqlDatabaseName = Configuration.GetConnectionString("DatabaseName");
+            IConfigurationSection scheduledTransactionServiceSettings = Configuration.GetBackgroundServiceSettings("ScheduledTransaction");
 
             // Add general
             services.AddSingleton(new DatabaseConfig(sqlConnectionString, sqlDatabaseName));
@@ -49,7 +51,7 @@ namespace EwalletService
             // Add background tasks
             // Dirty hack to make scoped services injected into singleton ;/
             IServiceProvider provider = services.BuildServiceProvider();
-            services.AddSingleton<IHostedService>(new ScheduledTransactionService(provider));
+            services.AddSingleton<IHostedService>(new ScheduledTransactionService(provider, scheduledTransactionServiceSettings));
 
             // Add framework
             services.AddMvc();
