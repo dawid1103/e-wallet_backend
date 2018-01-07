@@ -16,7 +16,6 @@ namespace EwalletService.Repository
 
     public class ScheduledTransactionRepository : Repository, IScheduledTransactionRepository
     {
-
         public ScheduledTransactionRepository(IDatabaseSession dbSession) : base(dbSession)
         {
         }

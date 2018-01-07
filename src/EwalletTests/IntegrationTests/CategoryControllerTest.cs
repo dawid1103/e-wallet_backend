@@ -27,6 +27,7 @@ namespace EwalletTests.IntegrationTests
             int id = await categoryController.CreateAsync(category);
 
             Assert.NotNull(id);
+            Assert.Equal(2, id);
         }
 
         [Fact]
