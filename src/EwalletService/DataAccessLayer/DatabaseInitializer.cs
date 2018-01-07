@@ -33,11 +33,25 @@ namespace EwalletService.DataAccessLayer
                                                         [AddDate] [datetime] NOT NULL DEFAULT GETDATE(),
                                                         [Description] varchar(255),
                                                         [Price] decimal(18,2) NOT NULL DEFAULT 0.00,
-                                                        [CategoryId] [int],
+                                                        [CategoryId] [int] FOREIGN KEY REFERENCES Category(Id),
                                                         [UserId] [int],
-	                                                    CONSTRAINT PK_Transaction PRIMARY KEY (Id),
-                                                        CONSTRAINT FK_Category FOREIGN KEY (CategoryId) REFERENCES Category(Id)
+	                                                    CONSTRAINT PK_Transaction PRIMARY KEY (Id)
                                                     );";
+
+        private string createScheduledTransactionTable = @"CREATE TABLE [ScheduledTransaction] (
+                                                            [Id][int] IDENTITY(1,1) NOT NULL,
+                                                            [Title] varchar(255),
+                                                            [AddDate] [datetime] NOT NULL DEFAULT GETDATE(),
+                                                            [Description] varchar(255),
+                                                            [Price] decimal (18,2) NOT NULL DEFAULT 0.00,
+                                                            [CategoryId] [int] FOREIGN KEY REFERENCES Category(Id),
+                                                            [UserId] [int],
+                                                            [RepeatDay] [date] NOT NULL DEFAULT(CONVERT([datetime], floor(CONVERT([float], getdate())))),
+	                                                        [RepeatCount] [int] NOT NULL DEFAULT 0,
+	                                                        [RepeatMode] [int] NOT NULL DEFAULT 0,
+                                                            CONSTRAINT PK_ScheduledTransaction PRIMARY KEY(Id)
+                                                        );";
+
         #endregion
 
         public DatabaseInitializer()
@@ -46,7 +60,8 @@ namespace EwalletService.DataAccessLayer
             {
                 "Category",
                 "Transaction",
-                "User"
+                "User",
+                "ScheduledTransaction"
             };
 
             tableCreateScript = new Dictionary<string, string>
@@ -54,6 +69,7 @@ namespace EwalletService.DataAccessLayer
                 { "Category", createCategoryTable },
                 { "Transaction", createTransactionTable },
                 { "User", createUserTable },
+                { "ScheduledTransaction", createScheduledTransactionTable },
             };
         }
 
