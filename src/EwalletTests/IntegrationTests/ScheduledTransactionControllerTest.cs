@@ -141,6 +141,7 @@ namespace EwalletTests.IntegrationTests
             await _ewalletService.ScheduledTransaction.UpdateAsync(fromDatabase);
             fromDatabase = await _ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
 
+            Assert.Equal(transaction.Id, fromDatabase.Id);
             Assert.Equal(changedTitle, fromDatabase.Title);
             Assert.Equal(changedDesc, fromDatabase.Description);
             Assert.Equal(changedPrice, fromDatabase.Price);

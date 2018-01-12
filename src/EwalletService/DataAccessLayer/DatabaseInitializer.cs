@@ -33,8 +33,9 @@ namespace EwalletService.DataAccessLayer
                                                         [AddDate] [datetime] NOT NULL DEFAULT GETDATE(),
                                                         [Description] varchar(255),
                                                         [Price] decimal(18,2) NOT NULL DEFAULT 0.00,
+                                                        [FilePath] varchar(255),
                                                         [CategoryId] [int] FOREIGN KEY REFERENCES Category(Id),
-                                                        [UserId] [int],
+                                                        [UserId] [int] FOREIGN KEY REFERENCES [User](Id),
 	                                                    CONSTRAINT PK_Transaction PRIMARY KEY (Id)
                                                     );";
 
@@ -45,7 +46,7 @@ namespace EwalletService.DataAccessLayer
                                                             [Description] varchar(255),
                                                             [Price] decimal (18,2) NOT NULL DEFAULT 0.00,
                                                             [CategoryId] [int] FOREIGN KEY REFERENCES Category(Id),
-                                                            [UserId] [int],
+                                                            [UserId] [int] FOREIGN KEY REFERENCES [User](Id),
                                                             [RepeatDay] [date] NOT NULL DEFAULT(CONVERT([datetime], floor(CONVERT([float], getdate())))),
 	                                                        [RepeatCount] [int] NOT NULL DEFAULT 0,
 	                                                        [RepeatMode] [int] NOT NULL DEFAULT 0,

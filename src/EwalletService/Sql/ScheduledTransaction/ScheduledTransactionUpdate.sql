@@ -36,7 +36,7 @@ BEGIN
 		categoryId = @categoryId,
 		repeatDay = @repeatDay,
 		repeatCount = @repeatCount,
-		repeatMode =@repeatMode
+		repeatMode = @repeatMode
 	FROM
 		[ScheduledTransaction] 
 	WHERE 

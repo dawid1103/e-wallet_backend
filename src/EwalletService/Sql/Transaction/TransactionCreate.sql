@@ -12,9 +12,10 @@ GO
 -- Create transaction
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.TransactionCreate
-	@title nvarchar(256),
+	@title nvarchar(255),
 	@description nvarchar(MAX),
 	@price decimal(18,2),
+	@filePath nvarchar(255),
 	@categoryId int,
 	@userId int
 AS
@@ -28,16 +29,18 @@ BEGIN
 
 	INSERT INTO
 		[Transaction] (
-			title,
+			[title],
 			[description],
-			price,
-			categoryId,
-			userId
+			[price],
+			[filePath],
+			[categoryId],
+			[userId]
 		)
 	VALUES (
 		@title,
 		@description,
 		@price,
+		@filePath,
 		@categoryId,
 		@userId
 	);

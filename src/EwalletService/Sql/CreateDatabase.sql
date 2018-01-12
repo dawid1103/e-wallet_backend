@@ -25,11 +25,10 @@ CREATE TABLE [Transaction] (
     [AddDate] [datetime] NOT NULL DEFAULT GETDATE(),
     [Description] varchar(255),
 	[Price] decimal(18,2) NOT NULL DEFAULT 0.00,
-    [CategoryId] [int],
-    [UserId] [int],
+	[FilePath] varchar(255),
+    [CategoryId] [int] FOREIGN KEY REFERENCES [Category](Id),
+    [UserId] [int] FOREIGN KEY REFERENCES [User](Id),
 	CONSTRAINT PK_Transaction PRIMARY KEY (Id),
-    CONSTRAINT FK_Category FOREIGN KEY (CategoryId) REFERENCES [Category](Id),
-    CONSTRAINT FK_User FOREIGN KEY (UserId) REFERENCES [User](Id)
 );
 
 CREATE TABLE [ScheduledTransaction] (
@@ -38,12 +37,10 @@ CREATE TABLE [ScheduledTransaction] (
     [AddDate] [datetime] NOT NULL DEFAULT GETDATE(),
     [Description] varchar(255),
 	[Price] decimal(18,2) NOT NULL DEFAULT 0.00,
-    [CategoryId] [int],
-    [UserId] [int],
+    [CategoryId] [int] FOREIGN KEY REFERENCES [Category](Id),
+    [UserId] [int] FOREIGN KEY REFERENCES [User](Id),
 	[RepeatDay][date] NOT NULL DEFAULT cast(floor(cast(GETDATE() as float)) as datetime),
 	[RepeatCount][int] NOT NULL DEFAULT 0,
 	[RepeatMode][int] NOT NULL DEFAULT 0
-	CONSTRAINT PK_ScheduledTransaction PRIMARY KEY (Id),
-    CONSTRAINT FK_Category FOREIGN KEY (CategoryId) REFERENCES [Category](Id), -- jest jakis problem z constaintem bo juz wystepuje w innej encji
-    CONSTRAINT FK_User FOREIGN KEY (UserId) REFERENCES [User](Id)
+	CONSTRAINT PK_ScheduledTransaction PRIMARY KEY (Id)
 );

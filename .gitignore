@@ -35,3 +35,4 @@ bld/
 /src/EwalletServices/wwwroot/lib
 /src/EwalletServices/logs
 /nuget
+/src/EwalletService/TransactionImages

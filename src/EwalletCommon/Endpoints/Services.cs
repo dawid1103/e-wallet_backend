@@ -10,14 +10,14 @@ namespace EwalletCommon.Endpoints
 
     public class Service : IService
     {
-        readonly ProxySettings _settings;
+        readonly ProxySettings settings;
 
         public Ewallet Wallet { get; private set; }
         
         public Service(IOptions<ProxySettings> proxySettings)
         {
-            _settings = proxySettings.Value;
-            Wallet = new Ewallet(_settings.EwalletServiceBaseUrl);
+            settings = proxySettings.Value;
+            Wallet = new Ewallet(settings.EwalletServiceBaseUrl);
         }
     }
 }

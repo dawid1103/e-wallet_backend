@@ -1,13 +1,23 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace EwalletCommon.Models
 {
     public enum RepeatMode
     {
+        [Display(Name = "Codziennie")]
         Daily,
+
+        [Display(Name = "Co tydzień")]
         Weekly,
+
+        [Display(Name = "Co miesiąc")]
         Monthly,
+
+        [Display(Name = "Co pół roku")]
         HalfYearly,
+
+        [Display(Name = "Co rok")]
         Yearly
     }
 
@@ -41,6 +51,7 @@ namespace EwalletCommon.Models
 
         public ScheduledTransactionDTO(TransactionDTO transaction, DateTime startDay, RepeatMode repeatMode, int repeatCount)
         {
+            Id = transaction.Id;
             Title = transaction.Title;
             Price = transaction.Price;
             Description = transaction.Description;
