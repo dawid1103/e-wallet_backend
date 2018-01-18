@@ -8,6 +8,8 @@ namespace EwalletCommon.Endpoints
 {
     public class UserEndpoint : ServiceEndpoint
     {
+        public UserEndpoint(string url) : base(url) { }
+
         public UserEndpoint(HttpClient client) : base(client) { }
 
         /// <summary>

@@ -17,7 +17,7 @@ namespace EwalletTests.IntegrationTests
         public async void Create()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int id = await ewalletService.User.CreateAsync(user);
             Assert.NotNull(id);
         }
 
@@ -25,11 +25,11 @@ namespace EwalletTests.IntegrationTests
         public async void GetSingle()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int id = await ewalletService.User.CreateAsync(user);
 
             Assert.NotNull(id);
 
-            UserDTO fromDatabase = await _ewalletService.User.GetAsync(id);
+            UserDTO fromDatabase = await ewalletService.User.GetAsync(id);
 
             Assert.NotNull(fromDatabase);
             Assert.Equal(id, fromDatabase.Id);
@@ -45,12 +45,12 @@ namespace EwalletTests.IntegrationTests
         public async void GetAll()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            await _ewalletService.User.CreateAsync(user);
+            await ewalletService.User.CreateAsync(user);
 
             user = TestData.GetUserRegistrationData();
-            await _ewalletService.User.CreateAsync(user);
+            await ewalletService.User.CreateAsync(user);
 
-            IEnumerable<UserDTO> users = await _ewalletService.User.GetAllAsync();
+            IEnumerable<UserDTO> users = await ewalletService.User.GetAllAsync();
 
             Assert.NotEmpty(users);
             Assert.True(users.Count() > 1);
@@ -60,21 +60,21 @@ namespace EwalletTests.IntegrationTests
         public async void Delete()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int id = await ewalletService.User.CreateAsync(user);
             Assert.NotNull(id);
 
-            await _ewalletService.User.DeleteAsync(id);
+            await ewalletService.User.DeleteAsync(id);
         }
 
         [Fact]
         public async void GetByCredentials()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int id = await _ewalletService.User.CreateAsync(user);
+            int id = await ewalletService.User.CreateAsync(user);
 
             Assert.NotNull(id);
 
-            UserVerificationResultDTO verification = await _ewalletService.User.VerifyUser(user.Email, user.Password);
+            UserVerificationResultDTO verification = await ewalletService.User.VerifyUser(user.Email, user.Password);
 
             Assert.True(verification.IsVerifiedAsPositive);
             Assert.Equal(id, verification.Id);

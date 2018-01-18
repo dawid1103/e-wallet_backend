@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace EwalletCommon.Endpoints
 {
-    public class ServiceEndpoint
+    public abstract class ServiceEndpoint
     {
-        protected HttpClient _httpClient;
+        protected HttpClient httpClient;
 
         public ServiceEndpoint(string baseUrl)
         {
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri(baseUrl);
+            httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(baseUrl);
         }
 
         public ServiceEndpoint(HttpClient client)
         {
-            _httpClient = client;
+            httpClient = client;
         }
 
         protected async Task CheckResponseSuccess(HttpResponseMessage response)
@@ -42,7 +42,7 @@ namespace EwalletCommon.Endpoints
 
         protected async Task<TResponseType> GetAsync<TResponseType>(string requestUri)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
+            HttpResponseMessage response = await httpClient.GetAsync(requestUri);
 
             await CheckResponseSuccess(response);
 
@@ -50,22 +50,17 @@ namespace EwalletCommon.Endpoints
             return JsonConvert.DeserializeObject<TResponseType>(responseContent);
         }
 
-        private async Task<TResponseType> PostAsync<TResponseType>(string requestUri, HttpContent content)
-        {
-            string responseContent = await PostAsync(requestUri, content);
-            return JsonConvert.DeserializeObject<TResponseType>(responseContent);
-        }
-
         protected async Task<TResponseType> PostAsync<TResponseType>(string requestUri, object request)
         {
             string jsonRequestContent = JsonConvert.SerializeObject(request);
             StringContent content = new StringContent(jsonRequestContent, Encoding.UTF8, "application/json");
-            return await PostAsync<TResponseType>(requestUri, content);
+            string responseContent = await PostAsync(requestUri, content);
+            return JsonConvert.DeserializeObject<TResponseType>(responseContent);
         }
 
         private async Task<string> PostAsync(string requestUri, HttpContent content)
         {
-            HttpResponseMessage response = await _httpClient.PostAsync(requestUri, content);
+            HttpResponseMessage response = await httpClient.PostAsync(requestUri, content);
             await CheckResponseSuccess(response);
             return await response.Content.ReadAsStringAsync();
         }
@@ -83,8 +78,7 @@ namespace EwalletCommon.Endpoints
 
         protected async Task DeleteAsync(string requestUri)
         {
-            HttpResponseMessage response = await _httpClient.DeleteAsync(requestUri);
-
+            HttpResponseMessage response = await httpClient.DeleteAsync(requestUri);
             await CheckResponseSuccess(response);
         }
 
@@ -92,7 +86,7 @@ namespace EwalletCommon.Endpoints
         {
             string jsonRequestContent = JsonConvert.SerializeObject(request);
             StringContent content = new StringContent(jsonRequestContent, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await _httpClient.PutAsync(requestUri, content);
+            HttpResponseMessage response = await httpClient.PutAsync(requestUri, content);
 
             await CheckResponseSuccess(response);
         }

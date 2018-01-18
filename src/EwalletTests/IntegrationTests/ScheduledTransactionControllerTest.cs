@@ -17,11 +17,11 @@ namespace EwalletTests.IntegrationTests
         public async void CreateWithoutCategory()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId);
 
-            transaction.Id = await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            transaction.Id = await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);
         }
@@ -30,15 +30,15 @@ namespace EwalletTests.IntegrationTests
         public async void CreateWithCategory()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
 
             CategoryDTO category = TestData.GetCategoryData();
-            int categoryId = await _ewalletService.Category.CreateAsync(category);
+            int categoryId = await ewalletService.Category.CreateAsync(category);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId, categoryId: categoryId);
             transaction.UserId = userId;
 
-            transaction.Id = await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            transaction.Id = await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);
         }
@@ -47,26 +47,26 @@ namespace EwalletTests.IntegrationTests
         public async void CreateWithoutAssignedUser_ShouldThrowBadRequestException()
         {
             CategoryDTO category = TestData.GetCategoryData();
-            int categoryId = await _ewalletService.Category.CreateAsync(category);
+            int categoryId = await ewalletService.Category.CreateAsync(category);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(0, categoryId);
 
-            await Assert.ThrowsAsync<BadRequestException>(async () => await _ewalletService.ScheduledTransaction.CreateAsync(transaction));
+            await Assert.ThrowsAsync<BadRequestException>(async () => await ewalletService.ScheduledTransaction.CreateAsync(transaction));
         }
 
         [Fact]
         public async void GetSingle()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId);
 
-            transaction.Id = await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            transaction.Id = await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
             Assert.NotNull(transaction.Id);
 
-            ScheduledTransactionDTO fromDatabase = await _ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
+            ScheduledTransactionDTO fromDatabase = await ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
 
             Assert.NotNull(fromDatabase);
             Assert.Equal(transaction.Id, fromDatabase.Id);
@@ -84,13 +84,13 @@ namespace EwalletTests.IntegrationTests
         public async void GetAll()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId);
 
-            await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
-            await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            await ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
-            IEnumerable<ScheduledTransactionDTO> transactions = await _ewalletService.ScheduledTransaction.GetAllAsync();
+            IEnumerable<ScheduledTransactionDTO> transactions = await ewalletService.ScheduledTransaction.GetAllAsync();
 
             Assert.NotEmpty(transactions);
             Assert.True(transactions.Count() > 1);
@@ -100,13 +100,13 @@ namespace EwalletTests.IntegrationTests
         public async void Delete()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId);
-            int id = await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            int id = await ewalletService.ScheduledTransaction.CreateAsync(transaction);
             Assert.NotNull(id);
 
-            await _ewalletService.ScheduledTransaction.DeleteAsync(id);
-            ScheduledTransactionDTO fromDatabase = await _ewalletService.ScheduledTransaction.GetAsync(id);
+            await ewalletService.ScheduledTransaction.DeleteAsync(id);
+            ScheduledTransactionDTO fromDatabase = await ewalletService.ScheduledTransaction.GetAsync(id);
             Assert.Null(fromDatabase);
         }
 
@@ -114,14 +114,14 @@ namespace EwalletTests.IntegrationTests
         public async void Update()
         {
             CategoryDTO category = TestData.GetCategoryData();
-            int categoryId = await _ewalletService.Category.CreateAsync(category);
+            int categoryId = await ewalletService.Category.CreateAsync(category);
 
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId, categoryId: categoryId);
-            transaction.Id = await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
-            ScheduledTransactionDTO fromDatabase = await _ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
+            transaction.Id = await ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            ScheduledTransactionDTO fromDatabase = await ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
 
             string changedTitle = $"Test changed title {Guid.NewGuid().ToString()}";
             string changedDesc = $"Test changed description {Guid.NewGuid().ToString()}";
@@ -138,8 +138,8 @@ namespace EwalletTests.IntegrationTests
             fromDatabase.RepeatMode = repeatMode;
             fromDatabase.RepeatDay = date;
 
-            await _ewalletService.ScheduledTransaction.UpdateAsync(fromDatabase);
-            fromDatabase = await _ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
+            await ewalletService.ScheduledTransaction.UpdateAsync(fromDatabase);
+            fromDatabase = await ewalletService.ScheduledTransaction.GetAsync(transaction.Id);
 
             Assert.Equal(transaction.Id, fromDatabase.Id);
             Assert.Equal(changedTitle, fromDatabase.Title);
@@ -155,31 +155,31 @@ namespace EwalletTests.IntegrationTests
         public async void GetByUserId()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await _ewalletService.User.CreateAsync(user);
+            int userId = await ewalletService.User.CreateAsync(user);
 
             //create transaction 1
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId);
-            await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
             //create transaction 2
             transaction = TestData.GetScheduledTransactionData(userId);
-            await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
             //check
-            IEnumerable<ScheduledTransactionDTO> userTransactions = await _ewalletService.ScheduledTransaction.GetAllByUserIdAsync(userId);
+            IEnumerable<ScheduledTransactionDTO> userTransactions = await ewalletService.ScheduledTransaction.GetAllByUserIdAsync(userId);
             Assert.True(userTransactions.Count() == 2);
 
 
             //create 2nd user
             user = TestData.GetUserRegistrationData();
-            userId = await _ewalletService.User.CreateAsync(user);
+            userId = await ewalletService.User.CreateAsync(user);
 
             //create transaction 1 for 2nd user
             transaction = TestData.GetScheduledTransactionData(userId);
-            await _ewalletService.ScheduledTransaction.CreateAsync(transaction);
+            await ewalletService.ScheduledTransaction.CreateAsync(transaction);
 
             //check
-            userTransactions = await _ewalletService.ScheduledTransaction.GetAllByUserIdAsync(userId);
+            userTransactions = await ewalletService.ScheduledTransaction.GetAllByUserIdAsync(userId);
             Assert.True(userTransactions.Count() == 1);
         }
     }

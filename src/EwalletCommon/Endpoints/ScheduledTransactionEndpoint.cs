@@ -7,6 +7,10 @@ namespace EwalletCommon.Endpoints
 {
     public class ScheduledTransactionEndpoint : ServiceEndpoint
     {
+        public ScheduledTransactionEndpoint(string url) : base(url)
+        {
+        }
+
         public ScheduledTransactionEndpoint(HttpClient client) : base(client)
         {
         }
