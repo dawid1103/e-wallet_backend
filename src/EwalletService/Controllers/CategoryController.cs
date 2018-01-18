@@ -17,16 +17,17 @@ namespace EwalletService.Controllers
         }
 
         [HttpPost]
-        public async Task<int> CreateAsync([FromBody] CategoryDTO category)
+        public async Task<IActionResult> CreateAsync([FromBody] CategoryDTO category)
         {
             int id = await categoryRepository.CreateAsync(category);
-            return id;
+            return Created("id", id);
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             await categoryRepository.DeleteAsync(id);
+            return Ok();
         }
 
         [HttpGet("{id}")]
@@ -42,9 +43,10 @@ namespace EwalletService.Controllers
         }
 
         [HttpPut]
-        public async Task UpdateAsync([FromBody] CategoryDTO category)
+        public async Task<IActionResult> UpdateAsync([FromBody] CategoryDTO category)
         {
             await categoryRepository.EditAsync(category);
+            return Ok();
         }
     }
 }

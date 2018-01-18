@@ -29,10 +29,10 @@ bld/
 # Visual Studio 2015 cache/options directory
 .vs/
 
-/src/EwalletServices/bin
-/src/EwalletServices/obj
-/src/EwalletServices/node_modules
-/src/EwalletServices/wwwroot/lib
+bin
+obj
+node_modules
+wwwroot/lib
 /src/EwalletServices/logs
+TransactionImages
 /nuget
-/src/EwalletService/TransactionImages

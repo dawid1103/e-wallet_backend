@@ -1,12 +1,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EwalletTests", "src\EwalletTests\EwalletTests.csproj", "{0FAF9967-4D03-4933-8603-5812940D71B6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EwalletService", "src\EwalletService\EwalletService.csproj", "{C28162E1-A586-4BBE-A11B-B77331C132A4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EwalletCommon", "src\EwalletCommon\EwalletCommon.csproj", "{9A6340B8-E2FD-4718-907C-BBC518C2CB97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicassoService", "src\PicassoService\PicassoService.csproj", "{6D3D2659-9A55-49EC-ABB0-AB8230669274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicassoServiceTests", "src\PicassoServiceTests\PicassoServiceTests.csproj", "{AF0860D3-AE3E-4D18-9A56-36ECC266441E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +30,14 @@ Global
 		{9A6340B8-E2FD-4718-907C-BBC518C2CB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A6340B8-E2FD-4718-907C-BBC518C2CB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A6340B8-E2FD-4718-907C-BBC518C2CB97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D3D2659-9A55-49EC-ABB0-AB8230669274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3D2659-9A55-49EC-ABB0-AB8230669274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3D2659-9A55-49EC-ABB0-AB8230669274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3D2659-9A55-49EC-ABB0-AB8230669274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF0860D3-AE3E-4D18-9A56-36ECC266441E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0860D3-AE3E-4D18-9A56-36ECC266441E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0860D3-AE3E-4D18-9A56-36ECC266441E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0860D3-AE3E-4D18-9A56-36ECC266441E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

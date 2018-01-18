@@ -1,3 +1,3 @@
 #!/bin/bash
 cd ../src/EwalletCommon
-dotnet pack -o ../../nuget --no-build --no-restore --include-source --version-suffix preview
+dotnet pack -o ../../nuget --include-source --version-suffix preview

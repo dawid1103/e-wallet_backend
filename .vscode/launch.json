@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": "Run EwalletService",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/src/EwalletServices/bin/Debug/netcoreapp2.0/EwalletServices.dll",
+            "program": "${workspaceRoot}/src/EwalletService/bin/Debug/netcoreapp2.0/EwalletService.dll",
             "args": [
                 "--debug=debug"
             ],
@@ -33,10 +33,7 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "ASPNETCORE_ROOTPATH": "${workspaceRoot}/src/EwalletServices"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceRoot}/src/EwalletServices/Views"
+                "ASPNETCORE_ROOTPATH": "${workspaceRoot}/src/EwalletService"
             }
         },
         {
