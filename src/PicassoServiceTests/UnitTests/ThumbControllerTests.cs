@@ -8,18 +8,17 @@ using Xunit;
 
 namespace PicassoServiceTests.UnitTests
 {
-    public class ThumbControllerTests : UnitTestBase
+    public class ThumbControllerTests
     {
         [Fact]
         public void GetFileByName_ShouldReturnFileStrean()
         {
-            string contentType = "image/jpeg";
-            string fileName = "nameOfFile.jpeg";
+            string contentType = "text/plain";
+            string fileName = "nameOfFile.txt";
+            Stream ms = TestData.GetFileStream();
 
             var imageProcessorMock = new Mock<IImageProcessor>();
             imageProcessorMock.Setup(s => s.RecognizeContentType(It.IsAny<string>())).Returns(contentType);
-
-            Stream ms = TestData.GetStream();
             imageProcessorMock.Setup(s => s.GetOriginal(It.IsAny<string>())).Returns(ms);
 
             var loggerMock = new Mock<ILogger<ThumbController>>();

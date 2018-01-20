@@ -8,8 +8,8 @@ namespace PicassoServiceTests
     {
         public static IFormFile GetTestFile()
         {
-            string fileName = "test.pdf";
-            Stream ms = GetStream();
+            string fileName = "test.txt";
+            Stream ms = GetFileStream();
 
             var fileMock = new Mock<IFormFile>();
             fileMock.Setup(_ => _.OpenReadStream()).Returns(ms);
@@ -19,7 +19,7 @@ namespace PicassoServiceTests
             return fileMock.Object;
         }
 
-        public static Stream GetStream()
+        public static Stream GetFileStream()
         {
             string content = "Hello World from a Fake File";
             var ms = new MemoryStream();

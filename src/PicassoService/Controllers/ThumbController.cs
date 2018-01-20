@@ -26,7 +26,8 @@ namespace PicassoService.Controllers
             try
             {
                 stream = imageProcessor.GetOriginal(fileName);
-                return new FileStreamResult(stream, imageProcessor.RecognizeContentType(fileName)) { FileDownloadName = fileName };
+                string contentType = imageProcessor.RecognizeContentType(fileName);
+                return new FileStreamResult(stream, contentType) { FileDownloadName = fileName };
             }
             catch (Exception ex)
             {

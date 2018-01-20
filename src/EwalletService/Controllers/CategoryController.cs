@@ -27,7 +27,7 @@ namespace EwalletService.Controllers
         public async Task<IActionResult> DeleteAsync(int id)
         {
             await categoryRepository.DeleteAsync(id);
-            return Ok();
+            return NoContent();
         }
 
         [HttpGet("{id}")]
@@ -46,7 +46,7 @@ namespace EwalletService.Controllers
         public async Task<IActionResult> UpdateAsync([FromBody] CategoryDTO category)
         {
             await categoryRepository.EditAsync(category);
-            return Ok();
+            return NoContent();
         }
     }
 }

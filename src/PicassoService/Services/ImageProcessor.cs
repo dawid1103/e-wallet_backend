@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Options;
 using PicassoService.Settings;
 using System.IO;
+using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace PicassoService.Services
 {
@@ -10,6 +12,7 @@ namespace PicassoService.Services
     {
         Stream GetOriginal(string fileName);
         string RecognizeContentType(string filePath);
+        Task<string> SaveFile(IFormFile uploadFile);
     }
 
     public class ImageProcessor : IImageProcessor
@@ -36,6 +39,22 @@ namespace PicassoService.Services
             string contentType = "image/jpeg";
             contentTypeProvider.TryGetContentType(filePath, out contentType);
             return contentType;
+        }
+
+        public async Task<string> SaveFile(IFormFile uploadFile)
+        {
+            Directory.CreateDirectory(Path.Combine(this.contentRootPath, settings.FileDirectory));
+
+            string fileExtension = Path.GetExtension(uploadFile.FileName);
+            string fileName = Path.ChangeExtension(Path.GetRandomFileName(), fileExtension);
+            string path = Path.Combine(this.contentRootPath, settings.FileDirectory, fileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await uploadFile.CopyToAsync(stream);
+            }
+
+            return fileName;
         }
     }
 }
