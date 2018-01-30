@@ -26,6 +26,7 @@ namespace EwalletService.Repository
             {
                 title = transaction.Title,
                 description = transaction.Description,
+                type = transaction.Type,
                 price = transaction.Price,
                 categoryId = transaction.CategoryId,
                 userId = transaction.UserId,
@@ -51,6 +52,7 @@ namespace EwalletService.Repository
             {
                 id = transaction.Id,
                 title = transaction.Title,
+                type = transaction.Type,
                 description = transaction.Description,
                 price = transaction.Price,
                 categoryId = transaction.CategoryId,
@@ -76,7 +78,6 @@ namespace EwalletService.Repository
 
         public async Task<IEnumerable<ScheduledTransactionDTO>> GetAllIncomingAsync(DateTime currentDate)
         {
-            //return transactions.Where(t => t.RepeatDay <= currentDate && t.IsCompleted == false).Select(t => t);
             return await base.LoadByStorageProcedureAsync<ScheduledTransactionDTO>("dbo.ScheduledTransactionGetAllIncoming", new
             {
                 date = currentDate,

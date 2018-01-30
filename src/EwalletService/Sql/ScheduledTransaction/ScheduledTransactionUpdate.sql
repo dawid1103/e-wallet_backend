@@ -14,6 +14,7 @@ GO
 ALTER PROCEDURE dbo.ScheduledTransactionUpdate
 	@id int,
 	@title nvarchar(256),
+	@type int,
 	@price decimal(18,2),
 	@description nvarchar(MAX),
 	@categoryId int,
@@ -31,7 +32,8 @@ BEGIN
 		[ScheduledTransaction]
 	SET 
 		title = @title,
-		description = @description,
+		[type] = @type,
+		[description] = @description,
 		price = @price,
 		categoryId = @categoryId,
 		repeatDay = @repeatDay,

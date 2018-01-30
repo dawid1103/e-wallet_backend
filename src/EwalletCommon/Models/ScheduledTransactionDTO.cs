@@ -49,15 +49,8 @@ namespace EwalletCommon.Models
         {
         }
 
-        public ScheduledTransactionDTO(TransactionDTO transaction, DateTime startDay, RepeatMode repeatMode, int repeatCount)
+        public ScheduledTransactionDTO(TransactionDTO transaction, DateTime startDay, RepeatMode repeatMode, int repeatCount) : base(transaction)
         {
-            Id = transaction.Id;
-            Title = transaction.Title;
-            Price = transaction.Price;
-            Description = transaction.Description;
-            AddDate = transaction.AddDate;
-            CategoryId = transaction.CategoryId;
-            UserId = transaction.UserId;
             RepeatDay = startDay.Date;
             RepeatMode = repeatMode;
             RepeatCount = repeatCount;

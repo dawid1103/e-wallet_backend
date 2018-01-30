@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EwalletCommon.Enums;
 using System;
 
 namespace EwalletCommon.Models
@@ -19,6 +19,11 @@ namespace EwalletCommon.Models
         /// Transaction price
         /// </summary>
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Transaction type
+        /// </summary>
+        public TransactionType Type { get; set; }
 
         /// <summary>
         /// Transaction date
@@ -44,5 +49,23 @@ namespace EwalletCommon.Models
         /// Path to image
         /// </summary>
         public string FilePath { get; set; }
+
+        public TransactionDTO()
+        {
+
+        }
+
+        public TransactionDTO(TransactionDTO transaction)
+        {
+            Id = transaction.Id;
+            Title = transaction.Title;
+            Price = transaction.Price;
+            Type = transaction.Type;
+            AddDate = transaction.AddDate;
+            Description = transaction.Description;
+            CategoryId = transaction.CategoryId;
+            UserId = transaction.UserId;
+            FilePath = transaction.FilePath;
+        }
     }
 }

@@ -14,6 +14,7 @@ GO
 ALTER PROCEDURE dbo.TransactionUpdate
 	@id int,
 	@title nvarchar(255),
+	@type int,
 	@price decimal(18,2),
 	@filePath nvarchar(255),
 	@description nvarchar(MAX),
@@ -30,6 +31,7 @@ BEGIN
 	SET 
 		[title] = @title,
 		[description] = @description,
+		[type] = @type,
 		[price] = @price,
 		[filePath] = @filePath,
 		[categoryId] = @categoryId

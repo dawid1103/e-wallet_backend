@@ -1,4 +1,5 @@
-﻿using EwalletCommon.Models;
+﻿using EwalletCommon.Enums;
+using EwalletCommon.Models;
 using EwalletCommon.Utils;
 using EwalletTests.Common;
 using System;
@@ -72,6 +73,7 @@ namespace EwalletTests.IntegrationTests
             Assert.Equal(transaction.Price, fromDatabase.Price);
             Assert.Equal(transaction.CategoryId, fromDatabase.CategoryId);
             Assert.True(transaction.AddDate != fromDatabase.AddDate);
+            Assert.Equal(transaction.Type, fromDatabase.Type);
         }
 
         [Fact]
@@ -121,14 +123,16 @@ namespace EwalletTests.IntegrationTests
             fromDatabase.Description = changedDesc;
             fromDatabase.Price = changedPrice;
             fromDatabase.CategoryId = 0;
+            fromDatabase.Type = TransactionType.Expense;
 
             await ewalletService.Transaction.UpdateAsync(fromDatabase);
             fromDatabase = await ewalletService.Transaction.GetAsync(transaction.Id);
 
-            Assert.Equal(fromDatabase.Title, changedTitle);
-            Assert.Equal(fromDatabase.Description, changedDesc);
-            Assert.Equal(fromDatabase.Price, changedPrice);
-            Assert.Equal(fromDatabase.CategoryId, 0);
+            Assert.Equal(changedTitle, fromDatabase.Title);
+            Assert.Equal(changedDesc, fromDatabase.Description);
+            Assert.Equal(changedPrice, fromDatabase.Price);
+            Assert.Equal(TransactionType.Expense, fromDatabase.Type);
+            Assert.Equal(0, fromDatabase.CategoryId);
         }
 
         [Fact]

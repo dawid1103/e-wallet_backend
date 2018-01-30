@@ -1,4 +1,5 @@
-﻿using EwalletCommon.Models;
+﻿using EwalletCommon.Enums;
+using EwalletCommon.Models;
 using System;
 
 namespace EwalletTests.Common
@@ -26,7 +27,8 @@ namespace EwalletTests.Common
                 AddDate = DateTime.Now,
                 Description = $"Description - {guild}",
                 Price = decimal.Round((decimal)(rnd.Next(1, 999999999) + rnd.NextDouble()), 2, MidpointRounding.AwayFromZero),
-                UserId = userId
+                UserId = userId,
+                Type = (TransactionType)rnd.Next(0, 2)
             };
 
             if (categoryId > 0)

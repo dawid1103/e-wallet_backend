@@ -14,6 +14,7 @@ GO
 ALTER PROCEDURE dbo.TransactionCreate
 	@title nvarchar(255),
 	@description nvarchar(MAX),
+	@type int,
 	@price decimal(18,2),
 	@filePath nvarchar(255),
 	@categoryId int,
@@ -31,6 +32,7 @@ BEGIN
 		[Transaction] (
 			[title],
 			[description],
+			[type],
 			[price],
 			[filePath],
 			[categoryId],
@@ -39,6 +41,7 @@ BEGIN
 	VALUES (
 		@title,
 		@description,
+		@type,
 		@price,
 		@filePath,
 		@categoryId,

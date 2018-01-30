@@ -14,6 +14,7 @@ GO
 ALTER PROCEDURE dbo.ScheduledTransactionCreate
 	@title nvarchar(256),
 	@description nvarchar(MAX),
+	@type int,
 	@price decimal(18,2),
 	@categoryId int,
 	@userId int,
@@ -33,6 +34,7 @@ BEGIN
 		[ScheduledTransaction] (
 			title,
 			[description],
+			[type],
 			price,
 			categoryId,
 			userId,
@@ -43,6 +45,7 @@ BEGIN
 	VALUES (
 		@title,
 		@description,
+		@type,
 		@price,
 		@categoryId,
 		@userId,
