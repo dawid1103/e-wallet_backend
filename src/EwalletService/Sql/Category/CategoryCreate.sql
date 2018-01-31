@@ -12,17 +12,20 @@ GO
 -- Create category
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryCreate
-	@name nvarchar(256)
+	@name nvarchar(255),
+	@color nvarchar(25)
 AS
 BEGIN
 	SET NOCOUNT ON;
 
 	INSERT INTO
 		Category (
-			name
+			[name],
+			[color]
 		)
 	VALUES (
-		@name
+		@name,
+		@color
 	);
 	
 	SELECT SCOPE_IDENTITY() AS id -- Returns the last Id which is our new category id of current db session

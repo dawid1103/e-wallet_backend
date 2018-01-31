@@ -18,7 +18,8 @@ namespace EwalletService.Repository
         {
             IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.CategoryCreate", new
             {
-                Name = category.Name
+                Name = category.Name,
+                Color = category.Color
             });
 
             return results.FirstOrDefault();
@@ -37,7 +38,8 @@ namespace EwalletService.Repository
             await base.ExecuteStorageProcedureAsync("dbo.CategoryUpdate", new
             {
                 id = category.Id,
-                name = category.Name
+                name = category.Name,
+                color = category.Color
             });
         }
 

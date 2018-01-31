@@ -11,5 +11,10 @@
         /// Category name
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// RGBA color format
+        /// </summary>
+        public string Color { get; set; }
     }
 }

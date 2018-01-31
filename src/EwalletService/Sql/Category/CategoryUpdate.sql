@@ -13,7 +13,8 @@ GO
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryUpdate
 	@id int,
-	@name nvarchar(256)
+	@name nvarchar(255),
+	@color nvarchar(25)
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -21,7 +22,8 @@ BEGIN
 	UPDATE 
 		dbo.category 
 	SET 
-		name = @name
+		[name] = @name,
+		[color] = @color
 	FROM
 		Category 
 	WHERE 

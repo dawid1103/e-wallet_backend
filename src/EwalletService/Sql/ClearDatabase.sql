@@ -17,7 +17,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DELETE FROM [Transaction];
-	DELETE FROM Category;
+	DELETE FROM [Category];
 	DELETE FROM [User];
 
 	INSERT INTO [User](Email, PasswordHash, Salt, IsActive, [Role], ModifiedDate, InsertedDate) 
