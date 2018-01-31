@@ -1,5 +1,4 @@
-﻿using EwalletCommon.Enums;
-using EwalletCommon.Models;
+﻿using EwalletCommon.Models;
 using EwalletService.Logic;
 using EwalletService.Models;
 using EwalletService.Repository;

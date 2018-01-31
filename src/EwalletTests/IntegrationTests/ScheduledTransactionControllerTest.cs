@@ -1,5 +1,4 @@
-﻿using EwalletCommon.Enums;
-using EwalletCommon.Models;
+﻿using EwalletCommon.Models;
 using EwalletCommon.Utils;
 using EwalletTests.Common;
 using System;
