@@ -5,7 +5,8 @@ CREATE TABLE [Category] (
     [Id] [int] IDENTITY(1,1) NOT NULL,
     [Name] varchar(255) NOT NULL,
 	[Color] varchar(25),
-	CONSTRAINT PK_Category PRIMARY KEY (Id)
+	[UserId] [int] NOT NULL FOREIGN KEY REFERENCES [User](Id),
+	CONSTRAINT PK_Category PRIMARY KEY (Id, UserId)
 );
 
 CREATE TABLE [User] (

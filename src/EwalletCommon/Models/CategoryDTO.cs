@@ -16,5 +16,10 @@
         /// RGBA color format
         /// </summary>
         public string Color { get; set; }
+
+        /// <summary>
+        /// User id
+        /// </summary>
+        public int UserId { get; set; }
     }
 }
