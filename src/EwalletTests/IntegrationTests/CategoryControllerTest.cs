@@ -2,7 +2,9 @@
 using EwalletTests.Common;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace EwalletTests.IntegrationTests
@@ -11,9 +13,21 @@ namespace EwalletTests.IntegrationTests
     public class CategoryControllerTest : TestBase
     {
         [Fact]
+        public async void Create_NoUser_ShouldThrow()
+        {
+            CategoryDTO category = TestData.GetCategoryData(0);
+            await Assert.ThrowsAsync<SqlException>(async () => await ewalletService.Category.CreateAsync(category));
+        }
+
+        [Fact]
         public async void Create()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            Assert.NotNull(userId);
+
+            CategoryDTO category = TestData.GetCategoryData(userId);
+            category.UserId = userId;
+
             int id = await ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
         }
@@ -21,7 +35,10 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetSingle()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            Assert.NotNull(userId);
+
+            CategoryDTO category = TestData.GetCategoryData(userId);
             int id = await ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
 
@@ -34,7 +51,10 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void Update()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            Assert.NotNull(userId);
+
+            CategoryDTO category = TestData.GetCategoryData(userId);
             category.Id = await ewalletService.Category.CreateAsync(category);
             CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(category.Id);
 
@@ -53,7 +73,10 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void Delete()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            Assert.NotNull(userId);
+
+            CategoryDTO category = TestData.GetCategoryData(userId);
             int id = await ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
 
@@ -66,7 +89,10 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void DeleteWithTransactions()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            Assert.NotNull(userId);
+
+            CategoryDTO category = TestData.GetCategoryData(userId);
             int categoryId = await ewalletService.Category.CreateAsync(category);
 
             TransactionDTO transaction = TestData.GetTransactionData(categoryId);
@@ -87,8 +113,15 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void GetAll()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            Assert.NotNull(userId);
+
+            //#1
+            CategoryDTO category = TestData.GetCategoryData(userId);
             await ewalletService.Category.CreateAsync(category);
+
+            //#2
+            category = TestData.GetCategoryData(userId);
             await ewalletService.Category.CreateAsync(category);
 
             IEnumerable<CategoryDTO> categories = await ewalletService.Category.GetAllAsync();

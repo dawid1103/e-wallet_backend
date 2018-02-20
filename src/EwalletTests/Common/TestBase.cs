@@ -1,13 +1,14 @@
 ﻿using Dapper;
+using EwalletCommon.Models;
+using EwalletCommon.Services;
+using EwalletService;
 using EwalletService.DataAccessLayer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using System.Data.SqlClient;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Xunit;
-using EwalletService;
-using EwalletCommon.Endpoints;
-using EwalletCommon.Services;
 
 namespace EwalletTests.Common
 {
@@ -35,6 +36,13 @@ namespace EwalletTests.Common
             {
                 connection.Execute("dbo.ClearDatabase", commandType: System.Data.CommandType.StoredProcedure);
             }
+        }
+
+        protected int CreateUser()
+        {
+            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
+            int userId = ewalletService.User.CreateAsync(user).Result;
+            return userId;
         }
     }
 }

@@ -1,14 +1,6 @@
 CREATE DATABASE ewallet_dev;
 USE ewallet_dev;
 
-CREATE TABLE [Category] (
-    [Id] [int] IDENTITY(1,1) NOT NULL,
-    [Name] varchar(255) NOT NULL,
-	[Color] varchar(25),
-	[UserId] [int] NOT NULL FOREIGN KEY REFERENCES [User](Id),
-	CONSTRAINT PK_Category PRIMARY KEY (Id, UserId)
-);
-
 CREATE TABLE [User] (
     [Id] [int] IDENTITY(1,1) NOT NULL,
     [Email] varchar(255),
@@ -19,6 +11,15 @@ CREATE TABLE [User] (
     [InsertedDate] [datetime] NOT NULL DEFAULT GETDATE(),
     [IsActive] [bit] NOT NULL,
 	CONSTRAINT PK_User PRIMARY KEY (Id)
+);
+
+CREATE TABLE [Category] (
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Name] varchar(255) NOT NULL,
+	[Color] varchar(25),
+	[UserId] [int] NOT NULL FOREIGN KEY REFERENCES [User](Id),
+	CONSTRAINT PK_Category PRIMARY KEY (Id),
+	UNIQUE(Name, UserId)
 );
 
 CREATE TABLE [Transaction] (

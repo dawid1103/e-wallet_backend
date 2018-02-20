@@ -6,12 +6,13 @@ namespace EwalletTests.Common
 {
     public static class TestData
     {
-        public static CategoryDTO GetCategoryData()
+        public static CategoryDTO GetCategoryData(int userId)
         {
             var category = new CategoryDTO()
             {
                 Name = $"Category - {Guid.NewGuid()}",
-                Color = "rgba(255, 0, 0, 0.3)"
+                Color = "rgba(255, 0, 0, 0.3)",
+                UserId = userId
             };
 
             return category;

@@ -38,6 +38,7 @@ namespace EwalletService
             // Add general
             services.AddSingleton(new DatabaseConfig(sqlConnectionString, sqlDatabaseName));
             services.AddScoped<IDatabaseSession, DatabaseSession>();
+            services.AddScoped<IDatabaseInitializer, DatabaseInitializer>();
 
             // Add logic
             services.AddScoped<IPasswordLogic, PasswordLogic>();
@@ -64,7 +65,7 @@ namespace EwalletService
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDatabaseSession db)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDatabaseInitializer dbInitial)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -76,7 +77,7 @@ namespace EwalletService
             });
 
             app.UseMvc();
-            db.InitDatabase();
+            dbInitial.Init();
         }
     }
 }

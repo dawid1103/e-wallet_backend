@@ -5,6 +5,6 @@ namespace EwalletService.DataAccessLayer
     public interface IDatabaseSession
     {
         DbConnection Connection { get; }
-        void InitDatabase();
+        string DatabaseName { get; }
     }
 }

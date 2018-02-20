@@ -29,10 +29,9 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void CreateWithCategory()
         {
-            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await ewalletService.User.CreateAsync(user);
+            int userId = CreateUser();
 
-            CategoryDTO category = TestData.GetCategoryData();
+            CategoryDTO category = TestData.GetCategoryData(userId);
             int categoryId = await ewalletService.Category.CreateAsync(category);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId, categoryId: categoryId);
@@ -46,7 +45,8 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void CreateWithoutAssignedUser_ShouldThrowBadRequestException()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            CategoryDTO category = TestData.GetCategoryData(userId);
             int categoryId = await ewalletService.Category.CreateAsync(category);
 
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(0, categoryId);
@@ -113,12 +113,11 @@ namespace EwalletTests.IntegrationTests
         [Fact]
         public async void Update()
         {
-            CategoryDTO category = TestData.GetCategoryData();
+            int userId = CreateUser();
+            CategoryDTO category = TestData.GetCategoryData(userId);
             int categoryId = await ewalletService.Category.CreateAsync(category);
 
-            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await ewalletService.User.CreateAsync(user);
-
+            userId = CreateUser(); ;
             ScheduledTransactionDTO transaction = TestData.GetScheduledTransactionData(userId, categoryId: categoryId);
             transaction.Id = await ewalletService.ScheduledTransaction.CreateAsync(transaction);
             ScheduledTransactionDTO fromDatabase = await ewalletService.ScheduledTransaction.GetAsync(transaction.Id);

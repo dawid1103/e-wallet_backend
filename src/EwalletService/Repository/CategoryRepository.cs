@@ -19,7 +19,8 @@ namespace EwalletService.Repository
             IEnumerable<int> results = await base.LoadByStorageProcedureAsync<int>("dbo.CategoryCreate", new
             {
                 Name = category.Name,
-                Color = category.Color
+                Color = category.Color,
+                UserId = category.UserId
             });
 
             return results.FirstOrDefault();
