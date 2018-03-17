@@ -12,7 +12,8 @@ GO
 -- Get category with given id
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryGet
-	@id int
+	@id int,
+	@userId int
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -21,7 +22,7 @@ BEGIN
 	FROM
 		Category 
 	WHERE 
-		id=@id;
+		id=@id and userId=@userId;
 END
 GO
 

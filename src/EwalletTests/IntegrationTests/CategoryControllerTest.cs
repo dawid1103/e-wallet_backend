@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace EwalletTests.IntegrationTests
@@ -42,7 +41,7 @@ namespace EwalletTests.IntegrationTests
             int id = await ewalletService.Category.CreateAsync(category);
             Assert.NotNull(id);
 
-            CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(id);
+            CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(id, category.UserId);
 
             Assert.NotNull(fromDatabase);
             Assert.Equal(category.Name, fromDatabase.Name);
@@ -56,7 +55,7 @@ namespace EwalletTests.IntegrationTests
 
             CategoryDTO category = TestData.GetCategoryData(userId);
             category.Id = await ewalletService.Category.CreateAsync(category);
-            CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(category.Id);
+            CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(category.Id, category.UserId);
 
             string changedName = $"Test changed {DateTime.Now.Ticks}";
             string changedColor = "rgba(255, 255, 255, 0.3)";
@@ -64,7 +63,7 @@ namespace EwalletTests.IntegrationTests
             fromDatabase.Color = changedColor;
 
             await ewalletService.Category.UpdateAsync(fromDatabase);
-            fromDatabase = await ewalletService.Category.GetAsync(category.Id);
+            fromDatabase = await ewalletService.Category.GetAsync(category.Id, category.UserId);
 
             Assert.Equal(changedName, fromDatabase.Name);
             Assert.Equal(changedColor, fromDatabase.Color);
@@ -82,7 +81,7 @@ namespace EwalletTests.IntegrationTests
 
             await ewalletService.Category.DeleteAsync(id);
 
-            CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(id);
+            CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(id, category.UserId);
             Assert.Null(fromDatabase);
         }
 
@@ -105,9 +104,8 @@ namespace EwalletTests.IntegrationTests
             TransactionDTO transFromDb = await ewalletService.Transaction.GetAsync(transaction.Id);
             Assert.Equal(0, transFromDb.CategoryId);
 
-            CategoryDTO catFromDb = await ewalletService.Category.GetAsync(transaction.CategoryId);
+            CategoryDTO catFromDb = await ewalletService.Category.GetAsync(transaction.CategoryId, category.UserId);
             Assert.Null(catFromDb);
-
         }
 
         [Fact]
@@ -124,7 +122,7 @@ namespace EwalletTests.IntegrationTests
             category = TestData.GetCategoryData(userId);
             await ewalletService.Category.CreateAsync(category);
 
-            IEnumerable<CategoryDTO> categories = await ewalletService.Category.GetAllAsync();
+            IEnumerable<CategoryDTO> categories = await ewalletService.Category.GetAllAsync(userId);
 
             Assert.NotEmpty(categories);
             Assert.True(categories.Count() > 1);

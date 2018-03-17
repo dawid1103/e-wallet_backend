@@ -30,16 +30,16 @@ namespace EwalletService.Controllers
             return NoContent();
         }
 
-        [HttpGet("{id}")]
-        public async Task<CategoryDTO> GetAsync(int id)
+        [HttpGet("{id}/user/{userId}")]
+        public async Task<CategoryDTO> GetAsync(int id, int userId)
         {
-            return await categoryRepository.GetAsync(id);
+            return await categoryRepository.GetAsync(id, userId);
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
+        [HttpGet("user/{userId}")]
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync(int userId)
         {
-            return await categoryRepository.GetAllAsync();
+            return await categoryRepository.GetAllAsync(userId);
         }
 
         [HttpPut]

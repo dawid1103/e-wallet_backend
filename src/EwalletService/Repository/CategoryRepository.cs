@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace EwalletService.Repository
 {
-    public interface ICategoryRepository : IRepository<CategoryDTO>
+    public interface ICategoryRepository
     {
+        Task<CategoryDTO> GetAsync(int id, int userId);
+
+        Task<IEnumerable<CategoryDTO>> GetAllAsync(int userId);
+
+        Task<int> CreateAsync(CategoryDTO category);
+
+        Task DeleteAsync(int id);
+
+        Task EditAsync(CategoryDTO category);
     }
 
     public class CategoryRepository : Repository, ICategoryRepository
@@ -44,19 +53,23 @@ namespace EwalletService.Repository
             });
         }
 
-        public async Task<CategoryDTO> GetAsync(int id)
+        public async Task<CategoryDTO> GetAsync(int id, int userId)
         {
             IEnumerable<CategoryDTO> result = await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGet", new
             {
-                id = id
+                id = id,
+                userId = userId
             });
 
             return result.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync(int userId)
         {
-            return await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGetAll", null);
+            return await base.LoadByStorageProcedureAsync<CategoryDTO>("dbo.CategoryGetAll", new
+            {
+                userId = userId
+            });
         }
     }
 }

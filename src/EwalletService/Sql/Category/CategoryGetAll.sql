@@ -12,6 +12,7 @@ GO
 -- Get all categories
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryGetAll
+	@userId int
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -19,7 +20,9 @@ BEGIN
 	SELECT 
 		* 
 	FROM
-		Category;
+		Category
+	WHERE
+		userId=@userId OR userId=1;
 END
 GO
 

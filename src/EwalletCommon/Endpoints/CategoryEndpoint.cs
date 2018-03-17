@@ -39,18 +39,18 @@ namespace EwalletCommon.Endpoints
         /// </summary>
         /// <param name="id">Category id</param>
         /// <returns>CategoryDTO object</returns>
-        public async Task<CategoryDTO> GetAsync(int id)
+        public async Task<CategoryDTO> GetAsync(int id, int userId)
         {
-            return await base.GetAsync<CategoryDTO>($"category/{id}");
+            return await base.GetAsync<CategoryDTO>($"category/{id}/user/{userId}");
         }
 
         /// <summary>
         /// Returns all categories
         /// </summary>
         /// <returns>IEnumerable<CategoryDTO></returns>
-        public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
+        public async Task<IEnumerable<CategoryDTO>> GetAllAsync(int userId)
         {
-            return await base.GetAsync<IEnumerable<CategoryDTO>>("category");
+            return await base.GetAsync<IEnumerable<CategoryDTO>>($"category/user/{userId}");
         }
 
 
