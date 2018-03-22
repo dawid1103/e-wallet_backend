@@ -5,9 +5,11 @@ using PicassoService.Controllers;
 using PicassoService.Services;
 using System.IO;
 using Xunit;
+using Xunit.Categories;
 
 namespace PicassoServiceTests.UnitTests
 {
+    [UnitTest]
     public class ThumbControllerTests
     {
         [Fact]

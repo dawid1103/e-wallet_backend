@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Xunit.Categories;
 
 namespace EwalletTests.IntegrationTests
 {
     [Collection(nameof(EwalletService))]
+    [IntegrationTest]
     public class TransactionControllerTest : TestBase
     {
         public TransactionControllerTest() : base() { }

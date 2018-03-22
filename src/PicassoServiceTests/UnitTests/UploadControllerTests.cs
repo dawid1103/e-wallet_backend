@@ -6,9 +6,11 @@ using PicassoService.Controllers;
 using PicassoService.Services;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Categories;
 
 namespace PicassoServiceTests.UnitTests
 {
+    [UnitTest]
     public class UploadControllerTests
     {
 

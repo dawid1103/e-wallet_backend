@@ -7,9 +7,11 @@ using PicassoService.Settings;
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Categories;
 
 namespace PicassoServiceTests.UnitTests
 {
+    [UnitTest]
     public class ImageProcessorTests
     {
         private static string FILE_DIRECTORY = "Images";

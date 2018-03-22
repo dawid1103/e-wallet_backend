@@ -22,7 +22,7 @@ BEGIN
 	FROM
 		Category
 	WHERE
-		userId=@userId OR userId=1;
+		userId=@userId;
 END
 GO
 
