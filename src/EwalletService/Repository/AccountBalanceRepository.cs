@@ -1,15 +1,16 @@
 ﻿using Dapper;
 using EwalletService.DataAccessLayer;
+using System.Threading.Tasks;
 
 namespace EwalletService.Repository
 {
-    internal interface IAccountBalanceRepository
+    public interface IAccountBalanceRepository
     {
-        decimal GetBalace(int userId);
-        void UpdateBalance(int userId, decimal amount);
+        Task<decimal> GetBalace(int userId);
+        Task UpdateBalance(int userId, decimal amount);
     }
 
-    public class AccountBalanceRepository : IAccountBalanceRepository
+    internal class AccountBalanceRepository : IAccountBalanceRepository
     {
         private readonly IDatabaseSession dbSession;
 
@@ -18,9 +19,9 @@ namespace EwalletService.Repository
             this.dbSession = dbSession;
         }
 
-        public decimal GetBalace(int userId)
+        public async Task<decimal> GetBalace(int userId)
         {
-            decimal? balance = dbSession.Connection.QuerySingleOrDefault<decimal?>("SELECT amount FROM [AccountBalance] WHERE [userId]=@userId;", new
+            decimal? balance = await dbSession.Connection.QuerySingleOrDefaultAsync<decimal?>("SELECT amount FROM [AccountBalance] WHERE [userId]=@userId;", new
             {
                 @userId = userId
             });
@@ -36,9 +37,9 @@ namespace EwalletService.Repository
             return balance ?? 0.00m;
         }
 
-        public void UpdateBalance(int userId, decimal amount)
+        public async Task UpdateBalance(int userId, decimal amount)
         {
-            decimal balance = GetBalace(userId) + amount;
+            decimal balance = await GetBalace(userId) + amount;
 
             dbSession.Connection.Execute("UPDATE [AccountBalance] SET [amount]=@amount WHERE [userId]=@userId", new
             {

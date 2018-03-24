@@ -9,6 +9,7 @@ namespace EwalletCommon.Services
         public ScheduledTransactionEndpoint ScheduledTransaction { get; }
         public CategoryEndpoint Category { get; }
         public UserEndpoint User { get; }
+        public AccountBalanceEndpoint AccountBalance { get; }
 
         public Ewallet(string baseUrl)
         {
@@ -16,6 +17,7 @@ namespace EwalletCommon.Services
             ScheduledTransaction = new ScheduledTransactionEndpoint(baseUrl);
             Category = new CategoryEndpoint(baseUrl);
             User = new UserEndpoint(baseUrl);
+            AccountBalance = new AccountBalanceEndpoint(baseUrl);
         }
 
         public Ewallet(HttpClient client)
@@ -24,6 +26,7 @@ namespace EwalletCommon.Services
             ScheduledTransaction = new ScheduledTransactionEndpoint(client);
             Category = new CategoryEndpoint(client);
             User = new UserEndpoint(client);
+            AccountBalance = new AccountBalanceEndpoint(client);
         }
     }
 }

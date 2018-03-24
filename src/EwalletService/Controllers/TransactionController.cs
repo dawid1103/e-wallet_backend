@@ -1,7 +1,9 @@
-﻿using EwalletCommon.Models;
+﻿using EwalletCommon.Enums;
+using EwalletCommon.Models;
 using EwalletService.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,12 +13,14 @@ namespace EwalletService.Controllers
     public class TransactionController : Controller
     {
         private readonly ITransactionRepository transactionRepository;
+        private readonly IAccountBalanceRepository accountBalanceRepository;
         private readonly ILogger<TransactionController> logger;
 
-        public TransactionController(ILogger<TransactionController> logger, ITransactionRepository transactionRepository)
+        public TransactionController(ILogger<TransactionController> logger, ITransactionRepository transactionRepository, IAccountBalanceRepository accountBalanceRepository)
         {
             this.logger = logger;
             this.transactionRepository = transactionRepository;
+            this.accountBalanceRepository = accountBalanceRepository;
         }
 
         [HttpPost]
@@ -28,14 +32,48 @@ namespace EwalletService.Controllers
                 return BadRequest("Model is not valid");
             }
 
-            int id = await transactionRepository.CreateAsync(transaction);
-            return Created("id", id);
+            try
+            {
+                int id = await transactionRepository.CreateAsync(transaction);
+
+                decimal amount = transaction.Price;
+                if (transaction.Type == TransactionType.Expense)
+                {
+                    amount = transaction.Price * -1.00m;
+                }
+
+                await accountBalanceRepository.UpdateBalance(transaction.UserId, amount);
+                return Created("id", id);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message, new object[] { });
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            await transactionRepository.DeleteAsync(id);
+            try
+            {
+                TransactionDTO t = await transactionRepository.GetAsync(id);
+                await transactionRepository.DeleteAsync(id);
+
+                decimal amount = t.Price;
+                if (t.Type == TransactionType.Income)
+                {
+                    amount = t.Price * -1.00m;
+                }
+
+                await accountBalanceRepository.UpdateBalance(t.UserId, t.Price);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message, new object[] { });
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpGet("{id}")]
@@ -51,9 +89,37 @@ namespace EwalletService.Controllers
         }
 
         [HttpPut]
-        public async Task UpdateAsync([FromBody] TransactionDTO transaction)
+        public async Task<IActionResult> UpdateAsync([FromBody] TransactionDTO transaction)
         {
-            await transactionRepository.EditAsync(transaction);
+            try
+            {
+                TransactionDTO t = await transactionRepository.GetAsync(transaction.Id);
+
+                decimal amount = t.Price;
+                if (t.Type == TransactionType.Income)
+                {
+                    amount = t.Price * -1.00m;
+                }
+
+                await accountBalanceRepository.UpdateBalance(t.UserId, amount);
+
+                await transactionRepository.EditAsync(transaction);
+
+                amount = transaction.Price;
+                if (transaction.Type == TransactionType.Expense)
+                {
+                    amount = transaction.Price * -1.00m;
+                }
+
+                await accountBalanceRepository.UpdateBalance(t.UserId, amount);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message, new object[] { });
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpGet("user/{id}")]

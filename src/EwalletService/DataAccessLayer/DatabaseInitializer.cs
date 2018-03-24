@@ -76,6 +76,12 @@ namespace EwalletService.DataAccessLayer
                                                             CONSTRAINT PK_ScheduledTransaction PRIMARY KEY(Id)
                                                         );";
 
+        private string createAccountBalanceTable = @"CREATE TABLE [AccountBalance] (
+	                                                    [Amount] decimal(18,2) NOT NULL DEFAULT 0.00,
+                                                        [UserId] [int] FOREIGN KEY REFERENCES [User](Id),
+	                                                    UNIQUE(UserId)
+                                                    );";
+
         #endregion
 
         public DatabaseInitializer(IDatabaseSession session, IUserRepository userRepository, IPasswordLogic passwordLogic, ILogger<DatabaseInitializer> logger)
@@ -90,7 +96,8 @@ namespace EwalletService.DataAccessLayer
                 "User",
                 "Category",
                 "Transaction",
-                "ScheduledTransaction"
+                "ScheduledTransaction",
+                "AccountBalance"
             };
 
             tableCreateScript = new Dictionary<string, string>
@@ -99,6 +106,7 @@ namespace EwalletService.DataAccessLayer
                 { "Category", createCategoryTable },
                 { "Transaction", createTransactionTable },
                 { "ScheduledTransaction", createScheduledTransactionTable },
+                { "AccountBalance", createAccountBalanceTable }
             };
         }
 

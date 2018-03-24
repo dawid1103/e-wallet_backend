@@ -48,6 +48,7 @@ namespace EwalletService
             services.AddScoped<ITransactionRepository, TransactionRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IScheduledTransactionRepository, ScheduledTransactionRepository>();
+            services.AddScoped<IAccountBalanceRepository, AccountBalanceRepository>();
 
             // Add background tasks
             // Dirty hack to make scoped services injected into singleton ;/

@@ -50,9 +50,8 @@ CREATE TABLE [ScheduledTransaction] (
 	CONSTRAINT PK_ScheduledTransaction PRIMARY KEY (Id)
 );
 
-CREATE TABLE [AccountBalace] (
+CREATE TABLE [AccountBalance] (
 	[Amount] decimal(18,2) NOT NULL DEFAULT 0.00,
-    [UserId] [int]  NOT NULL,
-    --[UserId] [int] FOREIGN KEY REFERENCES [User](Id),
+    [UserId] [int] FOREIGN KEY REFERENCES [User](Id),
 	UNIQUE(UserId)
 );
