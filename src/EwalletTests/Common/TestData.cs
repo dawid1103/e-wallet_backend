@@ -28,7 +28,7 @@ namespace EwalletTests.Common
                 Title = $"Title - {guild}",
                 AddDate = DateTime.Now,
                 Description = $"Description - {guild}",
-                Price = decimal.Round((decimal)(rnd.Next(1, 999999999) + rnd.NextDouble()), 2, MidpointRounding.AwayFromZero),
+                Price = decimal.Round((decimal)(rnd.Next(1, 99) + rnd.NextDouble()), 2, MidpointRounding.AwayFromZero),
                 UserId = userId,
                 Type = (TransactionType)rnd.Next(0, 2)
             };

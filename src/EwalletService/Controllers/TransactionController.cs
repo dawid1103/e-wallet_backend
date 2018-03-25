@@ -66,7 +66,7 @@ namespace EwalletService.Controllers
                     amount = t.Price * -1.00m;
                 }
 
-                await accountBalanceRepository.UpdateBalance(t.UserId, t.Price);
+                await accountBalanceRepository.UpdateBalance(t.UserId, amount);
                 return Ok();
             }
             catch (Exception ex)
