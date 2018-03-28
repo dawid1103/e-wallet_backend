@@ -60,7 +60,7 @@ namespace EwalletTests.IntegrationTests
             CategoryDTO fromDatabase = await ewalletService.Category.GetAsync(category.Id, category.UserId);
 
             string changedName = $"Test changed {DateTime.Now.Ticks}";
-            string changedColor = "#000000";
+            string changedColor = "000000";
             fromDatabase.Name = changedName;
             fromDatabase.Color = changedColor;
 

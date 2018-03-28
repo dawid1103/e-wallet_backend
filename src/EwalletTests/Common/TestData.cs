@@ -11,7 +11,7 @@ namespace EwalletTests.Common
             var category = new CategoryDTO()
             {
                 Name = $"Category - {Guid.NewGuid()}",
-                Color = "#ffffff",
+                Color = "ffffff",
                 UserId = userId
             };
 

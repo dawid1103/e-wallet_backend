@@ -16,7 +16,7 @@ CREATE TABLE [User] (
 CREATE TABLE [Category] (
     [Id] [int] IDENTITY(1,1) NOT NULL,
     [Name] varchar(255) NOT NULL,
-	[Color] varchar(7),
+	[Color] varchar(6),
 	[UserId] [int] NOT NULL FOREIGN KEY REFERENCES [User](Id),
 	CONSTRAINT PK_Category PRIMARY KEY (Id),
 	UNIQUE(Name, UserId)

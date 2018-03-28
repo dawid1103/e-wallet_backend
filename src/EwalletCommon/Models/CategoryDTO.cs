@@ -15,7 +15,7 @@
         /// <summary>
         /// RGBA color format
         /// </summary>
-        public string Color { get; set; } = "#FFFFFF";
+        public string Color { get; set; } = "FFFFFF";
 
         /// <summary>
         /// User id
