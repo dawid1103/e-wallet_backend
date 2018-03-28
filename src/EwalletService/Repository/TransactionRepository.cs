@@ -1,5 +1,7 @@
-﻿using EwalletCommon.Models;
+﻿using Dapper;
+using EwalletCommon.Models;
 using EwalletService.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace EwalletService.Repository
     public interface ITransactionRepository : IRepository<TransactionDTO>
     {
         Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id);
+        Task<Dictionary<string, IEnumerable<CategoryTransaction>>> GetSummary();
     }
 
     public class TransactionRepository : Repository, ITransactionRepository
@@ -77,5 +80,30 @@ namespace EwalletService.Repository
 
             return result;
         }
+
+        public async Task<Dictionary<string, IEnumerable<CategoryTransaction>>> GetSummary()
+        {
+            string sql = @"SELECT [Transaction].*, [Category].[Name] AS CategoryName
+                           FROM [Transaction] JOIN [Category] ON CategoryId = [Category].[Id] 
+                           WHERE MONTH(AddDate) = MONTH(GETDATE());";
+
+            var result = await dbSession.Connection.QueryAsync<CategoryTransaction>(sql);
+
+            var groups = result.GroupBy(t => t.CategoryName).ToDictionary(g => g.Key, g => g.AsEnumerable());
+
+            return groups;
+        }
+    }
+
+    public class CategoryTransaction
+    {
+        public string CategoryName { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public decimal Price { get; set; }
+        public EwalletCommon.Enums.TransactionType Type { get; set; }
+        public DateTime AddDate { get; set; }
+        public string Description { get; set; }
+        public int UserId { get; set; }
     }
 }

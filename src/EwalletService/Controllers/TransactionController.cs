@@ -127,5 +127,11 @@ namespace EwalletService.Controllers
         {
             return await transactionRepository.GetAllByUserIdAsync(id);
         }
+
+        [HttpGet("summary")]
+        public async Task<Dictionary<string, IEnumerable<CategoryTransaction>>> GetSummary()
+        {
+            return await transactionRepository.GetSummary();
+        }
     }
 }
