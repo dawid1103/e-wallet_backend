@@ -30,7 +30,7 @@ namespace EwalletService.DataAccessLayer
         private string createCategoryTable = @"CREATE TABLE [Category] (
                                                 [Id] [int] IDENTITY(1,1) NOT NULL,
                                                 [Name] varchar(255) NOT NULL,
-	                                            [Color] varchar(25),
+	                                            [Color] varchar(7),
 	                                            [UserId] [int] NOT NULL FOREIGN KEY REFERENCES [User](Id),
 	                                            CONSTRAINT PK_Category PRIMARY KEY (Id),
 	                                            UNIQUE(Name, UserId)
