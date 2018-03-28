@@ -1,5 +1,6 @@
 ﻿using EwalletCommon.Enums;
 using EwalletCommon.Models;
+using EwalletService.Models;
 using EwalletService.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -128,10 +129,10 @@ namespace EwalletService.Controllers
             return await transactionRepository.GetAllByUserIdAsync(id);
         }
 
-        [HttpGet("summary")]
-        public async Task<Dictionary<string, IEnumerable<CategoryTransaction>>> GetSummary()
+        [HttpGet("summary/{userId}")]
+        public async Task<Dictionary<string, IEnumerable<CategoryTransaction>>> GetSummary(int userId)
         {
-            return await transactionRepository.GetSummary();
+            return await transactionRepository.GetSummary(userId);
         }
     }
 }
