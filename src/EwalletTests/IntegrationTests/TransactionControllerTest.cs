@@ -78,22 +78,6 @@ namespace EwalletTests.IntegrationTests
         }
 
         [Fact]
-        public async void GetAll()
-        {
-            UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
-            int userId = await ewalletService.User.CreateAsync(user);
-            TransactionDTO transaction = TestData.GetTransactionData(userId);
-
-            await ewalletService.Transaction.CreateAsync(transaction);
-            await ewalletService.Transaction.CreateAsync(transaction);
-
-            IEnumerable<TransactionDTO> transactions = await ewalletService.Transaction.GetAllAsync();
-
-            Assert.NotEmpty(transactions);
-            Assert.True(transactions.Count() > 1);
-        }
-
-        [Fact]
         public async void Delete()
         {
             UserRegistrationDataDTO user = TestData.GetUserRegistrationData();
@@ -152,7 +136,7 @@ namespace EwalletTests.IntegrationTests
             await ewalletService.Transaction.CreateAsync(transaction);
 
             //check
-            IEnumerable<TransactionDTO> userTransactions = await ewalletService.Transaction.GetAllByUserIdAsync(userId);
+            IEnumerable<TransactionDTO> userTransactions = await ewalletService.Transaction.GetAllAsync(userId);
             Assert.True(userTransactions.Count() == 2);
 
 
@@ -165,7 +149,7 @@ namespace EwalletTests.IntegrationTests
             await ewalletService.Transaction.CreateAsync(transaction);
 
             //check
-            userTransactions = await ewalletService.Transaction.GetAllByUserIdAsync(userId);
+            userTransactions = await ewalletService.Transaction.GetAllAsync(userId);
             Assert.True(userTransactions.Count() == 1);
         }
     }

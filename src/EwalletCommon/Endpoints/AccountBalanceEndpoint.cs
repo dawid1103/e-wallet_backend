@@ -14,7 +14,7 @@ namespace EwalletCommon.Endpoints
         }
 
         /// <summary>
-        /// Returns account balance for selected user
+        /// Returns account balance for given user
         /// </summary>
         /// <param name="userId">User id</param>
         /// <returns>Amount of balance</returns>

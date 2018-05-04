@@ -36,3 +36,4 @@ wwwroot/lib
 /src/EwalletServices/logs
 TransactionImages
 /nuget
+/src/*/publish

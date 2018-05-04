@@ -45,12 +45,13 @@ namespace EwalletCommon.Endpoints
         }
 
         /// <summary>
-        /// Returns all transactions
+        /// Returns all user transactions
         /// </summary>
-        /// <returns>IEnumerable<TransactionDTO></returns>
-        public async Task<IEnumerable<TransactionDTO>> GetAllAsync()
+        /// <param name="userId">User id</param>
+        /// <returns>List of user transactions</returns>
+        public async Task<IEnumerable<TransactionDTO>> GetAllAsync(int userId)
         {
-            return await base.GetAsync<IEnumerable<TransactionDTO>>("transaction");
+            return await base.GetAsync<IEnumerable<TransactionDTO>>($"transaction/user/{userId}");
         }
 
         /// <summary>
@@ -63,15 +64,10 @@ namespace EwalletCommon.Endpoints
         }
 
         /// <summary>
-        /// Get transactions by user
+        /// Get summary of all transactions from current month
         /// </summary>
-        /// <param name="id">User id</param>
-        /// <returns>List of user transactions</returns>
-        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
-        {
-            return await base.GetAsync<IEnumerable<TransactionDTO>>($"transaction/user/{id}");
-        }
-
+        /// <param name="userId">User id</param>
+        /// <returns>Dictionary with transactions grouped by category</returns>
         public async Task<Dictionary<string, IEnumerable<TransactionDTO>>> GetSummary(int userId)
         {
             return await base.GetAsync<Dictionary<string, IEnumerable<TransactionDTO>>>($"transaction/summary/{userId}");
