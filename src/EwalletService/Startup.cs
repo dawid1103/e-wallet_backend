@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using EwalletService.BackgroundServices;
+﻿using EwalletService.BackgroundServices;
 using EwalletService.DataAccessLayer;
 using EwalletService.Logic;
 using EwalletService.Repository;
@@ -25,10 +24,6 @@ namespace EwalletService
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
-
-            Mapper.Initialize(cfg => {
-                //cfg.CreateMap<Bar, BarDto>();
-            });
         }
 
         public IConfigurationRoot Configuration { get; }
