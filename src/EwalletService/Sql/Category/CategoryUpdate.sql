@@ -14,7 +14,7 @@ GO
 ALTER PROCEDURE dbo.CategoryUpdate
 	@id int,
 	@name nvarchar(255),
-	@color nvarchar(25)
+	@color nvarchar(6)
 AS
 BEGIN
 	SET NOCOUNT ON;

@@ -13,7 +13,7 @@ GO
 -- ------------------------------------------------------------------------------------------------
 ALTER PROCEDURE dbo.CategoryCreate
 	@name nvarchar(255),
-	@color nvarchar(25),
+	@color nvarchar(6),
 	@userId int
 AS
 BEGIN
