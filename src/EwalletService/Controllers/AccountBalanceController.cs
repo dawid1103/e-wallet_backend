@@ -12,13 +12,13 @@ namespace EwalletService.Controllers
         private readonly ILogger<AccountBalanceController> logger;
         private readonly IAccountBalanceRepository accountBalanceRepository;
 
-        public AccountBalanceController(ILogger<AccountBalanceController> logger, IAccountBalanceRepository accountBalanceRepository)
+        public AccountBalanceController(ILogger<AccountBalanceController> logger, 
+            IAccountBalanceRepository accountBalanceRepository)
         {
             this.logger = logger;
             this.accountBalanceRepository = accountBalanceRepository;
         }
 
-        // GET: AccountBalance/user/5
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> Get(int userId)
         {

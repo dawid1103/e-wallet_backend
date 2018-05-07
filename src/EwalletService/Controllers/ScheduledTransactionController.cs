@@ -1,4 +1,5 @@
-﻿using EwalletCommon.Models;
+﻿using EwalletCommon.Enums;
+using EwalletCommon.Models;
 using EwalletService.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -9,11 +10,14 @@ namespace EwalletService.Controllers
     [Route("[controller]")]
     public class ScheduledTransactionController : Controller
     {
-        private IScheduledTransactionRepository scheduledTransactionRepository;
+        private readonly IScheduledTransactionRepository scheduledTransactionRepository;
+        private readonly IAccountBalanceRepository accountBalanceRepository;
 
-        public ScheduledTransactionController(IScheduledTransactionRepository scheduledTransactionRepository)
+        public ScheduledTransactionController(IScheduledTransactionRepository scheduledTransactionRepository, 
+            IAccountBalanceRepository accountBalanceRepository)
         {
             this.scheduledTransactionRepository = scheduledTransactionRepository;
+            this.accountBalanceRepository = accountBalanceRepository;
         }
 
         [HttpPost]
@@ -25,6 +29,14 @@ namespace EwalletService.Controllers
             }
 
             int id = await scheduledTransactionRepository.CreateAsync(transaction);
+
+            decimal amount = transaction.Price;
+            if (transaction.Type == TransactionType.Expense)
+            {
+                amount = transaction.Price * -1.00m;
+            }
+
+            await accountBalanceRepository.UpdateBalance(transaction.UserId, amount);
 
             return Created("id", id);
         }

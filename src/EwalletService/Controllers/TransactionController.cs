@@ -1,5 +1,6 @@
 ﻿using EwalletCommon.Enums;
 using EwalletCommon.Models;
+using EwalletService.Models;
 using EwalletService.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,7 +17,9 @@ namespace EwalletService.Controllers
         private readonly IAccountBalanceRepository accountBalanceRepository;
         private readonly ILogger<TransactionController> logger;
 
-        public TransactionController(ILogger<TransactionController> logger, ITransactionRepository transactionRepository, IAccountBalanceRepository accountBalanceRepository)
+        public TransactionController(ILogger<TransactionController> logger, 
+            ITransactionRepository transactionRepository, 
+            IAccountBalanceRepository accountBalanceRepository)
         {
             this.logger = logger;
             this.transactionRepository = transactionRepository;
@@ -82,12 +85,6 @@ namespace EwalletService.Controllers
             return await transactionRepository.GetAsync(id);
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<TransactionDTO>> GetAllAsync()
-        {
-            return await transactionRepository.GetAllAsync();
-        }
-
         [HttpPut]
         public async Task<IActionResult> UpdateAsync([FromBody] TransactionDTO transaction)
         {
@@ -122,10 +119,16 @@ namespace EwalletService.Controllers
             }
         }
 
-        [HttpGet("user/{id}")]
-        public async Task<IEnumerable<TransactionDTO>> GetAllByUserIdAsync(int id)
+        [HttpGet("user/{userId}")]
+        public async Task<IEnumerable<TransactionDTO>> GetAllAsync(int userId)
         {
-            return await transactionRepository.GetAllByUserIdAsync(id);
+            return await transactionRepository.GetAllByUserIdAsync(userId);
+        }
+
+        [HttpGet("summary/{userId}")]
+        public async Task<Dictionary<string, IEnumerable<CategoryTransaction>>> GetSummary(int userId)
+        {
+            return await transactionRepository.GetSummary(userId);
         }
     }
 }
